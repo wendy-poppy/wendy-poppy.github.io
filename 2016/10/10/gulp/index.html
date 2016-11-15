@@ -3,25 +3,31 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | wendy-poppy</title>
+  <title>gulp | wendy-poppy</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="入门指南1.全局安装：$ npm install --g gulp
+2.作为项目的开发依赖(devDependencies)安装：$ npm install --save-dev gulp
+3.在项目根目录下创建一个名为gulpfile.js的文件：var gulp = require(&amp;apos;gulp&amp;apos;);
+gulp.task(&amp;apos;default&amp;apos;,functio">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/11/14/hello-world/index.html">
+<meta property="og:title" content="gulp">
+<meta property="og:url" content="http://yoursite.com/2016/10/10/gulp/index.html">
 <meta property="og:site_name" content="wendy-poppy">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-11-14T15:22:13.000Z">
+<meta property="og:description" content="入门指南1.全局安装：$ npm install --g gulp
+2.作为项目的开发依赖(devDependencies)安装：$ npm install --save-dev gulp
+3.在项目根目录下创建一个名为gulpfile.js的文件：var gulp = require(&amp;apos;gulp&amp;apos;);
+gulp.task(&amp;apos;default&amp;apos;,functio">
+<meta property="og:updated_time" content="2016-11-15T02:32:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="gulp">
+<meta name="twitter:description" content="入门指南1.全局安装：$ npm install --g gulp
+2.作为项目的开发依赖(devDependencies)安装：$ npm install --save-dev gulp
+3.在项目根目录下创建一个名为gulpfile.js的文件：var gulp = require(&amp;apos;gulp&amp;apos;);
+gulp.task(&amp;apos;default&amp;apos;,functio">
   
     <link rel="alternative" href="/atom.xml" title="wendy-poppy" type="application/atom+xml">
   
@@ -171,11 +177,11 @@ Quick">
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-gulp" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/14/hello-world/" class="article-date">
-  	<time datetime="2016-11-14T15:22:13.000Z" itemprop="datePublished">2016-11-14</time>
+      <a href="/2016/10/10/gulp/" class="article-date">
+  	<time datetime="2016-10-10T02:31:43.000Z" itemprop="datePublished">2016-10-10</time>
 </a>
     </div>
   
@@ -188,7 +194,7 @@ Quick">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      gulp
       
     </h1>
   
@@ -206,16 +212,14 @@ Quick">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
+        <h1 id="入门指南"><a href="#入门指南" class="headerlink" title="入门指南"></a>入门指南</h1><h3 id="1-全局安装："><a href="#1-全局安装：" class="headerlink" title="1.全局安装："></a>1.全局安装：</h3><pre><code>$ npm install --g gulp
+</code></pre><h3 id="2-作为项目的开发依赖-devDependencies-安装："><a href="#2-作为项目的开发依赖-devDependencies-安装：" class="headerlink" title="2.作为项目的开发依赖(devDependencies)安装："></a>2.作为项目的开发依赖(devDependencies)安装：</h3><pre><code>$ npm install --save-dev gulp
+</code></pre><h3 id="3-在项目根目录下创建一个名为gulpfile-js的文件："><a href="#3-在项目根目录下创建一个名为gulpfile-js的文件：" class="headerlink" title="3.在项目根目录下创建一个名为gulpfile.js的文件："></a>3.在项目根目录下创建一个名为gulpfile.js的文件：</h3><pre><code>var gulp = require(&apos;gulp&apos;);
+gulp.task(&apos;default&apos;,function(){
+    // 将你的默认的任务代码放在这
+});
+</code></pre><h3 id="4-运行gulp"><a href="#4-运行gulp" class="headerlink" title="4.运行gulp:"></a>4.运行gulp:</h3><pre><code>$ gulp
+</code></pre><h3 id="默认的名为-default-的任务（task）将会被运行，在这里，这个任务并未做任何事情。想要单独执行特定的任务（task），请输入-gulp-lt-task-gt-lt-othertask-gt-。"><a href="#默认的名为-default-的任务（task）将会被运行，在这里，这个任务并未做任何事情。想要单独执行特定的任务（task），请输入-gulp-lt-task-gt-lt-othertask-gt-。" class="headerlink" title="默认的名为 default 的任务（task）将会被运行，在这里，这个任务并未做任何事情。想要单独执行特定的任务（task），请输入 gulp  &lt; task &gt; &lt; othertask &gt;。"></a>默认的名为 default 的任务（task）将会被运行，在这里，这个任务并未做任何事情。想要单独执行特定的任务（task），请输入 gulp  &lt; task &gt; &lt; othertask &gt;。</h3>
       
     </div>
     
@@ -224,20 +228,15 @@ Quick">
     
 <nav id="article-nav">
   
-    <a href="/2016/11/15/chat/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/11/14/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">&lt;</strong>
       <div class="article-nav-title">
         
-          chat
+          Hello World
         
       </div>
     </a>
   
-  
-    <a href="/2016/10/10/gulp/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">gulp</div>
-      <strong class="article-nav-caption">&gt;</strong>
-    </a>
   
 </nav>
 
