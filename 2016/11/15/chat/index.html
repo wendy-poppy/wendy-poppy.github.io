@@ -19,7 +19,7 @@
 <meta property="og:description" content="基于nodeJs的聊天室今天我来实现一个简单的聊天室，后台用nodejs, 客户端与服务端通信用socket.io,这是一个比较成熟的websocket框架.
 初始工作安装express, 用这个来托管socket.io,以及静态页面,命令npm install express –save,–save可以使包添加到package.json文件里.
 安装mime，命令npm install mime">
-<meta property="og:updated_time" content="2016-11-15T02:23:24.000Z">
+<meta property="og:updated_time" content="2016-11-15T02:25:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="chat">
 <meta name="twitter:description" content="基于nodeJs的聊天室今天我来实现一个简单的聊天室，后台用nodejs, 客户端与服务端通信用socket.io,这是一个比较成熟的websocket框架.
@@ -211,17 +211,51 @@
       
         <h1 id="基于nodeJs的聊天室"><a href="#基于nodeJs的聊天室" class="headerlink" title="基于nodeJs的聊天室"></a>基于nodeJs的聊天室</h1><p>今天我来实现一个简单的聊天室，后台用nodejs, 客户端与服务端通信用socket.io,这是一个比较成熟的websocket框架.</p>
 <h2 id="初始工作"><a href="#初始工作" class="headerlink" title="初始工作"></a>初始工作</h2><p>安装express, 用这个来托管socket.io,以及静态页面,命令npm install express –save,–save可以使包添加到package.json文件里.</p>
-<p>安装mime，命令npm install mime –save.<br>安装socket.io,命令npm install socket.io –save.</p>
-<h2 id="编写服务端代码"><a href="#编写服务端代码" class="headerlink" title="编写服务端代码"></a>编写服务端代码</h2><p>首先我们通过express来托管网站，并附加到socket.io实例里，因为socket.io初次连接需要http协议</p>
-<p>var express = require(‘express’),<br>    io = require(‘socket.io’);</p>
-<p>var app = express();</p>
-<p>app.use(express.static(__dirname));</p>
-<p>var server = app.listen(8888);</p>
-<p>var ws = io.listen(server);<br>添加服务器连接事件，当客户端连接成功之后，发公告告诉所有在线用户，并且，当用户发送消息时，发广播通知其它用户.</p>
-<p>ws.on(‘connection’, function(client){<br>    console.log(‘\033[96msomeone is connect\033[39m \n’);<br>    client.on(‘join’, function(msg){<br>        // 检查是否有重复<br>        if(checkNickname(msg)){<br>            client.emit(‘nickname’, ‘昵称有重复!’);<br>        }else{<br>            client.nickname = msg;<br>            ws.sockets.emit(‘announcement’, ‘系统’, msg + ‘ 加入了聊天室!’);<br>        }<br>    });<br>    // 监听发送消息<br>    client.on(‘send.message’, function(msg){<br>        client.broadcast.emit(‘send.message’,client.nickname,  msg);<br>    });<br>    // 断开连接时，通知其它用户<br>    client.on(‘disconnect’, function(){<br>        if(client.nickname){<br>            client.broadcast.emit(‘send.message’,’系统’,  client.nickname + ‘离开聊天室!’);<br>        }<br>    })</p>
-<p>})<br>由于客户端是通过昵称来标识的，所以服务端需要一个检测昵称重复的函数</p>
-<p>// 检查昵称是否重复<br>var checkNickname = function(name){<br>    for(var k in ws.sockets.sockets){<br>        if(ws.sockets.sockets.hasOwnProperty(k)){<br>            if(ws.sockets.sockets[k] &amp;&amp; ws.sockets.sockets[k].nickname == name){<br>                return true;<br>            }<br>        }<br>    }<br>    return false;<br>}</p>
-<h2 id="编写客户端代码"><a href="#编写客户端代码" class="headerlink" title="编写客户端代码"></a>编写客户端代码</h2><p>由于服务端采用第三方websokcet框架，所以前端页面需要单独引用socket.io客户端代码，源文件可以从socket.io模块里找，windows下路径为node_modules\socket.io\node_modules\socket.io-client\dist.</p>
+<pre><code>安装mime，命令npm install mime --save.
+安装socket.io,命令npm install socket.io --save.
+</code></pre><h2 id="编写服务端代码"><a href="#编写服务端代码" class="headerlink" title="编写服务端代码"></a>编写服务端代码</h2><p>首先我们通过express来托管网站，并附加到socket.io实例里，因为socket.io初次连接需要http协议</p>
+<pre><code>var express = require(&apos;express&apos;),
+io = require(&apos;socket.io&apos;);
+var app = express();
+app.use(express.static(__dirname));
+var server = app.listen(8888);
+</code></pre><p>var ws = io.listen(server);<br>添加服务器连接事件，当客户端连接成功之后，发公告告诉所有在线用户，并且，当用户发送消息时，发广播通知其它用户.</p>
+<pre><code>ws.on(&apos;connection&apos;, function(client){
+console.log(&apos;\033[96msomeone is connect\033[39m \n&apos;);
+client.on(&apos;join&apos;, function(msg){
+    // 检查是否有重复
+    if(checkNickname(msg)){
+        client.emit(&apos;nickname&apos;, &apos;昵称有重复!&apos;);
+    }else{
+        client.nickname = msg;
+        ws.sockets.emit(&apos;announcement&apos;, &apos;系统&apos;, msg + &apos; 加入了聊天室!&apos;);
+    }
+});
+// 监听发送消息
+client.on(&apos;send.message&apos;, function(msg){
+    client.broadcast.emit(&apos;send.message&apos;,client.nickname,  msg);
+});
+// 断开连接时，通知其它用户
+client.on(&apos;disconnect&apos;, function(){
+    if(client.nickname){
+        client.broadcast.emit(&apos;send.message&apos;,&apos;系统&apos;,  client.nickname + &apos;离开聊天室!&apos;);
+    }
+})
+
+})
+</code></pre><p>由于客户端是通过昵称来标识的，所以服务端需要一个检测昵称重复的函数</p>
+<pre><code>// 检查昵称是否重复
+var checkNickname = function(name){
+for(var k in ws.sockets.sockets){
+    if(ws.sockets.sockets.hasOwnProperty(k)){
+        if(ws.sockets.sockets[k] &amp;&amp;     ws.sockets.sockets[k].nickname == name){
+            return true;
+        }
+    }
+}
+return false;
+}
+</code></pre><h2 id="编写客户端代码"><a href="#编写客户端代码" class="headerlink" title="编写客户端代码"></a>编写客户端代码</h2><p>由于服务端采用第三方websokcet框架，所以前端页面需要单独引用socket.io客户端代码，源文件可以从socket.io模块里找，windows下路径为node_modules\socket.io\node_modules\socket.io-client\dist.</p>
 <p>前端主要处理输入昵称检查，消息处理，主体代码如下</p>
 <pre><code>&lt;div class=&quot;wrapper&quot;&gt;
      &lt;div class=&quot;content&quot; id=&quot;chat&quot;&gt;
