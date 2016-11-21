@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Jade--简单的HTML模板引擎 | wendy-poppy</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="jade是一款基于haml的html模板引擎，采用Javascript实现，可以方便的在Node.js、Yeoman等框架中使用。文档[官方网站]（https://pugjs.org/api/getting-started.html）
+安装在Node中安装Jade的方法如下：
+npm install jade
+在Yeoman中,安装及配置过程较为复杂，具体方法请参看文档（http://blog.c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jade--简单的HTML模板引擎">
+<meta property="og:url" content="http://yoursite.com/2016/08/15/Jade-简单的HTML模板引擎/index.html">
+<meta property="og:site_name" content="wendy-poppy">
+<meta property="og:description" content="jade是一款基于haml的html模板引擎，采用Javascript实现，可以方便的在Node.js、Yeoman等框架中使用。文档[官方网站]（https://pugjs.org/api/getting-started.html）
+安装在Node中安装Jade的方法如下：
+npm install jade
+在Yeoman中,安装及配置过程较为复杂，具体方法请参看文档（http://blog.c">
+<meta property="og:updated_time" content="2016-11-21T05:33:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Jade--简单的HTML模板引擎">
+<meta name="twitter:description" content="jade是一款基于haml的html模板引擎，采用Javascript实现，可以方便的在Node.js、Yeoman等框架中使用。文档[官方网站]（https://pugjs.org/api/getting-started.html）
+安装在Node中安装Jade的方法如下：
+npm install jade
+在Yeoman中,安装及配置过程较为复杂，具体方法请参看文档（http://blog.c">
+  
+    <link rel="alternative" href="/atom.xml" title="wendy-poppy" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://b139.photo.store.qq.com/psb?/V12TKeY73dHNlc/qvjxoxH43Dfo*MeAgldrME0sNQ5lySa2L5TqxEAhdqw!/b/dHn86FKUAgAA&bo=zAGzAgAAAAABAFs!&rf=viewer_4">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://b139.photo.store.qq.com/psb?/V12TKeY73dHNlc/qvjxoxH43Dfo*MeAgldrME0sNQ5lySa2L5TqxEAhdqw!/b/dHn86FKUAgAA&amp;bo=zAGzAgAAAAABAFs!&amp;rf=viewer_4" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">wendy</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">wendy眉眉的小博客~</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/wendy-poppy" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/wendy-80-14" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="https://mail.qq.com/cgi-bin/frame_html?sid=Ne8V0xxmnKiCYCpy&r=23ab084d7dfb5267be2ea858f9976f0b" title="mail">mail</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/5550124039/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Jade-JavaScript/" style="font-size: 10px;">Jade,JavaScript</a> <a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/NodeJS-socket-io/" style="font-size: 10px;">NodeJS socket.io</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/wendy-poppy">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">wendy</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://b139.photo.store.qq.com/psb?/V12TKeY73dHNlc/qvjxoxH43Dfo*MeAgldrME0sNQ5lySa2L5TqxEAhdqw!/b/dHn86FKUAgAA&amp;bo=zAGzAgAAAAABAFs!&amp;rf=viewer_4" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">wendy</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">wendy眉眉的小博客~</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wendy-poppy" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/wendy-80-14" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="https://mail.qq.com/cgi-bin/frame_html?sid=Ne8V0xxmnKiCYCpy&r=23ab084d7dfb5267be2ea858f9976f0b" title="mail">mail</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/5550124039/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-Jade-简单的HTML模板引擎" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/15/Jade-简单的HTML模板引擎/" class="article-date">
+  	<time datetime="2016-08-15T03:04:01.000Z" itemprop="datePublished">2016-08-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Jade--简单的HTML模板引擎
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jade-JavaScript/">Jade,JavaScript</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="jade是一款基于haml的html模板引擎，采用Javascript实现，可以方便的在Node-js、Yeoman等框架中使用。"><a href="#jade是一款基于haml的html模板引擎，采用Javascript实现，可以方便的在Node-js、Yeoman等框架中使用。" class="headerlink" title="jade是一款基于haml的html模板引擎，采用Javascript实现，可以方便的在Node.js、Yeoman等框架中使用。"></a>jade是一款基于haml的html模板引擎，采用Javascript实现，可以方便的在Node.js、Yeoman等框架中使用。</h3><h3 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h3><p>[官方网站]（<a href="https://pugjs.org/api/getting-started.html）" target="_blank" rel="external">https://pugjs.org/api/getting-started.html）</a></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>在Node中安装Jade的方法如下：</p>
+<pre><code>npm install jade
+</code></pre><p>在Yeoman中,安装及配置过程较为复杂，具体方法请参看文档（<a href="http://blog.csdn.net/minchina91/article/details/38419093）" target="_blank" rel="external">http://blog.csdn.net/minchina91/article/details/38419093）</a></p>
+<h3 id="静态语法"><a href="#静态语法" class="headerlink" title="静态语法"></a>静态语法</h3><p>在本文中，将会介绍如何用简单的Jade模版语言来生成所需的HTML代码，可以极大减少代码量和提高可读性。</p>
+<p>Jade同时具有很多的动态语言特性，本文中不详细涉及。</p>
+<p>首先，我们来对比一下xml和json的特性，xml一个很大的缺点就是需要2倍的标签以及4倍的尖括号，虽然机器能够有效识别但十分不便于书写。另外，xml标签这样成对出现也同时增加了错误率，降低了可读性。所以现在越来越多的人用json而非传统的xml。</p>
+<p>同样的，html和xml的语法非常相似，缺点也是非常相似，所以这里我们来介绍一种新的更为简洁清晰的模版语言 —— Jade。</p>
+<p>第一步，我们来了解一下jade的基本静态语法部分。</p>
+<p>对于一个经典的html代码如下：</p>
+<pre><code>&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;title&gt;Jade&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;h1&gt;Jade - node template engine&lt;/h1&gt;
+        &lt;div id=&quot;container&quot; class=&quot;col class1 class2&quot;&gt;
+              &lt;p&gt;You are amazing&lt;/p&gt;
+              &lt;p&gt;
+                Jade is a terse and simple
+                templating language with a
+                strong focus on performance
+                and powerful features.
+              &lt;/p&gt;
+        &lt;/div&gt;
+     &lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>我们也可以用jade来写：</p>
+<pre><code>html(lang=&quot;en&quot;)
+      head
+        title= pageTitle
+      body
+        h1 Jade - node template engine
+        #container.col.class1.class2
+              p You are amazing
+              p.
+                Jade is a terse and simple
+                templating language with a
+                strong focus on performance
+                and powerful features.
+</code></pre><p>通过上面的例子，相信大家都能很快了解Jade的语法模式，主要概括一下有以下几点：</p>
+<p>1.标签名称不变，无需使用尖括号    &lt; &gt;    围绕。</p>
+<p>2.标签不具有嵌套性，使用缩进来表示嵌套关系，每级缩进相当于一层嵌套。</p>
+<p>3.使用标签名称后#someid来表示id属性，无需再使用属性名id＝‘someid’。</p>
+<p>4.使用标签名称后.someclass来表示class属性，多个class可连续使用。</p>
+<p>5.对于带有id或class属性的div标签，可以省略div不写。</p>
+<p>6.对于其他属性，在标签名后使用括号( )来围绕，与html的标签属性使用方式相同，也可用逗号分隔。</p>
+<p>7.在标签名称和所有属性后使用一个空格来分隔其文本内容，即从每个标签名称开始第一个不在属性内的空格之后的内容都将识别为文本。</p>
+<p>8.对于多行文本，在标签的所有属性之后使用单独的.，其下级缩进的内容都将视为文本。</p>
+<p>掌握上面的内容基本就已经可以用Jade来写代码了，不过接下来还是说一下其他的一些语法。</p>
+<p>对于嵌套来说，除了使用上面的缩进方法外，如果是只有一个子元素，可以使用<code>:</code>来实现嵌套。例如：</p>
+<pre><code>ul#books
+      li
+        a(href=&quot;#book-a&quot;) Book A
+      li
+        a(href=&quot;#book-b&quot;) Book B
+</code></pre><p>该列表中，由于每个li下都只有一个a标签，故也可写作：</p>
+<pre><code>ul#books
+      li: a(href=&quot;#book-a&quot;) Book A
+      li: a(href=&quot;#book-b&quot;) Book B
+</code></pre><p><em>注意</em>：冒号后面一定要有一个空格！</p>
+<p>对于多行文本，如果同时具有子元素的话，使用.会导致无法识别子元素，故需要使用另一种标识符|，例如：</p>
+<pre><code>ul#books
+p
+      | foo bar
+      | hello world
+      p 这是子元素而非另一行文字
+</code></pre><p>当然，这样的缺点就是对于多行文字的每一行都要有一个|。</p>
+<h3 id="动态特性"><a href="#动态特性" class="headerlink" title="动态特性"></a>动态特性</h3><p>到上面为止，似乎Jade相对于haml都没有什么实质性改变，只是对于html的一种简化方式，使用很多编译器插件也可以实现类似的简化书写能力。而实际上，Jade远不仅仅是一种静态语言，它同时也能实现很多需要脚本语言才能实现的动态特性，比如赋值、循环、判断等等。</p>
+<p>在任何一门动态语言中，变量是永远不可或缺的，这也是和标记性语言的根本区分标识。</p>
+<p>在Jade中，使用和C系语言相似的方式进行赋值和运算：</p>
+<pre><code>foo = &quot;hello&quot;
+tmp = &quot;world&quot; + &quot;!&quot;
+h1= foo
+      span= tmp
+</code></pre><p>对于上面的代码，可能很多人第一眼看到都会有一个疑问，Jade怎么知道等号左边是变量名还是标签呢？</p>
+<p>再仔细看看，很快就会发现，又是传说中的空格在作祟，变量后面等号前必须加空格，而标签直接接等号，不能加空格！</p>
+<p>其实Jade中还有另一种赋值语句，用的不是=而是!=。这里可能会有一些凌乱，!=不是条件语句中的不等于逻辑运算符么？在Jade中，!=确实是不等于的逻辑运算符。但是在对标签的赋值中，也就像上面的一样不加空格的赋值语句中，它表示另一种赋值理念：</p>
+<pre><code>name ＝ &quot;Hello &lt;em&gt;World&lt;/em&gt;&quot;
+li= name
+li!= name
+</code></pre><p>生成的html代码为：</p>
+<pre><code>&lt;li&gt;Hello &amp;lt;em&amp;gt;World&amp;lt;/em&amp;gt;&lt;/li&gt;
+&lt;li&gt;Hello &lt;em&gt;World&lt;/em&gt;&lt;/li&gt;
+</code></pre><p>从上面可以看出，使用=会直接赋予纯文本而非html代码，如果需要产生的值是直接html代码的话，需要使用!=来防止转换！</p>
+<p>补充一点，除了在Jade文件中对变量赋值，Jade还支持在编译时对变量赋值的特性，区别在于变量从模版中分离，从而可以在动态赋予相应的内容。</p>
+<p>接下来，我们来稍微接触一下Jade的流程控制语句：</p>
+<pre><code>books ＝ [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;]
+
+select
+      each book, i in books
+        option(value=i) Book #{book}
+</code></pre><p>上面可以生成具有类似结构的多个option：</p>
+<pre><code>&lt;select&gt;
+      &lt;option value=&quot;0&quot;&gt;Book A&lt;/option&gt;
+      &lt;option value=&quot;1&quot;&gt;Book B&lt;/option&gt;
+      &lt;option value=&quot;2&quot;&gt;Book C&lt;/option&gt;
+&lt;/select&gt;
+</code></pre><p>除此之外，还有if-else,unless-else,case-when等条件控制语句，此处不做详述，如有需要可以访问官方文档。</p>
+<p>就工程上来说，这些内容可能真的用不到或者不会用的。Jade的动态特性是根据条件动态的生成对应的HTML，而目前来说，因为JavaScript的存在，HTML本身就已经是动态的了，而且这些动态过程大多并不是在编译成HTML时能够确定的，而是在用户浏览HTML的过程中实时确定；相反，需要在Jade编译成HTML进行逻辑判断的东西，也都能直接通过JavaScript的动态特性来实现，特别是现在已经有了各种各样的JavaScript框架。</p>
+<p>虽然Jade在设计上考虑了很多方面，不过对于我们开发人员来说最需要的可能还是其对HTML本身的语法简化部分，Jade的动态特性部分建议不要滥用。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/08/10/mongoDB/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mongoDB</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" style="margin-left: 30px;margin-right: 30px;" data-thread-key="post-Jade-简单的HTML模板引擎" data-title="Jade--简单的HTML模板引擎" data-url="http://yoursite.com/2016/08/15/Jade-简单的HTML模板引擎/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"wendypoppy"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 wendy
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/winnerweb/hexo-Yilia-Smackdown" target="_blank">Yilia(Smackdown)</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>
