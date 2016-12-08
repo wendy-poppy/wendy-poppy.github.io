@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSS-hack | wendy-poppy</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="hack
+之前一直很狭隘的对CSS hack持有偏见，觉得写得规范的代码不应该使用这些“邪门歪道”，可最近产品发布一个小问题却让我头疼了很久，最后查了一下资料，竟然使用CSS hack轻松解决了，不得不服啊，对付神奇的IE就得使用这些利器。
+什么是CSS hack由于不同的浏览器，甚至同一浏览器的不同版本对CSS的解析认识不一样，导致生成的页面效果不一致，写出针对不同浏览器CSS code就称为C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS-hack">
+<meta property="og:url" content="http://yoursite.com/2016/08/21/CSS-hack/index.html">
+<meta property="og:site_name" content="wendy-poppy">
+<meta property="og:description" content="hack
+之前一直很狭隘的对CSS hack持有偏见，觉得写得规范的代码不应该使用这些“邪门歪道”，可最近产品发布一个小问题却让我头疼了很久，最后查了一下资料，竟然使用CSS hack轻松解决了，不得不服啊，对付神奇的IE就得使用这些利器。
+什么是CSS hack由于不同的浏览器，甚至同一浏览器的不同版本对CSS的解析认识不一样，导致生成的页面效果不一致，写出针对不同浏览器CSS code就称为C">
+<meta property="og:image" content="http://a1.qpic.cn/psb?/V11KiFfB3TEN6V/lralbNY2yS*6h0709Vmtwip8uxeL97LHzgVlc0se4g4!/b/dAsBAAAAAAAA&bo=5gC.AAAAAAADAH0!&rf=viewer_4">
+<meta property="og:updated_time" content="2016-12-08T08:38:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS-hack">
+<meta name="twitter:description" content="hack
+之前一直很狭隘的对CSS hack持有偏见，觉得写得规范的代码不应该使用这些“邪门歪道”，可最近产品发布一个小问题却让我头疼了很久，最后查了一下资料，竟然使用CSS hack轻松解决了，不得不服啊，对付神奇的IE就得使用这些利器。
+什么是CSS hack由于不同的浏览器，甚至同一浏览器的不同版本对CSS的解析认识不一样，导致生成的页面效果不一致，写出针对不同浏览器CSS code就称为C">
+<meta name="twitter:image" content="http://a1.qpic.cn/psb?/V11KiFfB3TEN6V/lralbNY2yS*6h0709Vmtwip8uxeL97LHzgVlc0se4g4!/b/dAsBAAAAAAAA&bo=5gC.AAAAAAADAH0!&rf=viewer_4">
+  
+    <link rel="alternative" href="/atom.xml" title="wendy-poppy" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://b139.photo.store.qq.com/psb?/V12TKeY73dHNlc/qvjxoxH43Dfo*MeAgldrME0sNQ5lySa2L5TqxEAhdqw!/b/dHn86FKUAgAA&bo=zAGzAgAAAAABAFs!&rf=viewer_4">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://b139.photo.store.qq.com/psb?/V12TKeY73dHNlc/qvjxoxH43Dfo*MeAgldrME0sNQ5lySa2L5TqxEAhdqw!/b/dHn86FKUAgAA&amp;bo=zAGzAgAAAAABAFs!&amp;rf=viewer_4" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">wendy</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">wendy眉眉的小博客~</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/wendy-poppy" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/wendy-80-14" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="https://mail.qq.com/cgi-bin/frame_html?sid=Ne8V0xxmnKiCYCpy&r=23ab084d7dfb5267be2ea858f9976f0b" title="mail">mail</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/5550124039/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/ECMAScript-6/" style="font-size: 10px;">ECMAScript 6</a> <a href="/tags/HTML5-iframe/" style="font-size: 10px;">HTML5 iframe</a> <a href="/tags/Jade-JavaScript/" style="font-size: 10px;">Jade,JavaScript</a> <a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/NodeJS-socket-io/" style="font-size: 10px;">NodeJS socket.io</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css-flex/" style="font-size: 10px;">css flex</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-this/" style="font-size: 10px;">javascript this</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/wendy-poppy">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">wendy</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://b139.photo.store.qq.com/psb?/V12TKeY73dHNlc/qvjxoxH43Dfo*MeAgldrME0sNQ5lySa2L5TqxEAhdqw!/b/dHn86FKUAgAA&amp;bo=zAGzAgAAAAABAFs!&amp;rf=viewer_4" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">wendy</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">wendy眉眉的小博客~</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wendy-poppy" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/wendy-80-14" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="https://mail.qq.com/cgi-bin/frame_html?sid=Ne8V0xxmnKiCYCpy&r=23ab084d7dfb5267be2ea858f9976f0b" title="mail">mail</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/5550124039/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-CSS-hack" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/21/CSS-hack/" class="article-date">
+  	<time datetime="2016-08-21T08:36:49.000Z" itemprop="datePublished">2016-08-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSS-hack
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="hack"><a href="#hack" class="headerlink" title="hack"></a>hack</h2><hr>
+<p>之前一直很狭隘的对CSS hack持有偏见，觉得写得规范的代码不应该使用这些“邪门歪道”，可最近产品发布一个小问题却让我头疼了很久，最后查了一下资料，竟然使用CSS hack轻松解决了，不得不服啊，对付神奇的IE就得使用这些利器。</p>
+<h3 id="什么是CSS-hack"><a href="#什么是CSS-hack" class="headerlink" title="什么是CSS hack"></a>什么是CSS hack</h3><p>由于不同的浏览器，甚至同一浏览器的不同版本对CSS的解析认识不一样，导致生成的页面效果不一致，写出针对不同浏览器CSS code就称为CSS hack。</p>
+<p>常用的CSS hack 有三种方式，CSS 内部hack、选择器hack、HTML 头部引用，其中第一种最常用。</p>
+<h3 id="CSS-内部hack"><a href="#CSS-内部hack" class="headerlink" title="CSS 内部hack"></a>CSS 内部hack</h3><p>正经的CSS是这么写的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;title&gt;Test&lt;/title&gt;</div><div class="line">        &lt;style type=&quot;text/css&quot; &gt;</div><div class="line">            .test</div><div class="line">            &#123;</div><div class="line">                background-color:green;</div><div class="line">            &#125;</div><div class="line">        &lt;/style&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;div class=&quot;test&quot; style=&quot;height:100px; width:100px; line-height:100px; margin:50px; border:1px solid #000;&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;html&gt;</div></pre></td></tr></table></figure>
+<p>这样的代码对于所有当前常用的浏览器都是好使的，结果应该是这样子的</p>
+<p><img src="http://a1.qpic.cn/psb?/V11KiFfB3TEN6V/lralbNY2yS*6h0709Vmtwip8uxeL97LHzgVlc0se4g4!/b/dAsBAAAAAAAA&amp;bo=5gC.AAAAAAADAH0!&amp;rf=viewer_4" alt="Mou icon"></p>
+<p>但是在CSS3中常见一些这样的写法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">/*Mozilla内核浏览器：firefox3.5+*/</div><div class="line">  -moz-transform: rotate | scale | skew | translate ;</div><div class="line"> /*Webkit内核浏览器：Safari and Chrome*/</div><div class="line">  -webkit-transform: rotate | scale | skew | translate ;</div><div class="line"> /*Opera*/</div><div class="line">  -o-transform: rotate | scale | skew | translate ;</div><div class="line"> /*IE9*/</div><div class="line">  -ms-transform: rotate | scale | skew | translate ;</div><div class="line"> /*W3C标准*/</div><div class="line">  transform: rotate | scale | skew | translate ;</div></pre></td></tr></table></figure>
+<p>如果没有注释乍一看还以为逆天了，这样的代码都好使！这样的代码确实好使，CSS3目前标准还没有统一，各个浏览器都有自己的表现方式，甚至有的实现，有的未实现，在前面加一些前缀以表示支持某个特定浏览器，这也是CSS 内部hack的基本原理，向上面这些简单易懂，但是真正的CSS hack 远远不止于此，因为有不死的IE6及其各种奇葩的兄弟版本。</p>
+<p>CSS 内部hack 语法是这样的 selector{<hack>?property:value<hack>?;} ，上面代码所示的是在属性名称之前的hack，当然还有这样的</hack></hack></p>
+<pre><code>*background-color:green;
+</code></pre><p>属性前面加个“*”这样的写法只会对IE6、7生效，其它版本IE及现代浏览器会忽略这条指令（没有特殊说明，本文所有hack都是指在声明了DOCTYPE的文档的效果）</p>
+<pre><code>-background-color:green;
+</code></pre><p>属性前面有个“-”这样的只有IE6识别，还有些在后面的hack</p>
+<pre><code>background-color:green!important;
+</code></pre><p>这样在属性值后面添加“!important”的写法只有IE6不能识别，其它版本IE及现代浏览器都可以识别，还有“+”、“\0”、”\9” 等，乱七八糟好烦，画个表</p>
+<table>
+<thead>
+<tr>
+<th>hack</th>
+<th>IE6</th>
+<th>IE7</th>
+<th>IE8</th>
+<th>IE9</th>
+<th>IE10</th>
+<th>现代浏览器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td>👍</td>
+<td>👍</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>+</td>
+<td></td>
+<td>👍</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>-</td>
+<td>👍</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>!important</td>
+<td></td>
+<td>👍</td>
+<td>👍</td>
+<td>👍</td>
+<td>👍</td>
+<td>👍</td>
+</tr>
+<tr>
+<td>\9</td>
+<td>👍</td>
+<td>👍</td>
+<td>👍</td>
+<td>👍</td>
+<td>👍</td>
+<td></td>
+</tr>
+<tr>
+<td>\0</td>
+<td></td>
+<td></td>
+<td>👍</td>
+<td>👍</td>
+<td>👍</td>
+<td></td>
+</tr>
+<tr>
+<td>\9\0</td>
+<td></td>
+<td></td>
+<td></td>
+<td>👍</td>
+<td>👍</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>这样就清楚多了吧。如果只想给上面的test DIV在IE访问的时候加绿色背景，就可以这么写</p>
+<pre><code>background-color:green\9;
+</code></pre><p>如果想IE6红色，IE7绿色，其它黄色（当然没人这么无聊）就可以这么写</p>
+<pre><code>background-color:green;
++background-color:green;
+_background-color:green;
+</code></pre><h3 id="选择器hack"><a href="#选择器hack" class="headerlink" title="选择器hack"></a>选择器hack</h3><p>选择器hanck主要是针对IE浏览器，其实并不怎么常用，语法是这样的：<hack> selector{ sRules }</hack></p>
+<table>
+<thead>
+<tr>
+<th>hack</th>
+<th>IE6</th>
+<th>IE7</th>
+<th>IE8</th>
+<th>IE9</th>
+<th>IE10</th>
+<th>现代浏览器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*html</td>
+<td>👍</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>*+html</td>
+<td></td>
+<td>👍</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>:root</td>
+<td></td>
+<td></td>
+<td></td>
+<td>👍</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>针对IE9的hack可以这么写</p>
+<pre><code>:root .test
+{
+    background-color:green;
+}
+</code></pre><h3 id="HTML头部引用"><a href="#HTML头部引用" class="headerlink" title="HTML头部引用"></a>HTML头部引用</h3><p>HTML头部引用就比较特殊了，类似于程序语句，只能使用在HTML文件里，而不能在CSS文件中使用，并且只有在IE浏览器下才能执行，这个代码在非IE浏览下非单不是执行该条件下的定义，而是当做注释视而不见。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;!– 默认先调用css.css样式表 –&gt;</div><div class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css.css&quot; /&gt;</div><div class="line">&lt;!–[if IE 7]&gt;</div><div class="line">&lt;!– 如果IE浏览器版是7,调用ie7.css样式表 –&gt;</div><div class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;ie7.css&quot; /&gt;</div><div class="line">&lt;![endif]–&gt;</div><div class="line">&lt;!–[if lte IE 6]&gt;</div><div class="line">&lt;!– 如果IE浏览器版本小于等于6,调用ie.css样式表 –&gt;</div><div class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;ie.css&quot; /&gt;</div><div class="line">&lt;![endif]–&gt;</div></pre></td></tr></table></figure>
+<p>lte：就是Less than or equal to的简写，也就是小于或等于的意思。</p>
+<p>lt ：就是Less than的简写，也就是小于的意思。</p>
+<p>gte：就是Greater than or equal to的简写，也就是大于或等于的意思。</p>
+<p>gt ：就是Greater than的简写，也就是大于的意思。</p>
+<p>! ：就是不等于的意思，跟<code>javascript</code>里的不等于判断符相同。</p>
+<h5 id="书写顺序"><a href="#书写顺序" class="headerlink" title="书写顺序"></a>书写顺序</h5><p>看看，看看，这么多姿势，那么一个效果，好多种写法，什么顺序写才能保证各个浏览器都得到希望的效果呢？因为CSS只要是同一级别，出现重复属性设置，后出现的会覆盖前面出现的，所以在书写的时候一般把识别能力强的写前面，看个例子</p>
+<pre><code>_background-color:red;
+background-color:green;
+</code></pre><p>如果希望DIV在IE6上是红色，其它是绿色，上面的写法可不可以呢？试一下发现所有浏览器上都是绿色，因为在IE6解析的时候，第一句能够识别，背景设为红色，但是第二句所有浏览器都识别，IE6也不例外，背景颜色又被设为绿色，所以得反过来写</p>
+<pre><code>background-color:green;
+_background-color:red;
+</code></pre><p>总结出的规律就是：先一般，再特殊。有兴趣的同学可以试试试试下面CSS，看看和你想的效果是否一样</p>
+<pre><code>background-color:blue; /*所有浏览器*/
+background-color:red\9;/*所有的ie*/
+background-color:yellow\0; /* ie8+*/
++background-color:pink; /*+ ie7*/
+</code></pre><p>作者：Samaritans</p>
+<p>来自：<a href="http://www.cnblogs.com/dolphinX/p/3292630.html" target="_blank" rel="external">http://www.cnblogs.com/dolphinX/p/3292630.html</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/25/flex-box弹性盒子布局/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          flex-box弹性盒子布局
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/21/函数的梳理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">函数的梳理</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" style="margin-left: 30px;margin-right: 30px;" data-thread-key="post-CSS-hack" data-title="CSS-hack" data-url="http://yoursite.com/2016/08/21/CSS-hack/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"wendypoppy"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 wendy
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/winnerweb/hexo-Yilia-Smackdown" target="_blank">Yilia(Smackdown)</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>

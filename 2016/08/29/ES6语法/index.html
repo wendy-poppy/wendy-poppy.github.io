@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ES6语法 | wendy-poppy</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="ECMAScript 6 目前基本成为业界标准，它的普及速度比 ES5 要快很多，主要原因是现代浏览器对 ES6 的支持相当迅速，尤其是 Chrome 和 Firefox 浏览器，已经支持 ES6 中绝大多数的特性。
+ES6的变量声明方式保留了var和function。新增加了let、const、class和import。
+而且,let、const、class声明的全局变量再也不会和全局对象的属性">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6语法">
+<meta property="og:url" content="http://yoursite.com/2016/08/29/ES6语法/index.html">
+<meta property="og:site_name" content="wendy-poppy">
+<meta property="og:description" content="ECMAScript 6 目前基本成为业界标准，它的普及速度比 ES5 要快很多，主要原因是现代浏览器对 ES6 的支持相当迅速，尤其是 Chrome 和 Firefox 浏览器，已经支持 ES6 中绝大多数的特性。
+ES6的变量声明方式保留了var和function。新增加了let、const、class和import。
+而且,let、const、class声明的全局变量再也不会和全局对象的属性">
+<meta property="og:updated_time" content="2016-12-08T08:45:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6语法">
+<meta name="twitter:description" content="ECMAScript 6 目前基本成为业界标准，它的普及速度比 ES5 要快很多，主要原因是现代浏览器对 ES6 的支持相当迅速，尤其是 Chrome 和 Firefox 浏览器，已经支持 ES6 中绝大多数的特性。
+ES6的变量声明方式保留了var和function。新增加了let、const、class和import。
+而且,let、const、class声明的全局变量再也不会和全局对象的属性">
+  
+    <link rel="alternative" href="/atom.xml" title="wendy-poppy" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://b139.photo.store.qq.com/psb?/V12TKeY73dHNlc/qvjxoxH43Dfo*MeAgldrME0sNQ5lySa2L5TqxEAhdqw!/b/dHn86FKUAgAA&bo=zAGzAgAAAAABAFs!&rf=viewer_4">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://b139.photo.store.qq.com/psb?/V12TKeY73dHNlc/qvjxoxH43Dfo*MeAgldrME0sNQ5lySa2L5TqxEAhdqw!/b/dHn86FKUAgAA&amp;bo=zAGzAgAAAAABAFs!&amp;rf=viewer_4" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">wendy</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">wendy眉眉的小博客~</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/wendy-poppy" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/wendy-80-14" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="https://mail.qq.com/cgi-bin/frame_html?sid=Ne8V0xxmnKiCYCpy&r=23ab084d7dfb5267be2ea858f9976f0b" title="mail">mail</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/5550124039/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/ECMAScript-6/" style="font-size: 10px;">ECMAScript 6</a> <a href="/tags/HTML5-iframe/" style="font-size: 10px;">HTML5 iframe</a> <a href="/tags/Jade-JavaScript/" style="font-size: 10px;">Jade,JavaScript</a> <a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/NodeJS-socket-io/" style="font-size: 10px;">NodeJS socket.io</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css-flex/" style="font-size: 10px;">css flex</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-this/" style="font-size: 10px;">javascript this</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/wendy-poppy">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">wendy</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://b139.photo.store.qq.com/psb?/V12TKeY73dHNlc/qvjxoxH43Dfo*MeAgldrME0sNQ5lySa2L5TqxEAhdqw!/b/dHn86FKUAgAA&amp;bo=zAGzAgAAAAABAFs!&amp;rf=viewer_4" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">wendy</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">wendy眉眉的小博客~</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wendy-poppy" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/wendy-80-14" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="https://mail.qq.com/cgi-bin/frame_html?sid=Ne8V0xxmnKiCYCpy&r=23ab084d7dfb5267be2ea858f9976f0b" title="mail">mail</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/5550124039/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-ES6语法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/29/ES6语法/" class="article-date">
+  	<time datetime="2016-08-29T08:44:29.000Z" itemprop="datePublished">2016-08-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ES6语法
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ECMAScript-6/">ECMAScript 6</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>ECMAScript 6 目前基本成为业界标准，它的普及速度比 ES5 要快很多，主要原因是现代浏览器对 ES6 的支持相当迅速，尤其是 Chrome 和 Firefox 浏览器，已经支持 ES6 中绝大多数的特性。</p>
+<h2 id="ES6的变量声明方式"><a href="#ES6的变量声明方式" class="headerlink" title="ES6的变量声明方式"></a>ES6的变量声明方式</h2><p>保留了var和function。新增加了let、const、class和import。</p>
+<p>而且,let、const、class声明的全局变量再也不会和全局对象的属性挂钩了。</p>
+<h2 id="let"><a href="#let" class="headerlink" title="let"></a>let</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">------------</div><div class="line">  let</div><div class="line">------------</div><div class="line">1、let只在所在的代码块中有效</div><div class="line">for (var i = 0; i &lt; 10; i++) &#123;&#125;</div><div class="line">console.log(i); //10</div><div class="line"></div><div class="line">for(let j = 0; j &lt; 10; j++) &#123;&#125;</div><div class="line">console.log(j);// Error: j is not define</div><div class="line"></div><div class="line">2、以前我们需要用IIFE解决的问题</div><div class="line">for (var i = 0; i &lt; 5; i++) &#123;</div><div class="line">  setTimeout(function () &#123;</div><div class="line">    console.log(i); // 输出5次5</div><div class="line">  &#125;,0);</div><div class="line">&#125;</div><div class="line">for (var k = 0; k &lt; 5; k++) &#123;</div><div class="line">  (function (k) &#123;</div><div class="line">    setTimeout(function () &#123;</div><div class="line">      console.log(k); //输出0,1,2,3,4</div><div class="line">    &#125;,0);</div><div class="line">  &#125;)(k);</div><div class="line">&#125;</div><div class="line">for (let j = 0; j &lt; 5; j++) &#123;</div><div class="line">  setTimeout(function () &#123;</div><div class="line">    console.log(j); //输出0,1,2,3,4</div><div class="line">  &#125;,0);</div><div class="line">&#125;</div><div class="line"></div><div class="line">3、不存在变量声明提升</div><div class="line">console.log(foo); // 输出undefined</div><div class="line">console.log(bar); // 报错ReferenceError</div><div class="line"></div><div class="line">var foo = 2;</div><div class="line">let bar = 2;</div><div class="line">可能动手实践的同学会发现在webpack配置的es6环境中。</div><div class="line">并不会出现这种情况，那主要是babel转码是还是讲let转成了var,不要纠结这个。</div><div class="line"></div><div class="line">4、暂时性死区TDZ</div><div class="line">var temp = 123;</div><div class="line">if (true) &#123;</div><div class="line">  //TDZ start</div><div class="line">  temp = &quot;abc&quot;; //ReferenceError</div><div class="line">  console.log(temp); //ReferenceError</div><div class="line">  //TDZ end</div><div class="line">  let temp;</div><div class="line">  console.log(temp); //undefined</div><div class="line"></div><div class="line">  temp = 12;</div><div class="line">  console.log(temp); //12</div><div class="line">&#125;</div><div class="line">其实这个也可以解释上面那条 不存在变量声明提升。</div><div class="line">同时在TDZ区域中使用typeof temp 也是不安全的。</div><div class="line">但是你typeof 未声明的变量 倒是返回undefined, 这就是TDZ的效果。</div><div class="line">同样这里你也可能试验不出来，你看一下bundle.js,你就懂了。</div><div class="line"></div><div class="line">5、let不允许重复声明</div><div class="line">&#123;</div><div class="line">  let a = 1;</div><div class="line">  let a = 10; //这里在转码的时候就报错了。</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="const"><a href="#const" class="headerlink" title="const"></a>const</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">----------</div><div class="line">  const</div><div class="line">----------</div><div class="line">1、大部分与let差不多。</div><div class="line"></div><div class="line">2、const （只读）（一旦声明必须赋值）  </div><div class="line">const MAX = 123;</div><div class="line">MAX = 1; //转码阶段就爆错了。</div><div class="line"></div><div class="line">3、对于复合类型变量 (可以给他的属性赋值)</div><div class="line">const a = &#123;&#125;;</div><div class="line">a.name = &quot;dai&quot;;</div><div class="line">a.age = 21;</div><div class="line"></div><div class="line">4、如何你不想添加属性</div><div class="line">const b = Object.freeze(&#123;&#125;);</div><div class="line">b.name = &apos;dai&apos;; //TypeError</div></pre></td></tr></table></figure>
+<h2 id="插曲–ES6引入了块级作用域"><a href="#插曲–ES6引入了块级作用域" class="headerlink" title="插曲–ES6引入了块级作用域"></a>插曲–ES6引入了块级作用域</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">其实这也解释了为什么let、const在自己所在的代码块有效了。</div><div class="line">&#123;</div><div class="line">  var b = 1;</div><div class="line">  &#123;</div><div class="line">    var b = 10;</div><div class="line">    console.log(b); //10</div><div class="line">  &#125;</div><div class="line">  console.log(b); //10</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">  let a = 1;</div><div class="line">  &#123;</div><div class="line">    let a = 2;</div><div class="line">    console.log(a); //2</div><div class="line">  &#125;</div><div class="line">  console.log(a); //1</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="class"><a href="#class" class="headerlink" title="class"></a>class</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div></pre></td><td class="code"><pre><div class="line">---------</div><div class="line">  class</div><div class="line">---------</div><div class="line">1、class作为es6的语法糖，实际上es5也可以实现的。</div><div class="line">class Point &#123;</div><div class="line">  constructor (x, y) &#123;</div><div class="line">    this.x = x;</div><div class="line">    this.y = y;</div><div class="line">  &#125;</div><div class="line">  toString () &#123;</div><div class="line">    return this.x + &apos;,&apos; + this.y;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">Object.assign(Point.prototype, &#123;</div><div class="line">  getX () &#123;</div><div class="line">    return this.x;</div><div class="line">  &#125;,</div><div class="line">  getY () &#123;</div><div class="line">    return this.y;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">let p1 = new Point(1,2);</div><div class="line">console.log(p1.toString()); //1,2</div><div class="line">console.log(p1.getX()); //1</div><div class="line">console.log(p1.getY()); //2</div><div class="line">console.log(Object.keys(Point.prototype)); // [&quot;getX&quot;, &quot;getY&quot;]  </div><div class="line"></div><div class="line">(1)、方法之间不需要逗号分隔</div><div class="line">(2)、toString () &#123;&#125; 等价于 toString: function () &#123;&#125;</div><div class="line">(3)、你仍然可以使用Point.prototype</div><div class="line">(4)、你可以用Object.assign()一次性扩展很多方法</div><div class="line">(5)、类内部定义方法多是不可以枚举的</div><div class="line">(6)、constructor()&#123;&#125;是一个默认方法，如果没有添加，会自动添加一个空的。</div><div class="line">(7)、constructor默认返回实例对象（this），完全可以指定返回其他的对象。</div><div class="line">(8)、必须用new调用</div><div class="line">(9)、不存在变量提升</div><div class="line">(10)、当用一个变量去接受class时，可以省略classname</div><div class="line">(11)、es6不提供私有方法。</div><div class="line"></div><div class="line">2、使用extends继承</div><div class="line">class ThreeDPoint extends Point &#123;</div><div class="line">  constructor (x, y, z) &#123;</div><div class="line">    console.log(new.target); //ThreeDPoint</div><div class="line">    super(x, y);</div><div class="line">    this.z = z;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  toString () &#123;</div><div class="line">    return super.toString() + &apos;,&apos; + this.z;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  static getInfo() &#123;</div><div class="line">    console.log(&apos;static method&apos;);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  get z() &#123;</div><div class="line">    return 4;</div><div class="line">  &#125;</div><div class="line">  set z(value) &#123;</div><div class="line">    console.log(value);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">ThreeDPoint.getInfo(); // &quot;static method&quot;</div><div class="line">let ta = new ThreeDPoint(2,3,4);</div><div class="line">console.log(ta.toString()); //2,3,4</div><div class="line">console.log(ta.z); // 4</div><div class="line">ta.z = 200; // 200</div><div class="line">console.log(Object.getPrototypeOf(ThreeDPoint)); //Point</div><div class="line"></div><div class="line">(1)、constructor中必须调用super,因为子类中没有this,必须从父类中继承。</div><div class="line">(2)、子类的__proto__属性总是指向父类</div><div class="line">(3)、子类的prototype属性的__proto__总是指向父类的prototype</div><div class="line">(4)、Object.getPrototypeOf()获取父类</div><div class="line">(5)、super作为方法只能在constructor中</div><div class="line">(6)、super作为属性指向父类的prototype.</div><div class="line">(7)、在constructor中使用super.x = 2，实际上this.x = 2;但是读取super.x时，又变成了父类.prototype.x。</div><div class="line">(8)、原生构造函数是无法继承的。</div><div class="line">(9)、get set 方法可以对属性的赋值和读取进行拦截</div><div class="line">(10)、静态方法不能被实例继承。通过static声明</div><div class="line">(11)、静态属性只能 ThreeDPoint.name = &quot;123&quot; 声明 （与static没什么关系）</div></pre></td></tr></table></figure>
+<h2 id="import"><a href="#import" class="headerlink" title="import"></a>import</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">-----------</div><div class="line">  import</div><div class="line">-----------</div><div class="line">1、ES6引入了自己的模块系统。通过export导出，import导入。</div><div class="line">2、与CommonJS不同的是，它是获取模块的引用，到用的时候才会真正的去取值。</div><div class="line"></div><div class="line">3、例如student.js中:</div><div class="line">let student = [</div><div class="line">  &#123;</div><div class="line">    name: &apos;xiaoming&apos;,</div><div class="line">    age: 21,</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    name: &apos;xiaohong&apos;,</div><div class="line">    age: 18</div><div class="line">  &#125;</div><div class="line">]</div><div class="line">export default student; // 这种导出方式，你可以在import时指定它的名称。  </div><div class="line"></div><div class="line">4、在app.js中我们就可以这样用:</div><div class="line">import StudentList from &apos;./student.js&apos;; //指定名称</div><div class="line">console.log(StudentList[0].name); //xiaoming</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/09/05/js中令人头疼的this/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          js中令人头疼的this
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/25/flex-box弹性盒子布局/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">flex-box弹性盒子布局</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" style="margin-left: 30px;margin-right: 30px;" data-thread-key="post-ES6语法" data-title="ES6语法" data-url="http://yoursite.com/2016/08/29/ES6语法/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"wendypoppy"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 wendy
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/winnerweb/hexo-Yilia-Smackdown" target="_blank">Yilia(Smackdown)</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>

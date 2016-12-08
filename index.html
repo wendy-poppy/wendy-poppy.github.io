@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Jade-JavaScript/" style="font-size: 10px;">Jade,JavaScript</a> <a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/NodeJS-socket-io/" style="font-size: 10px;">NodeJS socket.io</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a>
+						<a href="/tags/ECMAScript-6/" style="font-size: 10px;">ECMAScript 6</a> <a href="/tags/HTML5-iframe/" style="font-size: 10px;">HTML5 iframe</a> <a href="/tags/Jade-JavaScript/" style="font-size: 10px;">Jade,JavaScript</a> <a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/NodeJS-socket-io/" style="font-size: 10px;">NodeJS socket.io</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css-flex/" style="font-size: 10px;">css flex</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-this/" style="font-size: 10px;">javascript this</a>
 					</div>
 				</section>
 				
@@ -181,6 +181,1035 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-iframe关于滚动条的去除和保留" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/12/iframe关于滚动条的去除和保留/" class="article-date">
+  	<time datetime="2016-09-12T08:52:42.000Z" itemprop="datePublished">2016-09-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/12/iframe关于滚动条的去除和保留/">
+        iframe关于滚动条的去除和保留
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>iframe嵌入页面后，我们有时需要调整滚动条，例如，去掉全部的滚动条，去掉右边的滚动条且保留底下的滚动条，去掉底下的滚动条且保留右边的滚动条。那么我们应该怎么做呢？</p>
+<h2 id="去掉全部的滚动条"><a href="#去掉全部的滚动条" class="headerlink" title="去掉全部的滚动条"></a>去掉全部的滚动条</h2><h4 id="第一个方法：-iframe-有一个scrolling属性，它有-auto-yes-no-这三个值。"><a href="#第一个方法：-iframe-有一个scrolling属性，它有-auto-yes-no-这三个值。" class="headerlink" title="第一个方法：   iframe 有一个scrolling属性，它有 auto , yes , no 这三个值。"></a>第一个方法：   iframe 有一个scrolling属性，它有 auto , yes , no 这三个值。</h4><p>scrolling : auto —–在需要的时候滚动条出现</p>
+<p>scrolling : yes ——始终显示滚动条</p>
+<p>scrolling : no ——-始终隐藏滚动条</p>
+<p>当设置   scrolling : no 时，全部的滚动条就没有了。</p>
+<h4 id="第二个方法：我发现除了-scrolling-可以去掉全部的滚动条外，还有另一个方法，在嵌入的页面里设置-body-overflow：hidden-，这样也可以将滚动条去掉，而且这也是当我们只想去掉某一个滚动条所使用的属性。"><a href="#第二个方法：我发现除了-scrolling-可以去掉全部的滚动条外，还有另一个方法，在嵌入的页面里设置-body-overflow：hidden-，这样也可以将滚动条去掉，而且这也是当我们只想去掉某一个滚动条所使用的属性。" class="headerlink" title="第二个方法：我发现除了 scrolling 可以去掉全部的滚动条外，还有另一个方法，在嵌入的页面里设置 body{overflow：hidden}，这样也可以将滚动条去掉，而且这也是当我们只想去掉某一个滚动条所使用的属性。"></a>第二个方法：我发现除了 scrolling 可以去掉全部的滚动条外，还有另一个方法，在嵌入的页面里设置 body{overflow：hidden}，这样也可以将滚动条去掉，而且这也是当我们只想去掉某一个滚动条所使用的属性。</h4><h2 id="去掉右边的滚动条且保留底下的滚动条"><a href="#去掉右边的滚动条且保留底下的滚动条" class="headerlink" title="去掉右边的滚动条且保留底下的滚动条"></a>去掉右边的滚动条且保留底下的滚动条</h2><p>如果只想保留底下的滚动条，那么可以在嵌入的页面里设置 body{overflow-x：auto ; overflow-y：hidden;}</p>
+<h2 id="去掉底下的滚动条且保留右边的滚动条"><a href="#去掉底下的滚动条且保留右边的滚动条" class="headerlink" title="去掉底下的滚动条且保留右边的滚动条"></a>去掉底下的滚动条且保留右边的滚动条</h2><p>在嵌入的页面里设置 body{overflow-x：hidden；overflow-y：auto；}</p>
+<p>我们已经知道了这两个属性都可以设置滚动条的显示和隐藏，那么当两个同时设置时，会出现哪个效果呢？</p>
+<p>通过检测，我发现当<strong>scrolling = “ auto “</strong>或者<strong>“ yes “</strong>时，如果设置了<strong>body</strong>，那么就会使用body里的设置；当<strong>scrolling = “ no “</strong>时，不管<strong>body</strong>设置了什么，都会使用<strong>scrolling</strong>的设置，即全部的滚动条都被去掉了。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5-iframe/">HTML5 iframe</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" style="margin-left: 30px;margin-right: 30px;" data-thread-key="post-iframe关于滚动条的去除和保留" data-title="iframe关于滚动条的去除和保留" data-url="undefined"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"wendypoppy"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+  
+    <article id="post-HTML5标签" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/10/HTML5标签/" class="article-date">
+  	<time datetime="2016-09-10T08:55:22.000Z" itemprop="datePublished">2016-09-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/10/HTML5标签/">
+        HTML5标签
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="可以进行省略的标签"><a href="#可以进行省略的标签" class="headerlink" title="可以进行省略的标签"></a>可以进行省略的标签</h2><h4 id="不允许写结束标记的标签："><a href="#不允许写结束标记的标签：" class="headerlink" title="不允许写结束标记的标签："></a>不允许写结束标记的标签：</h4><p>area(定义图像映射中的区域)、base(为页面上的所有链接规定默认地址或默认目标)、br、col(为表格中一个或多个列定义属性值)、embed(定义嵌入的内容，比如插件–5)、hr、img、input、keygen、link、meta、param、source、track、wbr</p>
+<h4 id="可以省略结束标记的标签："><a href="#可以省略结束标记的标签：" class="headerlink" title="可以省略结束标记的标签："></a>可以省略结束标记的标签：</h4><p>li、dt、dd、p、rt、optgroup、option、colgroup、thread、tbody、tr、td、th</p>
+<h4 id="可以完全省略的标签："><a href="#可以完全省略的标签：" class="headerlink" title="可以完全省略的标签："></a>可以完全省略的标签：</h4><p>html、head、body、colgroup、tbody</p>
+<h2 id="新增的标签"><a href="#新增的标签" class="headerlink" title="新增的标签"></a>新增的标签</h2><p>section:页面中的一个内容区块，入章节、页面、页脚或页面的其他部分、可以和h1、h2…等标签结合起来使用，表示文档结构。</p>
+<p>article:表示页面中一块与上下文不相干的独立内容，比如一篇文章。</p>
+<p>aside:定义 article 以外的内容。aside 的内容应该与 article 的内容相关。</p>
+<p>header:页面中的内容区块或整个页面的标题。</p>
+<p>footer:页面中的内容区块或整个页面的脚注。</p>
+<p>hgroup:页面中的内容区块或整个页面的标题进行组合。</p>
+<p>nav:导航链接的部分。</p>
+<p>figure:规定独立的流内容（图像、图表、照片、代码等等，内容应该与主内容相关，但如果被删除，则不应对文档流产生影响）。</p>
+<p>video:视频。exp:<video src="url" controls="controls">视频</video></p>
+<p>audio:音频。</p>
+<p>embed:用来嵌入内容（包括各种媒体）。</p>
+<p>mark:变颜色，关注。</p>
+<p>progress:进度条。exp:<progress max="100" value="85"></progress></p>
+<p>time:定义日期或时间，或者两者。这个标记是给收索引擎用的，引擎会根据这个标注知道这块表示一个时间。有个属性为pubdate，当引擎读到时就知道这块中的datatime中的值就是这篇文章的发布时间，而在这时间中有两个特殊的字符T和Z。T表示日期和时间的分隔符，Z表示时间的标准格式。exp:<time datatime="2016-11-21 T 10：45 Z" pubdate=""></time></p>
+<p>datalist:定义选项列表。与 input 元素配合使用该元素，来定义 input 可能的值。exp:<input list="cars"><datalist id="cars"><option value=""></option></datalist></p>
+<p>output:exp:<form oninput="x.value=parseInt(a.value)+parseInt(b.value)">0<input type="range" id="a" value="50">100+<input type="number" id="b" value="50">=<output name="x" for="a b"></output></form></p>
+<h2 id="全局属性"><a href="#全局属性" class="headerlink" title="全局属性"></a>全局属性</h2><p>data-type:自定义属性。</p>
+<p>hidden:隐藏，单标签。</p>
+<p>spellcheck:对输入内容进行语法纠错。exp:<textarea spellcheck="true"></textarea></p>
+<p>tabindex:tab键顺序。</p>
+<p>contenteditable:对内容进行修改。exp:</p><p contenteditable="true" style="border:1px solid #000"></p><p></p>
+<p>让整个文本都可编辑：<code>&lt;script&gt;window.document.designMode=&quot;off&quot;;&lt;/script&gt;</code>//off关闭,on:可编辑</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" style="margin-left: 30px;margin-right: 30px;" data-thread-key="post-HTML5标签" data-title="HTML5标签" data-url="undefined"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"wendypoppy"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+  
+    <article id="post-js中令人头疼的this" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/05/js中令人头疼的this/" class="article-date">
+  	<time datetime="2016-09-05T08:49:28.000Z" itemprop="datePublished">2016-09-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/05/js中令人头疼的this/">
+        js中令人头疼的this
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>说起js里面比较头疼的知识点,this的指向,call与apply的理解这三者肯定算的上前几,好的js开发者这是必须迈过的槛.今天就总结下这三者紧密相连的关系.</p>
+<pre><code>首先推荐理解call的用法
+</code></pre><p>Function.prototype.call</p>
+<p>格式:fx.call( thisArg [，arg1，arg2，… ] );</p>
+<ol>
+<li>call的传参个数不限,第一个数表示调用函数(fx)函数体内this的指向.从第二个参数开始依次按序传入函数.</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var age = 40;</div><div class="line">var xiaoMing = &#123;</div><div class="line">	age:30</div><div class="line">&#125;;</div><div class="line">var xiaoLi = &#123;</div><div class="line">	age: 20</div><div class="line">&#125;;</div><div class="line">var getAge = function()&#123;</div><div class="line">    console.log(this.age);</div><div class="line">&#125;;</div><div class="line"> getAge.call( xiaoMing );  //30 表示函数this指向xiaoMing</div><div class="line">getAge.call(xiaoLi);  //20  表示函数this指向xiaoLi</div><div class="line">getAge.call(undefined);//40  getAge.call(undefined)==getAge.call(null)</div><div class="line">getAge.call(null);//40</div><div class="line">getAge(); //40</div></pre></td></tr></table></figure>
+<p>如果我们传入fx.call()的第一个参数数为null,那么表示函数fx体内this指向宿主对象,在浏览器是Window对象,这也解释了getAge.call(undefined);//40。</p>
+<p>在此基础我们可以理解为 getAge()相当于<code>getAge.call(null/undefined)</code>,扩展到所有函数,</p>
+<p><code>fx()==fx.call(null) == fx.call(undefined)</code></p>
+<p>值得注意的是严格模式下有点区别: this指向null</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var getAge = function()&#123;</div><div class="line">	&apos;use strict&apos;</div><div class="line">    console.log(this.age);</div><div class="line">&#125;;</div><div class="line">getAge(null);//报错 age未定义</div></pre></td></tr></table></figure>
+<pre><code>再来理解this的使用
+</code></pre><p>this的常用场景:</p>
+<p>this位于一个对象的方法内,此时this指向该对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var name = &apos;window&apos;;</div><div class="line">var Student = &#123;</div><div class="line">	name : &apos;kobe&apos;,</div><div class="line">	getName: function () &#123;</div><div class="line">		console.log(this == Student); //true</div><div class="line">		console.log(this.name);  //kobe</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">Student.getName();</div></pre></td></tr></table></figure>
+<p>this位于一个普通的函数内,表示this指向全局对象,(浏览器是window)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var name = &apos;window&apos;;</div><div class="line">var getName = function () &#123;</div><div class="line">	var name = &apos;kobe&apos;;  //迷惑性而已</div><div class="line">	return this.name;</div><div class="line">&#125;</div><div class="line">console.log(  getName() ); //window</div></pre></td></tr></table></figure>
+<p>this使用在构造函数(构造器)里面,表示this指向的是那个返回的对象.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var name = &apos;window&apos;;</div><div class="line">//构造器</div><div class="line">var Student = function () &#123;</div><div class="line">	this.name = &apos;student&apos;;</div><div class="line">&#125;</div><div class="line">var s1 = new Student();</div><div class="line">console.log(s1.name);  //student</div></pre></td></tr></table></figure>
+<p>注意: 如果构造器返回的也是一个Object的对象(其他类型this指向不变遵循之前那个规律),这时候this指的是返回的这个Objec.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var name = &apos;window&apos;;</div><div class="line">//构造器</div><div class="line">var Student = function () &#123;</div><div class="line">	this.name = &apos;student&apos;;</div><div class="line">	return &#123;</div><div class="line">		name: &apos;boyStudent&apos;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">var s1 = new Student();</div><div class="line">console.log(s1.name);  //boyStudent</div></pre></td></tr></table></figure>
+<p>this指向失效问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var name = &apos;window&apos;;</div><div class="line">var Student = &#123;</div><div class="line">	name : &apos;kobe&apos;,</div><div class="line">	getName: function () &#123;		</div><div class="line">		console.log(this.name);  </div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">Student.getName(); // kobe</div><div class="line">var s1 = Student.getName;</div><div class="line">s1(); //window</div></pre></td></tr></table></figure>
+<p>原因: 此时s1是一个函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function () &#123;		</div><div class="line">	console.log(this.name);  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>对一个基本的函数,前面提过this在基本函数中指的是window.</p>
+<p>在开发中我们经常使用的this缓存法 ,缓存当前作用域下this到另外一个环境域下使用</p>
+<pre><code>最后理解apply的用法 Function.prototype.apply
+</code></pre><p>格式: fx.apply(thisArg [，argArray] ); // 参数数组，argArray</p>
+<ol>
+<li>apply与call的作用是一样的,只是传参方式不同,</li>
+<li>apply接受两个参数,第一个也是fx函数体内this的指向,用法与call第一个参数一致.第二个参数是数组或者类数组,apply就是把这个数组元素传入函数fx.</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var add = function (a ,b ,c) &#123;</div><div class="line">	console.log(a +b +c);</div><div class="line">&#125;</div><div class="line">add.apply(null , [1,2,3]); // 6</div></pre></td></tr></table></figure>
+<p>再吃透这个题目就ok</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var a=10;</div><div class="line">var foo=&#123;</div><div class="line">  a:20,</div><div class="line">  bar:function()&#123;</div><div class="line">      var a=30;</div><div class="line">      return this.a;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">foo.bar()</div><div class="line">//20</div><div class="line">(foo.bar)()</div><div class="line">//20</div><div class="line">(foo.bar=foo.bar)()</div><div class="line">//10</div><div class="line">(foo.bar,foo.bar)()</div><div class="line">//10</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript-this/">javascript this</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" style="margin-left: 30px;margin-right: 30px;" data-thread-key="post-js中令人头疼的this" data-title="js中令人头疼的this" data-url="undefined"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"wendypoppy"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+  
+    <article id="post-ES6语法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/29/ES6语法/" class="article-date">
+  	<time datetime="2016-08-29T08:44:29.000Z" itemprop="datePublished">2016-08-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/29/ES6语法/">
+        ES6语法
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>ECMAScript 6 目前基本成为业界标准，它的普及速度比 ES5 要快很多，主要原因是现代浏览器对 ES6 的支持相当迅速，尤其是 Chrome 和 Firefox 浏览器，已经支持 ES6 中绝大多数的特性。</p>
+<h2 id="ES6的变量声明方式"><a href="#ES6的变量声明方式" class="headerlink" title="ES6的变量声明方式"></a>ES6的变量声明方式</h2><p>保留了var和function。新增加了let、const、class和import。</p>
+<p>而且,let、const、class声明的全局变量再也不会和全局对象的属性挂钩了。</p>
+<h2 id="let"><a href="#let" class="headerlink" title="let"></a>let</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">------------</div><div class="line">  let</div><div class="line">------------</div><div class="line">1、let只在所在的代码块中有效</div><div class="line">for (var i = 0; i &lt; 10; i++) &#123;&#125;</div><div class="line">console.log(i); //10</div><div class="line"></div><div class="line">for(let j = 0; j &lt; 10; j++) &#123;&#125;</div><div class="line">console.log(j);// Error: j is not define</div><div class="line"></div><div class="line">2、以前我们需要用IIFE解决的问题</div><div class="line">for (var i = 0; i &lt; 5; i++) &#123;</div><div class="line">  setTimeout(function () &#123;</div><div class="line">    console.log(i); // 输出5次5</div><div class="line">  &#125;,0);</div><div class="line">&#125;</div><div class="line">for (var k = 0; k &lt; 5; k++) &#123;</div><div class="line">  (function (k) &#123;</div><div class="line">    setTimeout(function () &#123;</div><div class="line">      console.log(k); //输出0,1,2,3,4</div><div class="line">    &#125;,0);</div><div class="line">  &#125;)(k);</div><div class="line">&#125;</div><div class="line">for (let j = 0; j &lt; 5; j++) &#123;</div><div class="line">  setTimeout(function () &#123;</div><div class="line">    console.log(j); //输出0,1,2,3,4</div><div class="line">  &#125;,0);</div><div class="line">&#125;</div><div class="line"></div><div class="line">3、不存在变量声明提升</div><div class="line">console.log(foo); // 输出undefined</div><div class="line">console.log(bar); // 报错ReferenceError</div><div class="line"></div><div class="line">var foo = 2;</div><div class="line">let bar = 2;</div><div class="line">可能动手实践的同学会发现在webpack配置的es6环境中。</div><div class="line">并不会出现这种情况，那主要是babel转码是还是讲let转成了var,不要纠结这个。</div><div class="line"></div><div class="line">4、暂时性死区TDZ</div><div class="line">var temp = 123;</div><div class="line">if (true) &#123;</div><div class="line">  //TDZ start</div><div class="line">  temp = &quot;abc&quot;; //ReferenceError</div><div class="line">  console.log(temp); //ReferenceError</div><div class="line">  //TDZ end</div><div class="line">  let temp;</div><div class="line">  console.log(temp); //undefined</div><div class="line"></div><div class="line">  temp = 12;</div><div class="line">  console.log(temp); //12</div><div class="line">&#125;</div><div class="line">其实这个也可以解释上面那条 不存在变量声明提升。</div><div class="line">同时在TDZ区域中使用typeof temp 也是不安全的。</div><div class="line">但是你typeof 未声明的变量 倒是返回undefined, 这就是TDZ的效果。</div><div class="line">同样这里你也可能试验不出来，你看一下bundle.js,你就懂了。</div><div class="line"></div><div class="line">5、let不允许重复声明</div><div class="line">&#123;</div><div class="line">  let a = 1;</div><div class="line">  let a = 10; //这里在转码的时候就报错了。</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="const"><a href="#const" class="headerlink" title="const"></a>const</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">----------</div><div class="line">  const</div><div class="line">----------</div><div class="line">1、大部分与let差不多。</div><div class="line"></div><div class="line">2、const （只读）（一旦声明必须赋值）  </div><div class="line">const MAX = 123;</div><div class="line">MAX = 1; //转码阶段就爆错了。</div><div class="line"></div><div class="line">3、对于复合类型变量 (可以给他的属性赋值)</div><div class="line">const a = &#123;&#125;;</div><div class="line">a.name = &quot;dai&quot;;</div><div class="line">a.age = 21;</div><div class="line"></div><div class="line">4、如何你不想添加属性</div><div class="line">const b = Object.freeze(&#123;&#125;);</div><div class="line">b.name = &apos;dai&apos;; //TypeError</div></pre></td></tr></table></figure>
+<h2 id="插曲–ES6引入了块级作用域"><a href="#插曲–ES6引入了块级作用域" class="headerlink" title="插曲–ES6引入了块级作用域"></a>插曲–ES6引入了块级作用域</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">其实这也解释了为什么let、const在自己所在的代码块有效了。</div><div class="line">&#123;</div><div class="line">  var b = 1;</div><div class="line">  &#123;</div><div class="line">    var b = 10;</div><div class="line">    console.log(b); //10</div><div class="line">  &#125;</div><div class="line">  console.log(b); //10</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#123;</div><div class="line">  let a = 1;</div><div class="line">  &#123;</div><div class="line">    let a = 2;</div><div class="line">    console.log(a); //2</div><div class="line">  &#125;</div><div class="line">  console.log(a); //1</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="class"><a href="#class" class="headerlink" title="class"></a>class</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div></pre></td><td class="code"><pre><div class="line">---------</div><div class="line">  class</div><div class="line">---------</div><div class="line">1、class作为es6的语法糖，实际上es5也可以实现的。</div><div class="line">class Point &#123;</div><div class="line">  constructor (x, y) &#123;</div><div class="line">    this.x = x;</div><div class="line">    this.y = y;</div><div class="line">  &#125;</div><div class="line">  toString () &#123;</div><div class="line">    return this.x + &apos;,&apos; + this.y;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">Object.assign(Point.prototype, &#123;</div><div class="line">  getX () &#123;</div><div class="line">    return this.x;</div><div class="line">  &#125;,</div><div class="line">  getY () &#123;</div><div class="line">    return this.y;</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line">let p1 = new Point(1,2);</div><div class="line">console.log(p1.toString()); //1,2</div><div class="line">console.log(p1.getX()); //1</div><div class="line">console.log(p1.getY()); //2</div><div class="line">console.log(Object.keys(Point.prototype)); // [&quot;getX&quot;, &quot;getY&quot;]  </div><div class="line"></div><div class="line">(1)、方法之间不需要逗号分隔</div><div class="line">(2)、toString () &#123;&#125; 等价于 toString: function () &#123;&#125;</div><div class="line">(3)、你仍然可以使用Point.prototype</div><div class="line">(4)、你可以用Object.assign()一次性扩展很多方法</div><div class="line">(5)、类内部定义方法多是不可以枚举的</div><div class="line">(6)、constructor()&#123;&#125;是一个默认方法，如果没有添加，会自动添加一个空的。</div><div class="line">(7)、constructor默认返回实例对象（this），完全可以指定返回其他的对象。</div><div class="line">(8)、必须用new调用</div><div class="line">(9)、不存在变量提升</div><div class="line">(10)、当用一个变量去接受class时，可以省略classname</div><div class="line">(11)、es6不提供私有方法。</div><div class="line"></div><div class="line">2、使用extends继承</div><div class="line">class ThreeDPoint extends Point &#123;</div><div class="line">  constructor (x, y, z) &#123;</div><div class="line">    console.log(new.target); //ThreeDPoint</div><div class="line">    super(x, y);</div><div class="line">    this.z = z;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  toString () &#123;</div><div class="line">    return super.toString() + &apos;,&apos; + this.z;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  static getInfo() &#123;</div><div class="line">    console.log(&apos;static method&apos;);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  get z() &#123;</div><div class="line">    return 4;</div><div class="line">  &#125;</div><div class="line">  set z(value) &#123;</div><div class="line">    console.log(value);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">ThreeDPoint.getInfo(); // &quot;static method&quot;</div><div class="line">let ta = new ThreeDPoint(2,3,4);</div><div class="line">console.log(ta.toString()); //2,3,4</div><div class="line">console.log(ta.z); // 4</div><div class="line">ta.z = 200; // 200</div><div class="line">console.log(Object.getPrototypeOf(ThreeDPoint)); //Point</div><div class="line"></div><div class="line">(1)、constructor中必须调用super,因为子类中没有this,必须从父类中继承。</div><div class="line">(2)、子类的__proto__属性总是指向父类</div><div class="line">(3)、子类的prototype属性的__proto__总是指向父类的prototype</div><div class="line">(4)、Object.getPrototypeOf()获取父类</div><div class="line">(5)、super作为方法只能在constructor中</div><div class="line">(6)、super作为属性指向父类的prototype.</div><div class="line">(7)、在constructor中使用super.x = 2，实际上this.x = 2;但是读取super.x时，又变成了父类.prototype.x。</div><div class="line">(8)、原生构造函数是无法继承的。</div><div class="line">(9)、get set 方法可以对属性的赋值和读取进行拦截</div><div class="line">(10)、静态方法不能被实例继承。通过static声明</div><div class="line">(11)、静态属性只能 ThreeDPoint.name = &quot;123&quot; 声明 （与static没什么关系）</div></pre></td></tr></table></figure>
+<h2 id="import"><a href="#import" class="headerlink" title="import"></a>import</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">-----------</div><div class="line">  import</div><div class="line">-----------</div><div class="line">1、ES6引入了自己的模块系统。通过export导出，import导入。</div><div class="line">2、与CommonJS不同的是，它是获取模块的引用，到用的时候才会真正的去取值。</div><div class="line"></div><div class="line">3、例如student.js中:</div><div class="line">let student = [</div><div class="line">  &#123;</div><div class="line">    name: &apos;xiaoming&apos;,</div><div class="line">    age: 21,</div><div class="line">  &#125;,</div><div class="line">  &#123;</div><div class="line">    name: &apos;xiaohong&apos;,</div><div class="line">    age: 18</div><div class="line">  &#125;</div><div class="line">]</div><div class="line">export default student; // 这种导出方式，你可以在import时指定它的名称。  </div><div class="line"></div><div class="line">4、在app.js中我们就可以这样用:</div><div class="line">import StudentList from &apos;./student.js&apos;; //指定名称</div><div class="line">console.log(StudentList[0].name); //xiaoming</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ECMAScript-6/">ECMAScript 6</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" style="margin-left: 30px;margin-right: 30px;" data-thread-key="post-ES6语法" data-title="ES6语法" data-url="undefined"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"wendypoppy"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+  
+    <article id="post-flex-box弹性盒子布局" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/25/flex-box弹性盒子布局/" class="article-date">
+  	<time datetime="2016-08-25T08:41:00.000Z" itemprop="datePublished">2016-08-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/25/flex-box弹性盒子布局/">
+        flex-box弹性盒子布局
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="网页布局（layout）是CSS的一个重点应用。"><a href="#网页布局（layout）是CSS的一个重点应用。" class="headerlink" title="网页布局（layout）是CSS的一个重点应用。"></a>网页布局（layout）是CSS的一个重点应用。</h4><p><img src="http://a2.qpic.cn/psb?/V11KiFfB3TEN6V/J2xTGXPCXsZhEPmsxa7nqYbCjFUSwjssFoRCKMdPq5s!/b/dG8BAAAAAAAA&amp;bo=kwFgAQAAAAAFB9c!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h4 id="布局的传统解决方案，基于盒状模型，依赖-display属性-position属性-float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。"><a href="#布局的传统解决方案，基于盒状模型，依赖-display属性-position属性-float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。" class="headerlink" title="布局的传统解决方案，基于盒状模型，依赖 display属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。"></a>布局的传统解决方案，基于盒状模型，依赖 display属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。</h4><p><img src="http://a3.qpic.cn/psb?/V11KiFfB3TEN6V/IP7mV*LOabljXwch397YjajeR8zYArIySypoW4lZNnI!/b/dHwBAAAAAAAA&amp;bo=vAJwAbwCcAEDACU!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h4 id="2009年，W3C提出了一种新的方案—-Flex布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。"><a href="#2009年，W3C提出了一种新的方案—-Flex布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。" class="headerlink" title="2009年，W3C提出了一种新的方案—-Flex布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。"></a>2009年，W3C提出了一种新的方案—-Flex布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。</h4><p><img src="http://a2.qpic.cn/psb?/V11KiFfB3TEN6V/Ju6qEkHa*f3hp5kopp3SOofzlhc31iXdDK8RhJsG.4g!/b/dG8BAAAAAAAA&amp;bo=gwM9AYMDPQEFACM!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h4 id="Flex布局将成为未来布局的首选方案。本文介绍它的语法，下一篇文章给出常见布局的Flex写法。"><a href="#Flex布局将成为未来布局的首选方案。本文介绍它的语法，下一篇文章给出常见布局的Flex写法。" class="headerlink" title="Flex布局将成为未来布局的首选方案。本文介绍它的语法，下一篇文章给出常见布局的Flex写法。"></a>Flex布局将成为未来布局的首选方案。本文介绍它的语法，下一篇文章给出常见布局的Flex写法。</h4><h4 id="以下内容主要参考了下面两篇文章：A-Complete-Guide-to-Flexbox-和-A-Visual-Guide-to-CSS3-Flexbox-Properties。"><a href="#以下内容主要参考了下面两篇文章：A-Complete-Guide-to-Flexbox-和-A-Visual-Guide-to-CSS3-Flexbox-Properties。" class="headerlink" title="以下内容主要参考了下面两篇文章：A Complete Guide to Flexbox 和 A Visual Guide to CSS3 Flexbox Properties。"></a>以下内容主要参考了下面两篇文章：<a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank" rel="external">A Complete Guide to Flexbox</a> 和 <a href="https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties" target="_blank" rel="external">A Visual Guide to CSS3 Flexbox Properties</a>。</h4><h2 id="一、Flex布局是什么？"><a href="#一、Flex布局是什么？" class="headerlink" title="一、Flex布局是什么？"></a>一、Flex布局是什么？</h2><hr>
+<h4 id="Flex是Flexible-Box的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。"><a href="#Flex是Flexible-Box的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。" class="headerlink" title="Flex是Flexible Box的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。"></a>Flex是Flexible Box的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。</h4><h4 id="任何一个容器都可以指定为Flex布局。"><a href="#任何一个容器都可以指定为Flex布局。" class="headerlink" title="任何一个容器都可以指定为Flex布局。"></a>任何一个容器都可以指定为Flex布局。</h4><pre><code>.box{
+    display: flex;
+o}
+</code></pre><h4 id="行内元素也可以使用Flex布局。"><a href="#行内元素也可以使用Flex布局。" class="headerlink" title="行内元素也可以使用Flex布局。"></a>行内元素也可以使用Flex布局。</h4><pre><code>.box{
+    display: inline-flex;
+}
+</code></pre><h4 id="Webkit内核的浏览器，必须加上-webkit前缀。"><a href="#Webkit内核的浏览器，必须加上-webkit前缀。" class="headerlink" title="Webkit内核的浏览器，必须加上-webkit前缀。"></a>Webkit内核的浏览器，必须加上<code>-webkit</code>前缀。</h4><pre><code>.box{
+    display: -webkit-flex; /* Safari */
+    display: flex;
+}
+</code></pre><h4 id="注意，设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。"><a href="#注意，设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。" class="headerlink" title="注意，设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。"></a>注意，设为Flex布局以后，子元素的<code>float</code>、<code>clear</code>和<code>vertical-align</code>属性将失效。</h4><h2 id="二、基本概念"><a href="#二、基本概念" class="headerlink" title="二、基本概念"></a>二、基本概念</h2><hr>
+<h4 id="采用Flex布局的元素，称为Flex容器（flex-container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex-item），简称”项目”。"><a href="#采用Flex布局的元素，称为Flex容器（flex-container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex-item），简称”项目”。" class="headerlink" title="采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”。"></a>采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”。</h4><p><img src="http://a3.qpic.cn/psb?/V11KiFfB3TEN6V/RzOWYwPl1OEere*WjK8*9NxF2A0BMXFPwTWGvts3wHA!/b/dI8AAAAAAAAA&amp;bo=MwJNATMCTQEDACU!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h4 id="容器默认存在两根轴：水平的主轴（main-axis）和垂直的交叉轴（cross-axis）。主轴的开始位置（与边框的交叉点）叫做main-start，结束位置叫做main-end；交叉轴的开始位置叫做cross-start，结束位置叫做cross-end。"><a href="#容器默认存在两根轴：水平的主轴（main-axis）和垂直的交叉轴（cross-axis）。主轴的开始位置（与边框的交叉点）叫做main-start，结束位置叫做main-end；交叉轴的开始位置叫做cross-start，结束位置叫做cross-end。" class="headerlink" title="容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。"></a>容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做<code>main start</code>，结束位置叫做<code>main end</code>；交叉轴的开始位置叫做<code>cross start</code>，结束位置叫做<code>cross end</code>。</h4><h4 id="项目默认沿主轴排列。单个项目占据的主轴空间叫做main-size，占据的交叉轴空间叫做cross-size。"><a href="#项目默认沿主轴排列。单个项目占据的主轴空间叫做main-size，占据的交叉轴空间叫做cross-size。" class="headerlink" title="项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。"></a>项目默认沿主轴排列。单个项目占据的主轴空间叫做<code>main size</code>，占据的交叉轴空间叫做<code>cross size</code>。</h4><h2 id="三、容器的属性"><a href="#三、容器的属性" class="headerlink" title="三、容器的属性"></a>三、容器的属性</h2><hr>
+<h4 id="以下6个属性设置在容器上。"><a href="#以下6个属性设置在容器上。" class="headerlink" title="以下6个属性设置在容器上。"></a>以下6个属性设置在容器上。</h4><pre><code>* flex-direction
+* flex-wrap
+* flex-flow
+* justify-content
+* align-items
+* align-content
+</code></pre><h3 id="3-1-flex-direction属性"><a href="#3-1-flex-direction属性" class="headerlink" title="3.1 flex-direction属性"></a>3.1 flex-direction属性</h3><hr>
+<h4 id="flex-direction属性决定主轴的方向（即项目的排列方向）。"><a href="#flex-direction属性决定主轴的方向（即项目的排列方向）。" class="headerlink" title="flex-direction属性决定主轴的方向（即项目的排列方向）。"></a><code>flex-direction</code>属性决定主轴的方向（即项目的排列方向）。</h4><pre><code>.box {
+    flex-direction: row | row-reverse | column | column-reverse;
+}
+</code></pre><p><img src="http://a2.qpic.cn/psb?/V11KiFfB3TEN6V/kuvbOjjnCI4jado.3zyOa1SiJfP4b9oYimKoQiMihSA!/b/dAkBAAAAAAAA&amp;bo=HAPLABwDywADACU!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h4 id="它可能有4个值。"><a href="#它可能有4个值。" class="headerlink" title="它可能有4个值。"></a>它可能有4个值。</h4><pre><code>* row（默认值）：主轴为水平方向，起点在左端。    
+* row-reverse：主轴为水平方向，起点在右端。    
+* column：主轴为垂直方向，起点在上沿。    
+* column-reverse：主轴为垂直方向，起点在下沿。
+</code></pre><h3 id="3-2-flex-wrap属性"><a href="#3-2-flex-wrap属性" class="headerlink" title="3.2 flex-wrap属性"></a>3.2 flex-wrap属性</h3><h4 id="默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。"><a href="#默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。" class="headerlink" title="默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。"></a>默认情况下，项目都排在一条线（又称”轴线”）上。<code>flex-wrap</code>属性定义，如果一条轴线排不下，如何换行。</h4><p><img src="http://a3.qpic.cn/psb?/V11KiFfB3TEN6V/jLKkgkA6hn0fA0Oi.KKjdzFdjTjQ6qZ8zrWXxdJRnSY!/b/dI8AAAAAAAAA&amp;bo=HgMUAR4DFAEDACU!&amp;rf=viewer_4" alt="Mou icon"></p>
+<pre><code>.box{
+    flex-wrap: nowrap | wrap | wrap-reverse;
+}
+</code></pre><h4 id="它可能取三个值。"><a href="#它可能取三个值。" class="headerlink" title="它可能取三个值。"></a>它可能取三个值。</h4><h4 id="（1）nowrap（默认）：不换行。"><a href="#（1）nowrap（默认）：不换行。" class="headerlink" title="（1）nowrap（默认）：不换行。"></a>（1）<code>nowrap</code>（默认）：不换行。</h4><p><img src="http://a1.qpic.cn/psb?/V11KiFfB3TEN6V/WaFolQ8khY7F.sv46J0O5jY61qVQMJb54OwXjDx2ph0!/b/dHcBAAAAAAAA&amp;bo=vAKRALwCkQADACU!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h4 id="（2）wrap：换行，第一行在上方。"><a href="#（2）wrap：换行，第一行在上方。" class="headerlink" title="（2）wrap：换行，第一行在上方。"></a>（2）<code>wrap</code>：换行，第一行在上方。</h4><p><img src="http://a3.qpic.cn/psb?/V11KiFfB3TEN6V/I046Dvleclc7D6*qU*FtwxdXfoVBV5pqpFQbIr1T4D4!/b/dAoBAAAAAAAA&amp;bo=vAKxALwCsQAFACM!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h4 id="（3）wrap-reverse：换行，第一行在下方。"><a href="#（3）wrap-reverse：换行，第一行在下方。" class="headerlink" title="（3）wrap-reverse：换行，第一行在下方。"></a>（3）<code>wrap-reverse</code>：换行，第一行在下方。</h4><p><img src="http://a2.qpic.cn/psb?/V11KiFfB3TEN6V/*XN*iLgTE79X9ZYoR2a4s9jxZVvwBfj2WSGxujD5SQY!/b/dI0BAAAAAAAA&amp;bo=vAKxALwCsQAFACM!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h3 id="3-3-flex-flow"><a href="#3-3-flex-flow" class="headerlink" title="3.3 flex-flow"></a>3.3 flex-flow</h3><hr>
+<h4 id="flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row-nowrap。"><a href="#flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row-nowrap。" class="headerlink" title="flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。"></a><code>flex-flow</code>属性是<code>flex-direction</code>属性和<code>flex-wrap</code>属性的简写形式，默认值为<code>row nowrap</code>。</h4><pre><code>.box {
+    flex-flow: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;
+}
+</code></pre><h3 id="3-4-justify-content属性"><a href="#3-4-justify-content属性" class="headerlink" title="3.4 justify-content属性"></a>3.4 justify-content属性</h3><hr>
+<h4 id="justify-content属性定义了项目在主轴上的对齐方式。"><a href="#justify-content属性定义了项目在主轴上的对齐方式。" class="headerlink" title="justify-content属性定义了项目在主轴上的对齐方式。"></a><code>justify-content</code>属性定义了项目在主轴上的对齐方式。</h4><pre><code>.box {
+    justify-content: flex-start | flex-end | center | space-between | space-around;
+}
+</code></pre><p><img src="http://a2.qpic.cn/psb?/V11KiFfB3TEN6V/aielwdv5l3FI*VdQms6P9NP6geb3MmBfcw1wMSPAlH4!/b/dAkBAAAAAAAA&amp;bo=fQL7An0C.wIDACU!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h3 id="3-5-align-items属性"><a href="#3-5-align-items属性" class="headerlink" title="3.5 align-items属性"></a>3.5 align-items属性</h3><hr>
+<h4 id="align-items属性定义项目在交叉轴上如何对齐。"><a href="#align-items属性定义项目在交叉轴上如何对齐。" class="headerlink" title="align-items属性定义项目在交叉轴上如何对齐。"></a><code>align-items</code>属性定义项目在交叉轴上如何对齐。</h4><pre><code>.box {
+    align-items: flex-start | flex-end | center | baseline | stretch;
+}
+</code></pre><p><img src="http://a2.qpic.cn/psb?/V11KiFfB3TEN6V/k.SgjnhVgAOpyszGfB36pjjT4iynt8YVPMJzNxliGew!/b/dOUAAAAAAAAA&amp;bo=aQISA2kCEgMDACU!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h4 id="它可能取5个值。具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下。"><a href="#它可能取5个值。具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下。" class="headerlink" title="它可能取5个值。具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下。"></a>它可能取5个值。具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下。</h4><pre><code>* flex-start：交叉轴的起点对齐。
+* flex-end：交叉轴的终点对齐。
+* center：交叉轴的中点对齐。
+* baseline: 项目的第一行文字的基线对齐。
+* stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。
+</code></pre><h3 id="3-6-align-content属性"><a href="#3-6-align-content属性" class="headerlink" title="3.6 align-content属性"></a>3.6 align-content属性</h3><hr>
+<h4 id="align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。"><a href="#align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。" class="headerlink" title="align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。"></a><code>align-content</code>属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</h4><pre><code>.box {
+    align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+}
+</code></pre><p><img src="http://a3.qpic.cn/psb?/V11KiFfB3TEN6V/C5201eBm*G1y2LjIt.sWQ7KePFIJFgCspC8PEBJ.QMs!/b/dHABAAAAAAAA&amp;bo=bAISA2wCEgMDACU!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h4 id="该属性可能取6个值。"><a href="#该属性可能取6个值。" class="headerlink" title="该属性可能取6个值。"></a>该属性可能取6个值。</h4><pre><code>* flex-start：与交叉轴的起点对齐。
+* flex-end：与交叉轴的终点对齐。
+* center：与交叉轴的中点对齐。
+* space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。
+* space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
+* stretch（默认值）：轴线占满整个交叉轴。
+</code></pre><h3 id="四、项目的属性"><a href="#四、项目的属性" class="headerlink" title="四、项目的属性"></a>四、项目的属性</h3><hr>
+<h4 id="以下6个属性设置在项目上。"><a href="#以下6个属性设置在项目上。" class="headerlink" title="以下6个属性设置在项目上。"></a>以下6个属性设置在项目上。</h4><pre><code>* order
+* flex-grow
+* flex-shrink
+* flex-basis
+* flex
+* align-self
+</code></pre><h3 id="4-1-order属性"><a href="#4-1-order属性" class="headerlink" title="4.1 order属性"></a>4.1 order属性</h3><hr>
+<h4 id="order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。"><a href="#order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。" class="headerlink" title="order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。"></a><code>order</code>属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</h4><pre><code>.item {
+    order: &lt;integer&gt;;
+}
+</code></pre><p><img src="http://a3.qpic.cn/psb?/V11KiFfB3TEN6V/OT1Bb*OyKFRjnD5UF46VUn6GK.IlNh0h*pmOU9Q5IMc!/b/dAoBAAAAAAAA&amp;bo=7wLgAe8C4AEDACU!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h3 id="4-2-flex-grow属性"><a href="#4-2-flex-grow属性" class="headerlink" title="4.2 flex-grow属性"></a>4.2 flex-grow属性</h3><hr>
+<h4 id="flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。"><a href="#flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。" class="headerlink" title="flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。"></a><code>flex-grow</code>属性定义项目的放大比例，默认为<code>0</code>，即如果存在剩余空间，也不放大。</h4><pre><code>.item {
+    flex-grow: &lt;number&gt;; /* default 0 */
+}
+</code></pre><p><img src="http://a1.qpic.cn/psb?/V11KiFfB3TEN6V/SDVztqTn6HOovanx59X8vuEC3McOMXQZeqUvJtK.lU4!/b/dOQAAAAAAAAA&amp;bo=IgPTACID0wADACU!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h4 id="如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。"><a href="#如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。" class="headerlink" title="如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。"></a>如果所有项目的<code>flex-grow</code>属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的<code>flex-grow</code>属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。</h4><h3 id="4-3-flex-shrink属性"><a href="#4-3-flex-shrink属性" class="headerlink" title="4.3 flex-shrink属性"></a>4.3 flex-shrink属性</h3><hr>
+<h4 id="flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。"><a href="#flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。" class="headerlink" title="flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。"></a><code>flex-shrink</code>属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</h4><pre><code>.item {
+    flex-shrink: &lt;number&gt;; /* default 1 */
+}
+</code></pre><p><img src="http://a2.qpic.cn/psb?/V11KiFfB3TEN6V/*Dy7.njZdNmyPGACgpS5F7mSmAEQfBKVaqzD7G6eN30!/b/dI0BAAAAAAAA&amp;bo=vAKRALwCkQAFACM!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h4 id="如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。"><a href="#如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。" class="headerlink" title="如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。"></a>如果所有项目的<code>flex-shrink</code>属性都为1，当空间不足时，都将等比例缩小。如果一个项目的<code>flex-shrink</code>属性为0，其他项目都为1，则空间不足时，前者不缩小。</h4><h4 id="负值对该属性无效。"><a href="#负值对该属性无效。" class="headerlink" title="负值对该属性无效。"></a>负值对该属性无效。</h4><h3 id="4-4-flex-basis属性"><a href="#4-4-flex-basis属性" class="headerlink" title="4.4 flex-basis属性"></a>4.4 flex-basis属性</h3><hr>
+<h4 id="flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main-size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。"><a href="#flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main-size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。" class="headerlink" title="flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。"></a><code>flex-basis</code>属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为<code>auto</code>，即项目的本来大小。</h4><pre><code>.item {
+    flex-basis: &lt;length&gt; | auto; /* default auto */
+}
+</code></pre><h4 id="它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。"><a href="#它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。" class="headerlink" title="它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。"></a>它可以设为跟<code>width</code>或<code>height</code>属性一样的值（比如350px），则项目将占据固定空间。</h4><h3 id="4-5-flex属性"><a href="#4-5-flex属性" class="headerlink" title="4.5 flex属性"></a>4.5 flex属性</h3><hr>
+<h4 id="flex属性是flex-grow-flex-shrink和flex-basis的简写，默认值为0-1-auto。后两个属性可选。"><a href="#flex属性是flex-grow-flex-shrink和flex-basis的简写，默认值为0-1-auto。后两个属性可选。" class="headerlink" title="flex属性是flex-grow, flex-shrink和flex-basis的简写，默认值为0 1 auto。后两个属性可选。"></a><code>flex</code>属性是<code>flex-grow</code>, <code>flex-shrink</code>和<code>flex-basis</code>的简写，默认值为<code>0 1 auto</code>。后两个属性可选。</h4><pre><code>.item {
+    flex: none | [ &lt;&apos;flex-grow&apos;&gt; &lt;&apos;flex-shrink&apos;&gt;? || &lt;&apos;flex-basis&apos;&gt; ]
+}
+</code></pre><h4 id="该属性有两个快捷值：auto-1-1-auto-和none-0-0-auto-。"><a href="#该属性有两个快捷值：auto-1-1-auto-和none-0-0-auto-。" class="headerlink" title="该属性有两个快捷值：auto(1 1 auto)和none(0 0 auto)。"></a>该属性有两个快捷值：<code>auto</code>(<code>1 1 auto</code>)和<code>none</code>(<code>0 0 auto</code>)。</h4><h4 id="建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。"><a href="#建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。" class="headerlink" title="建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。"></a>建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。</h4><h3 id="4-6-align-self属性"><a href="#4-6-align-self属性" class="headerlink" title="4.6 align-self属性"></a>4.6 align-self属性</h3><hr>
+<h4 id="align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。"><a href="#align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。" class="headerlink" title="align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。"></a><code>align-self</code>属性允许单个项目有与其他项目不一样的对齐方式，可覆盖<code>align-items</code>属性。默认值为<code>auto</code>，表示继承父元素的<code>align-items</code>属性，如果没有父元素，则等同于<code>stretch</code>。</h4><pre><code>.item {
+    align-self: auto | flex-start | flex-end | center | baseline | stretch;
+}
+</code></pre><p><img src="http://a1.qpic.cn/psb?/V11KiFfB3TEN6V/jzL9sXJYWbTPtNOH3l68sV*EuUkfK747nvfolTfopec!/b/dHcBAAAAAAAA&amp;bo=5wKGAecChgEDACU!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h4 id="该属性可能取6个值，除了auto，其他都与align-items属性完全一致。"><a href="#该属性可能取6个值，除了auto，其他都与align-items属性完全一致。" class="headerlink" title="该属性可能取6个值，除了auto，其他都与align-items属性完全一致。"></a>该属性可能取6个值，除了auto，其他都与align-items属性完全一致。</h4>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-flex/">css flex</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" style="margin-left: 30px;margin-right: 30px;" data-thread-key="post-flex-box弹性盒子布局" data-title="flex-box弹性盒子布局" data-url="undefined"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"wendypoppy"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+  
+    <article id="post-CSS-hack" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/21/CSS-hack/" class="article-date">
+  	<time datetime="2016-08-21T08:36:49.000Z" itemprop="datePublished">2016-08-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/21/CSS-hack/">
+        CSS-hack
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="hack"><a href="#hack" class="headerlink" title="hack"></a>hack</h2><hr>
+<p>之前一直很狭隘的对CSS hack持有偏见，觉得写得规范的代码不应该使用这些“邪门歪道”，可最近产品发布一个小问题却让我头疼了很久，最后查了一下资料，竟然使用CSS hack轻松解决了，不得不服啊，对付神奇的IE就得使用这些利器。</p>
+<h3 id="什么是CSS-hack"><a href="#什么是CSS-hack" class="headerlink" title="什么是CSS hack"></a>什么是CSS hack</h3><p>由于不同的浏览器，甚至同一浏览器的不同版本对CSS的解析认识不一样，导致生成的页面效果不一致，写出针对不同浏览器CSS code就称为CSS hack。</p>
+<p>常用的CSS hack 有三种方式，CSS 内部hack、选择器hack、HTML 头部引用，其中第一种最常用。</p>
+<h3 id="CSS-内部hack"><a href="#CSS-内部hack" class="headerlink" title="CSS 内部hack"></a>CSS 内部hack</h3><p>正经的CSS是这么写的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;title&gt;Test&lt;/title&gt;</div><div class="line">        &lt;style type=&quot;text/css&quot; &gt;</div><div class="line">            .test</div><div class="line">            &#123;</div><div class="line">                background-color:green;</div><div class="line">            &#125;</div><div class="line">        &lt;/style&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt;</div><div class="line">        &lt;div class=&quot;test&quot; style=&quot;height:100px; width:100px; line-height:100px; margin:50px; border:1px solid #000;&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;html&gt;</div></pre></td></tr></table></figure>
+<p>这样的代码对于所有当前常用的浏览器都是好使的，结果应该是这样子的</p>
+<p><img src="http://a1.qpic.cn/psb?/V11KiFfB3TEN6V/lralbNY2yS*6h0709Vmtwip8uxeL97LHzgVlc0se4g4!/b/dAsBAAAAAAAA&amp;bo=5gC.AAAAAAADAH0!&amp;rf=viewer_4" alt="Mou icon"></p>
+<p>但是在CSS3中常见一些这样的写法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">/*Mozilla内核浏览器：firefox3.5+*/</div><div class="line">  -moz-transform: rotate | scale | skew | translate ;</div><div class="line"> /*Webkit内核浏览器：Safari and Chrome*/</div><div class="line">  -webkit-transform: rotate | scale | skew | translate ;</div><div class="line"> /*Opera*/</div><div class="line">  -o-transform: rotate | scale | skew | translate ;</div><div class="line"> /*IE9*/</div><div class="line">  -ms-transform: rotate | scale | skew | translate ;</div><div class="line"> /*W3C标准*/</div><div class="line">  transform: rotate | scale | skew | translate ;</div></pre></td></tr></table></figure>
+<p>如果没有注释乍一看还以为逆天了，这样的代码都好使！这样的代码确实好使，CSS3目前标准还没有统一，各个浏览器都有自己的表现方式，甚至有的实现，有的未实现，在前面加一些前缀以表示支持某个特定浏览器，这也是CSS 内部hack的基本原理，向上面这些简单易懂，但是真正的CSS hack 远远不止于此，因为有不死的IE6及其各种奇葩的兄弟版本。</p>
+<p>CSS 内部hack 语法是这样的 selector{<hack>?property:value<hack>?;} ，上面代码所示的是在属性名称之前的hack，当然还有这样的</hack></hack></p>
+<pre><code>*background-color:green;
+</code></pre><p>属性前面加个“*”这样的写法只会对IE6、7生效，其它版本IE及现代浏览器会忽略这条指令（没有特殊说明，本文所有hack都是指在声明了DOCTYPE的文档的效果）</p>
+<pre><code>-background-color:green;
+</code></pre><p>属性前面有个“-”这样的只有IE6识别，还有些在后面的hack</p>
+<pre><code>background-color:green!important;
+</code></pre><p>这样在属性值后面添加“!important”的写法只有IE6不能识别，其它版本IE及现代浏览器都可以识别，还有“+”、“\0”、”\9” 等，乱七八糟好烦，画个表</p>
+<table>
+<thead>
+<tr>
+<th>hack</th>
+<th>IE6</th>
+<th>IE7</th>
+<th>IE8</th>
+<th>IE9</th>
+<th>IE10</th>
+<th>现代浏览器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td>👍</td>
+<td>👍</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>+</td>
+<td></td>
+<td>👍</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>-</td>
+<td>👍</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>!important</td>
+<td></td>
+<td>👍</td>
+<td>👍</td>
+<td>👍</td>
+<td>👍</td>
+<td>👍</td>
+</tr>
+<tr>
+<td>\9</td>
+<td>👍</td>
+<td>👍</td>
+<td>👍</td>
+<td>👍</td>
+<td>👍</td>
+<td></td>
+</tr>
+<tr>
+<td>\0</td>
+<td></td>
+<td></td>
+<td>👍</td>
+<td>👍</td>
+<td>👍</td>
+<td></td>
+</tr>
+<tr>
+<td>\9\0</td>
+<td></td>
+<td></td>
+<td></td>
+<td>👍</td>
+<td>👍</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>这样就清楚多了吧。如果只想给上面的test DIV在IE访问的时候加绿色背景，就可以这么写</p>
+<pre><code>background-color:green\9;
+</code></pre><p>如果想IE6红色，IE7绿色，其它黄色（当然没人这么无聊）就可以这么写</p>
+<pre><code>background-color:green;
++background-color:green;
+_background-color:green;
+</code></pre><h3 id="选择器hack"><a href="#选择器hack" class="headerlink" title="选择器hack"></a>选择器hack</h3><p>选择器hanck主要是针对IE浏览器，其实并不怎么常用，语法是这样的：<hack> selector{ sRules }</hack></p>
+<table>
+<thead>
+<tr>
+<th>hack</th>
+<th>IE6</th>
+<th>IE7</th>
+<th>IE8</th>
+<th>IE9</th>
+<th>IE10</th>
+<th>现代浏览器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*html</td>
+<td>👍</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>*+html</td>
+<td></td>
+<td>👍</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>:root</td>
+<td></td>
+<td></td>
+<td></td>
+<td>👍</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>针对IE9的hack可以这么写</p>
+<pre><code>:root .test
+{
+    background-color:green;
+}
+</code></pre><h3 id="HTML头部引用"><a href="#HTML头部引用" class="headerlink" title="HTML头部引用"></a>HTML头部引用</h3><p>HTML头部引用就比较特殊了，类似于程序语句，只能使用在HTML文件里，而不能在CSS文件中使用，并且只有在IE浏览器下才能执行，这个代码在非IE浏览下非单不是执行该条件下的定义，而是当做注释视而不见。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;!– 默认先调用css.css样式表 –&gt;</div><div class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css.css&quot; /&gt;</div><div class="line">&lt;!–[if IE 7]&gt;</div><div class="line">&lt;!– 如果IE浏览器版是7,调用ie7.css样式表 –&gt;</div><div class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;ie7.css&quot; /&gt;</div><div class="line">&lt;![endif]–&gt;</div><div class="line">&lt;!–[if lte IE 6]&gt;</div><div class="line">&lt;!– 如果IE浏览器版本小于等于6,调用ie.css样式表 –&gt;</div><div class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;ie.css&quot; /&gt;</div><div class="line">&lt;![endif]–&gt;</div></pre></td></tr></table></figure>
+<p>lte：就是Less than or equal to的简写，也就是小于或等于的意思。</p>
+<p>lt ：就是Less than的简写，也就是小于的意思。</p>
+<p>gte：就是Greater than or equal to的简写，也就是大于或等于的意思。</p>
+<p>gt ：就是Greater than的简写，也就是大于的意思。</p>
+<p>! ：就是不等于的意思，跟<code>javascript</code>里的不等于判断符相同。</p>
+<h5 id="书写顺序"><a href="#书写顺序" class="headerlink" title="书写顺序"></a>书写顺序</h5><p>看看，看看，这么多姿势，那么一个效果，好多种写法，什么顺序写才能保证各个浏览器都得到希望的效果呢？因为CSS只要是同一级别，出现重复属性设置，后出现的会覆盖前面出现的，所以在书写的时候一般把识别能力强的写前面，看个例子</p>
+<pre><code>_background-color:red;
+background-color:green;
+</code></pre><p>如果希望DIV在IE6上是红色，其它是绿色，上面的写法可不可以呢？试一下发现所有浏览器上都是绿色，因为在IE6解析的时候，第一句能够识别，背景设为红色，但是第二句所有浏览器都识别，IE6也不例外，背景颜色又被设为绿色，所以得反过来写</p>
+<pre><code>background-color:green;
+_background-color:red;
+</code></pre><p>总结出的规律就是：先一般，再特殊。有兴趣的同学可以试试试试下面CSS，看看和你想的效果是否一样</p>
+<pre><code>background-color:blue; /*所有浏览器*/
+background-color:red\9;/*所有的ie*/
+background-color:yellow\0; /* ie8+*/
++background-color:pink; /*+ ie7*/
+</code></pre><p>作者：Samaritans</p>
+<p>来自：<a href="http://www.cnblogs.com/dolphinX/p/3292630.html" target="_blank" rel="external">http://www.cnblogs.com/dolphinX/p/3292630.html</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" style="margin-left: 30px;margin-right: 30px;" data-thread-key="post-CSS-hack" data-title="CSS-hack" data-url="undefined"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"wendypoppy"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+  
+    <article id="post-函数的梳理" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/21/函数的梳理/" class="article-date">
+  	<time datetime="2016-08-21T08:31:02.000Z" itemprop="datePublished">2016-08-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/21/函数的梳理/">
+        函数的梳理
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="函数表达式的基本语法形式"><a href="#函数表达式的基本语法形式" class="headerlink" title="函数表达式的基本语法形式"></a>函数表达式的基本语法形式</h2><pre><code>var functionName = function(arguments){
+    //函数体
+}
+</code></pre><h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><hr>
+<p>我们通过例子来一步步说明，递归的最佳实现方式。下面是普通递归调用的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// 阶乘的递归函数</div><div class="line">var factorial = function(num)&#123;</div><div class="line">  if(num &lt;= 1)&#123;</div><div class="line">    return 1;</div><div class="line">  &#125;else &#123;</div><div class="line">    return num * factorial(num-1);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">console.log(factorial(3)); //6</div></pre></td></tr></table></figure>
+<p>我们来看一下这种情况：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 赋给一个变量</div><div class="line">var anotherFactorial = factorial;</div><div class="line">factorial = null;</div><div class="line"></div><div class="line">// 调用递归函数</div><div class="line">console.log(anotherFactorial(3));</div></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<pre><code>TypeError: factorial is not a function
+</code></pre><p>这里提示错误，说factorial不是一个函数，因为我们已经把factorial设置为null，而在执行<strong>anotherFactorial(3)</strong>时，是通过<strong>factorial(num-1)</strong>来递归调用的，所以就报错，因为已经把factorial设置为null。</p>
+<p><strong>解决的策略就是使递归调用的函数内部不要出现外部定义的函数名。</strong></p>
+<p>我们可以通过<strong>命名表达式</strong>来实现（注意括号的使用）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var factorial = (function f(num)&#123;</div><div class="line">  if(num &lt;= 1)&#123;</div><div class="line">    return num;</div><div class="line">  &#125;else &#123;</div><div class="line">    return num * f(num-1);</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">console.log(factorial(3)); //6</div><div class="line"></div><div class="line">var anotherFactorial = factorial;</div><div class="line">factorial = null;</div><div class="line"></div><div class="line">console.log(anotherFactorial(3)); //6</div></pre></td></tr></table></figure>
+<h2 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h2><hr>
+<pre><code>匿名函数：function后面没有跟着函数名的函数
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var functionName = function(arguments)&#123;</div><div class="line">  //函数体</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="当然匿名函数也可以不要赋值给变量："><a href="#当然匿名函数也可以不要赋值给变量：" class="headerlink" title="当然匿名函数也可以不要赋值给变量："></a>当然匿名函数也可以不要赋值给变量：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(function(num)&#123;</div><div class="line">  console.log(num+1);</div><div class="line">&#125;)(3);</div></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<pre><code>4
+</code></pre><h5 id="匿名函数也可以作为函数返回："><a href="#匿名函数也可以作为函数返回：" class="headerlink" title="匿名函数也可以作为函数返回："></a>匿名函数也可以作为函数返回：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function person()&#123;</div><div class="line">  return function()&#123;</div><div class="line">    console.log(&quot;TabWeng&quot;);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">person()();</div></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<pre><code>TabWeng
+</code></pre><p>对于<strong>person()()</strong>，有些人不太理解，其实不难理解，这里解释一下：</p>
+<p>首先来看一下<strong>person()</strong>，我们是不是得到一个返回的匿名函数<strong>function(){console.log(“TabWeng”);}</strong>，既然我们得到了一个函数，对于函数的调用，是不是给它的尾部加一个括号就可以了，所以就写成<strong>person()()</strong>。</p>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><hr>
+<pre><code>闭包：有权访问另一个函数作用域的函数
+</code></pre><p>匿名函数是<strong>function</strong>后面没有跟着函数名的函数，和闭包的定义不同，尽管这两个称呼经常说的是同一个函数，但是根据功能的不同，应该加以区分。</p>
+<p>如果你理解作用域链，那么闭包就非常好理解。通过闭包的这种特性，我们可以来实现<strong>JavaScript</strong>的很多模式，更加灵活的运用<strong>JavaScript</strong>。</p>
+<p>如果要访问一个函数的作用域，我们可以在函数里面创建一个闭包，对于闭包而言，被访问的函数处在闭包作用域链的第二层（从前端到终端的顺序），而作用域链的指针指向的是整个活动对象。</p>
+<p>有一个典型的例子不得不讲：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function printNum()&#123;</div><div class="line"></div><div class="line">  var nums = [];</div><div class="line">  for(var i = 0; i &lt; 3; i++)&#123;</div><div class="line">    nums[i] = function()&#123;</div><div class="line">      return i;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  for(var j = 0; j &lt; nums.length; j++)&#123;</div><div class="line">    console.log(nums[j]());</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">printNum();</div></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<pre><code>3
+3
+3
+</code></pre><p>为什么会得到这样的结果，存在两个疑问：</p>
+<ol>
+<li>为什么结果是3？不应该是2吗？</li>
+<li>为什么结果都是3？<br>我们先来分析一下出现的原因：</li>
+</ol>
+<p>首先针对问题2，在闭包里面有<code>return i;</code>，而在闭包中，i是没有定义的，根据作用域链，会向上一层作用域链寻找i，在上一层中我们发现了i，我们是通过寻找上一层的活动对象来找到i的，既然是活动对象，里面的数值就是最终的值，所有此时的i已经是最终的值3了，我获得的i就是最终的值3。因此打印出来每个结果都是3。</p>
+<p>知道了问题2出现的原因，那么问题1也就是自然明了，在for循环中，i加到等于3，通过<code>i&lt;3</code>,使i没有进入for循环的里面，尽管 i==3 没有进入for循环，但是闭包在获取i的时候，获取的就是i的最后一个值3。</p>
+<p>通过<strong>立即执行函数</strong>来解决这个问题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function printNum()&#123;</div><div class="line"></div><div class="line">  var nums = [];</div><div class="line">  for(var i = 0; i &lt; 3; i++)&#123;</div><div class="line">    nums[i] = function(num)&#123;</div><div class="line">      return num;</div><div class="line">    &#125;(i);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  for(var j = 0; j &lt; nums.length; j++)&#123;</div><div class="line">    console.log(nums[j]);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">printNum();</div></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<pre><code>0
+1
+2
+</code></pre><h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><hr>
+<p>使用闭包时，因为闭包的作用域链会引用活动对象，使这个活动对象无法被回收（内存），而如果这个引用一直存在，那么内存将一直无法得到释放。通常的解决方法是解除这个引用。（解除引用的方法很多，主要是要有这个性能优化的思想，知道存在的问题）。</p>
+<h2 id="闭包的运用"><a href="#闭包的运用" class="headerlink" title="闭包的运用"></a>闭包的运用</h2><hr>
+<pre><code>(function(){
+    //私有作用域
+})();
+</code></pre><p>看这块代码，之所以称为私有，通过作用域链我们可以知道，外部不能访问里面。</p>
+<p>而通过闭包可以实现提供公有方法而使外部能对私有变量进行访问。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function Person(name)&#123;</div><div class="line">  var name = name;</div><div class="line">  var sayName = function()&#123;</div><div class="line">    console.log(name);</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  this.publicSayName = function()&#123;</div><div class="line">    console.log(&quot;我访问了name这个属性了：&quot;+name);</div><div class="line">    sayName();</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var p1 = new Person(&quot;TabWeng&quot;);</div><div class="line">p1.publicSayName();</div></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<pre><code>我访问了name这个属性了：TabWeng
+TabWeng
+</code></pre><p>这块代码也可以这样写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function Person(name)&#123;</div><div class="line">  var name = name;</div><div class="line">  var sayName = function()&#123;</div><div class="line">    console.log(name);</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  return function()&#123;</div><div class="line">    console.log(&quot;我访问了name这个属性了：&quot;+name);</div><div class="line">    sayName();</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var p1 = new Person(&quot;TabWeng&quot;);</div><div class="line">p1();</div></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<pre><code>我访问了name这个属性了：TabWeng
+TabWeng
+</code></pre><p>通过返回的匿名函数获得私有变量。</p>
+<p>当然，也可以这样写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">function Person(name)&#123;</div><div class="line">  var name = name;</div><div class="line">  var sayName = function()&#123;</div><div class="line">    console.log(name);</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  return &#123;</div><div class="line">    printString:&quot;我访问了name这个属性了：&quot;+name,</div><div class="line">    sayName:sayName,</div><div class="line">    publicMethod:function()&#123;</div><div class="line">      sayName();</div><div class="line">    &#125;</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var p1 = new Person(&quot;TabWeng&quot;);</div><div class="line">console.log(p1.printString);</div><div class="line">p1.sayName();</div><div class="line">p1.publicMethod();</div></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<pre><code>我访问了name这个属性了：TabWeng
+TabWeng
+TabWeng
+</code></pre><p>这就是模块模式，返回的是一个对象，尽管是对象字面量的形式，也可以得到私有变量。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" style="margin-left: 30px;margin-right: 30px;" data-thread-key="post-函数的梳理" data-title="函数的梳理" data-url="undefined"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"wendypoppy"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
+  
+    <article id="post-图片的懒加载" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/18/图片的懒加载/" class="article-date">
+  	<time datetime="2016-08-18T08:24:14.000Z" itemprop="datePublished">2016-08-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/18/图片的懒加载/">
+        图片的懒加载
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="懒加载的意义（在线demo预览）"><a href="#懒加载的意义（在线demo预览）" class="headerlink" title="懒加载的意义（在线demo预览）"></a>懒加载的意义<a href="http://wjf444128852.github.io/sumDemos/imgLazyload/index.html" target="_blank" rel="external">（在线demo预览）</a></h2><p>尽管很多公司的网页都有一些限制，比如页面的最大的图片大小不得大于50k,也有很多图片优化工具fis3、gulp等等，但是如果图片太多还是会影响页面的加载速度，快则几十秒慢则几十分钟，这样会导致用户流失。</p>
+<p>图片的加载对页面的加载速度有很大影响！！所以，对于图片过多的页面，为了加速页面加载速度，所以很多时候我们需要将页面内未出现在可视区域内的图片先不做加载， 等到滚动到可视区域后再去加载。这样子对于页面加载性能上会有很大的提升，也提高了用户体验，即图片赖加载~</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>将页面中的img标签src指向一张小图片或者src为空，然后定义data-src（这个属性可以自定义命名，我才用data-src）属性指向真实的图片。</p>
+<p>当载入页面时，先把可视区域内的img标签的data-src属性值负给src，然后监听滚动事件，把用户即将看到的图片加载。这样便实现了懒加载。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;图片赖加载&lt;/title&gt;</div><div class="line">    &lt;meta name=&quot;renderer&quot; content=&quot;webkit&quot;&gt;</div><div class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0&quot;&gt;</div><div class="line">    &lt;!-- 启用webAPP全屏模式--&gt;</div><div class="line">    &lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;</div><div class="line">    &lt;!-- 隐藏状态栏或者设置状态栏的颜色--&gt;</div><div class="line">    &lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black&quot;&gt;</div><div class="line">    &lt;!-- 忽略数字自动识别为电话号码--&gt;</div><div class="line">    &lt;meta name=&quot;format-detection&quot; content=&quot;telephone=no&quot;&gt;</div><div class="line">    &lt;!--控制缓存的失效日期 --&gt;</div><div class="line">    &lt;meta http-equiv=&quot;Expires&quot; content=&quot;-1&quot;&gt;</div><div class="line">    &lt;!-- 禁止转码--&gt;</div><div class="line">    &lt;meta http-equiv=&quot;Cache-Control&quot; content=&quot;no-cache&quot;&gt;</div><div class="line">    &lt;!-- 禁止缓存访问页面--&gt;</div><div class="line">    &lt;meta http-equiv=&quot;Pragma&quot; content=&quot;no-cache&quot;&gt;</div><div class="line">    &lt;meta name=&quot;applicable-device&quot; content=&quot;mobile&quot;&gt;</div><div class="line">    &lt;!-- 页面关键词--&gt;</div><div class="line">    &lt;meta content=&quot;&quot; name=&quot;keywords&quot;&gt;</div><div class="line">    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;</div><div class="line">    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/img_lazy.css&quot;&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;div class=&quot;main&quot;&gt;</div><div class="line">        &lt;img src=&quot;&quot; data-src=&quot;images/1.jpg&quot; alt=&quot;&quot;&gt;</div><div class="line">        &lt;img src=&quot;&quot; data-src=&quot;images/2.jpg&quot; alt=&quot;&quot;&gt;</div><div class="line">        &lt;img src=&quot;&quot; data-src=&quot;images/3.jpg&quot; alt=&quot;&quot;&gt;</div><div class="line">        &lt;img src=&quot;&quot; data-src=&quot;images/4.jpg&quot; alt=&quot;&quot;&gt;</div><div class="line">        &lt;img src=&quot;&quot; data-src=&quot;images/5.jpg&quot; alt=&quot;&quot;&gt;</div><div class="line">        &lt;img src=&quot;&quot; data-src=&quot;images/6.jpg&quot; alt=&quot;&quot;&gt;</div><div class="line">        &lt;img src=&quot;&quot; data-src=&quot;images/7.jpg&quot; alt=&quot;&quot;&gt;</div><div class="line">        &lt;img src=&quot;&quot; data-src=&quot;images/8.jpg&quot; alt=&quot;&quot;&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;!--图片赖加载的JS--&gt;</div><div class="line">    &lt;script src=&quot;js/imgLazyLoad.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">*&#123;</div><div class="line">    margin: 0;</div><div class="line">    padding: 0;</div><div class="line">    box-sizing: border-box;</div><div class="line">    list-style: none;</div><div class="line">    border: 0;</div><div class="line">    outline: 0;</div><div class="line">&#125;</div><div class="line">.main&#123;</div><div class="line">    max-width: 640px;</div><div class="line">    width: 100%;</div><div class="line">    margin: 0 auto;</div><div class="line">&#125;</div><div class="line">img&#123;</div><div class="line">    display: block;</div><div class="line">    width: 100%;</div><div class="line">    height: 640px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Created by Administrator on 2016/11/28.</div><div class="line"> */</div><div class="line">!function()&#123;</div><div class="line">    var imgs = document.getElementsByTagName(&quot;img&quot;);</div><div class="line">    var num = imgs.length;</div><div class="line">    var n = 0; //存储图片加载到的位置，避免每次都从第一张图片开始遍历</div><div class="line">    lazyload(); //页面载入完毕加载可是区域内的图片</div><div class="line">    window.onscroll = lazyload;</div><div class="line">    function lazyload() &#123; //监听页面滚动事件</div><div class="line">        var seeHeight = document.documentElement.clientHeight; //可见区域高度</div><div class="line">        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop; //滚动条距离顶部高度</div><div class="line">        for (var i = n; i &lt; num; i++) &#123;</div><div class="line">            if (imgs[i].offsetTop &lt; seeHeight + scrollTop) &#123;</div><div class="line">                if (imgs[i].getAttribute(&quot;src&quot;) == &quot;&quot;) &#123;</div><div class="line">                    imgs[i].src = imgs[i].getAttribute(&quot;data-src&quot;);</div><div class="line">                &#125;</div><div class="line">                n = i + 1;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;();</div></pre></td></tr></table></figure>
+<p>将页面中的img标签src指向一张小图片或者src为空，然后定义data-src（这个属性可以自定义命名，我才用data-src）属性指向真实的图片。</p>
+<p>当载入页面时，先把可视区域内的img标签的data-src属性值负给src，然后监听滚动事件，把用户即将看到的图片加载。这样便实现了懒加载。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" style="margin-left: 30px;margin-right: 30px;" data-thread-key="post-图片的懒加载" data-title="图片的懒加载" data-url="undefined"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"wendypoppy"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+
   
     <article id="post-Jade-简单的HTML模板引擎" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -479,532 +1508,10 @@ var duoshuoQuery = {short_name:"wendypoppy"};
 
 
   
-    <article id="post-chat" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2016/07/28/chat/" class="article-date">
-  	<time datetime="2016-07-28T02:22:27.000Z" itemprop="datePublished">2016-07-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/28/chat/">
-        chat
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="基于nodeJs的聊天室"><a href="#基于nodeJs的聊天室" class="headerlink" title="基于nodeJs的聊天室"></a>基于nodeJs的聊天室</h1><p>今天我来实现一个简单的聊天室，后台用nodejs, 客户端与服务端通信用socket.io,这是一个比较成熟的websocket框架.</p>
-<h2 id="初始工作"><a href="#初始工作" class="headerlink" title="初始工作"></a>初始工作</h2><p>安装express, 用这个来托管socket.io,以及静态页面,命令npm install express –save,–save可以使包添加到package.json文件里.</p>
-<pre><code>安装mime，命令npm install mime --save.
-安装socket.io,命令npm install socket.io --save.
-</code></pre><h2 id="编写服务端代码"><a href="#编写服务端代码" class="headerlink" title="编写服务端代码"></a>编写服务端代码</h2><p>首先我们通过express来托管网站，并附加到socket.io实例里，因为socket.io初次连接需要http协议</p>
-<pre><code>var express = require(&apos;express&apos;),
-io = require(&apos;socket.io&apos;);
-var app = express();
-app.use(express.static(__dirname));
-var server = app.listen(8888);
-</code></pre><p>var ws = io.listen(server);<br>添加服务器连接事件，当客户端连接成功之后，发公告告诉所有在线用户，并且，当用户发送消息时，发广播通知其它用户.</p>
-<pre><code>ws.on(&apos;connection&apos;, function(client){
-console.log(&apos;\033[96msomeone is connect\033[39m \n&apos;);
-client.on(&apos;join&apos;, function(msg){
-    // 检查是否有重复
-    if(checkNickname(msg)){
-        client.emit(&apos;nickname&apos;, &apos;昵称有重复!&apos;);
-    }else{
-        client.nickname = msg;
-        ws.sockets.emit(&apos;announcement&apos;, &apos;系统&apos;, msg + &apos; 加入了聊天室!&apos;);
-    }
-});
-// 监听发送消息
-client.on(&apos;send.message&apos;, function(msg){
-    client.broadcast.emit(&apos;send.message&apos;,client.nickname,  msg);
-});
-// 断开连接时，通知其它用户
-client.on(&apos;disconnect&apos;, function(){
-    if(client.nickname){
-        client.broadcast.emit(&apos;send.message&apos;,&apos;系统&apos;,  client.nickname + &apos;离开聊天室!&apos;);
-    }
-})
-
-})
-</code></pre><p>由于客户端是通过昵称来标识的，所以服务端需要一个检测昵称重复的函数</p>
-<pre><code>// 检查昵称是否重复
-var checkNickname = function(name){
-for(var k in ws.sockets.sockets){
-    if(ws.sockets.sockets.hasOwnProperty(k)){
-        if(ws.sockets.sockets[k] &amp;&amp;     ws.sockets.sockets[k].nickname == name){
-            return true;
-        }
-    }
-}
-return false;
-}
-</code></pre><h2 id="编写客户端代码"><a href="#编写客户端代码" class="headerlink" title="编写客户端代码"></a>编写客户端代码</h2><p>由于服务端采用第三方websokcet框架，所以前端页面需要单独引用socket.io客户端代码，源文件可以从socket.io模块里找，windows下路径为node_modules\socket.io\node_modules\socket.io-client\dist.</p>
-<p>前端主要处理输入昵称检查，消息处理，主体代码如下</p>
-<pre><code>&lt;div class=&quot;wrapper&quot;&gt;
-     &lt;div class=&quot;content&quot; id=&quot;chat&quot;&gt;
-         &lt;ul id=&quot;chat_conatiner&quot;&gt;
-         &lt;/ul&gt;
-     &lt;/div&gt;
-     &lt;div class=&quot;action&quot;&gt;
-         &lt;textarea &gt;&lt;/textarea&gt;
-         &lt;button class=&quot;btn btn-success&quot; id=&quot;clear&quot;&gt;清屏&lt;/button&gt;
-         &lt;button class=&quot;btn btn-success&quot; id=&quot;send&quot;&gt;发送&lt;/button&gt;
-     &lt;/div&gt;
-&lt;/div&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;js/socket.io.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-
-      var ws = io.connect(&apos;http://172.16.2.184:8888&apos;);
-      var sendMsg = function(msg){
-          ws.emit(&apos;send.message&apos;, msg);
-      }
-      var addMessage = function(from, msg){
-          var li = document.createElement(&apos;li&apos;);
-          li.innerHTML = &apos;&lt;span&gt;&apos; + from + &apos;&lt;/span&gt;&apos; + &apos; : &apos; + msg;
-          document.querySelector(&apos;#chat_conatiner&apos;).appendChild(li);
-
-          // 设置内容区的滚动条到底部
-          document.querySelector(&apos;#chat&apos;).scrollTop = document.querySelector(&apos;#chat&apos;).scrollHeight;
-
-          // 并设置焦点
-          document.querySelector(&apos;textarea&apos;).focus();
-
-      }
-
-      var send = function(){
-          var ele_msg = document.querySelector(&apos;textarea&apos;);
-          var msg = ele_msg.value.replace(&apos;\r\n&apos;, &apos;&apos;).trim();
-          console.log(msg);
-          if(!msg) return;
-          sendMsg(msg);
-          // 添加消息到自己的内容区
-          addMessage(&apos;你&apos;, msg);
-          ele_msg.value = &apos;&apos;;
-      }
-
-      ws.on(&apos;connect&apos;, function(){
-          var nickname = window.prompt(&apos;输入你的昵称!&apos;);
-          while(!nickname){
-              nickname = window.prompt(&apos;昵称不能为空，请重新输入!&apos;)
-          }
-          ws.emit(&apos;join&apos;, nickname);
-      });
-
-      // 昵称有重复
-      ws.on(&apos;nickname&apos;, function(){
-          var nickname = window.prompt(&apos;昵称有重复，请重新输入!&apos;);
-          while(!nickname){
-              nickname = window.prompt(&apos;昵称不能为空，请重新输入!&apos;)
-          }
-          ws.emit(&apos;join&apos;, nickname);
-      });
-
-      ws.on(&apos;send.message&apos;, function(from, msg){
-          addMessage(from, msg);
-      });
-
-      ws.on(&apos;announcement&apos;, function(from, msg){
-          addMessage(from, msg);
-      });
-
-      document.querySelector(&apos;textarea&apos;).addEventListener(&apos;keypress&apos;, function(event){
-          if(event.which == 13){
-              send();
-          }
-      });
-      document.querySelector(&apos;textarea&apos;).addEventListener(&apos;keydown&apos;, function(event){
-          if(event.which == 13){
-              send();
-          }
-      });
-      document.querySelector(&apos;#send&apos;).addEventListener(&apos;click&apos;, function(){
-          send();
-      });
-
-      document.querySelector(&apos;#clear&apos;).addEventListener(&apos;click&apos;, function(){
-          document.querySelector(&apos;#chat_conatiner&apos;).innerHTML = &apos;&apos;;
-      });
-&lt;/script&gt;
-</code></pre><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>nodejs是一个好东西，尤其是在处理消息通讯，网络编程方面，天生的异步IO.</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NodeJS-socket-io/">NodeJS socket.io</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-<!-- 多说评论框 start -->
-  <div class="ds-thread" style="margin-left: 30px;margin-right: 30px;" data-thread-key="post-chat" data-title="chat" data-url="undefined"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"wendypoppy"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
-  
-    <article id="post-gulp" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/20/gulp/" class="article-date">
-  	<time datetime="2016-07-20T02:31:43.000Z" itemprop="datePublished">2016-07-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/20/gulp/">
-        gulp
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="入门指南"><a href="#入门指南" class="headerlink" title="入门指南"></a>入门指南</h1><h3 id="1-全局安装："><a href="#1-全局安装：" class="headerlink" title="1.全局安装："></a>1.全局安装：</h3><pre><code>$ npm install --g gulp
-</code></pre><h3 id="2-作为项目的开发依赖-devDependencies-安装："><a href="#2-作为项目的开发依赖-devDependencies-安装：" class="headerlink" title="2.作为项目的开发依赖(devDependencies)安装："></a>2.作为项目的开发依赖(devDependencies)安装：</h3><pre><code>$ npm install --save-dev gulp
-</code></pre><h3 id="3-在项目根目录下创建一个名为gulpfile-js的文件："><a href="#3-在项目根目录下创建一个名为gulpfile-js的文件：" class="headerlink" title="3.在项目根目录下创建一个名为gulpfile.js的文件："></a>3.在项目根目录下创建一个名为gulpfile.js的文件：</h3><pre><code>var gulp = require(&apos;gulp&apos;);
-gulp.task(&apos;default&apos;,function(){
-    // 将你的默认的任务代码放在这
-});
-</code></pre><h3 id="4-运行gulp"><a href="#4-运行gulp" class="headerlink" title="4.运行gulp:"></a>4.运行gulp:</h3><pre><code>$ gulp
-</code></pre><h3 id="默认的名为-default-的任务（task）将会被运行，在这里，这个任务并未做任何事情。想要单独执行特定的任务（task），请输入-gulp-lt-task-gt-lt-othertask-gt-。"><a href="#默认的名为-default-的任务（task）将会被运行，在这里，这个任务并未做任何事情。想要单独执行特定的任务（task），请输入-gulp-lt-task-gt-lt-othertask-gt-。" class="headerlink" title="默认的名为 default 的任务（task）将会被运行，在这里，这个任务并未做任何事情。想要单独执行特定的任务（task），请输入 gulp  &lt; task &gt; &lt; othertask &gt;。"></a>默认的名为 default 的任务（task）将会被运行，在这里，这个任务并未做任何事情。想要单独执行特定的任务（task），请输入 gulp  &lt; task &gt; &lt; othertask &gt;。</h3>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gulp/">gulp</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-<!-- 多说评论框 start -->
-  <div class="ds-thread" style="margin-left: 30px;margin-right: 30px;" data-thread-key="post-gulp" data-title="gulp" data-url="undefined"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"wendypoppy"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
-  
-    <article id="post-多说评论" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/16/多说评论/" class="article-date">
-  	<time datetime="2016-07-16T03:22:11.000Z" itemprop="datePublished">2016-07-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/16/多说评论/">
-        多说评论
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="添加多说评论"><a href="#添加多说评论" class="headerlink" title="添加多说评论"></a>添加多说评论</h1><h3 id="之前用github-hexo-git搭建了一个自己的个人博客，今天给大家分享如何给自己的博客添加评论功能，Let’s-begin"><a href="#之前用github-hexo-git搭建了一个自己的个人博客，今天给大家分享如何给自己的博客添加评论功能，Let’s-begin" class="headerlink" title="之前用github+hexo+git搭建了一个自己的个人博客，今天给大家分享如何给自己的博客添加评论功能，Let’s begin~"></a>之前用github+hexo+git搭建了一个自己的个人博客，今天给大家分享如何给自己的博客添加评论功能，Let’s begin~</h3><h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><h4 id="1-首先进入多说评论官网"><a href="#1-首先进入多说评论官网" class="headerlink" title="1.首先进入多说评论官网"></a>1.首先进入<a href="http://duoshuo.com/" target="_blank" rel="external">多说评论官网</a></h4><h4 id="2-点击我要安装"><a href="#2-点击我要安装" class="headerlink" title="2.点击我要安装"></a>2.点击我要安装</h4><p><img src="http://a3.qpic.cn/psb?/V12TKeY71NZZ3s/Pr**DQ3u.oGldLpBcPzJm1BNP9ndu5MUingMAA58eWE!/b/dAoBAAAAAAAA&amp;bo=swKGAQAAAAADBxQ!&amp;rf=viewer_4" alt="Alt text"></p>
-<h4 id="3-创建站点"><a href="#3-创建站点" class="headerlink" title="3.创建站点"></a>3.创建站点</h4><p><img src="http://a2.qpic.cn/psb?/V12TKeY71NZZ3s/KfCPfwJMkIaZuB8H9e*ZHZe0VbtLNsCpKz9ubhH7gfQ!/b/dHIBAAAAAAAA&amp;bo=sgNLAgAAAAADAN0!&amp;rf=viewer_4" alt="Alt text"></p>
-<h4 id="注"><a href="#注" class="headerlink" title="注"></a>注</h4><pre><code>1）站点名称：自己的github用户名
-2）站点地址：个人博客地址
-3）多说域名：自定义写（要记住域名，下面配置时会用到）
-</code></pre><h4 id="4-创建完成后，会生成一段通用代码"><a href="#4-创建完成后，会生成一段通用代码" class="headerlink" title="4.创建完成后，会生成一段通用代码"></a>4.创建完成后，会生成一段通用代码</h4><p><img src="http://a1.qpic.cn/psb?/V12TKeY71NZZ3s/j8uOfmOm5ku8Pjwqd7ZkM*0LdRbNZpmlJ5Ia96k7SKw!/b/dHcBAAAAAAAA&amp;bo=IgMPAgAAAAADAAk!&amp;rf=viewer_4" alt="Alt text"></p>
-<h2 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h2><h4 id="5-进入博客根目录下，打开-config-yml，添加："><a href="#5-进入博客根目录下，打开-config-yml，添加：" class="headerlink" title="5.进入博客根目录下，打开_config.yml，添加："></a>5.进入博客根目录下，打开_config.yml，添加：</h4><pre><code>duoshuo_shortname：你的多说域名(只写你输入的内容)
-</code></pre><h4 id="6-进入themes-landscape-layout-partial-article-ejs-这里的-landscape-是默认的主题名，如果你换了主题，需要替换成自己的主题名"><a href="#6-进入themes-landscape-layout-partial-article-ejs-这里的-landscape-是默认的主题名，如果你换了主题，需要替换成自己的主题名" class="headerlink" title="6.进入themes/landscape/layout/_partial/article.ejs (这里的 landscape 是默认的主题名，如果你换了主题，需要替换成自己的主题名)"></a>6.进入themes/landscape/layout/_partial/article.ejs (这里的 landscape 是默认的主题名，如果你换了主题，需要替换成自己的主题名)</h4><pre><code>把最后一段这个代码
-&lt;% if (!index &amp;&amp; post.comments &amp;&amp; config.disqus_shortname){ %&gt;
-    &lt;section id=&quot;comments&quot;&gt;
-        &lt;div id=&quot;disqus_thread&quot;&gt;
-            &lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;//disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
-        &lt;/div&gt;
-    &lt;/section&gt;
-&lt;% } %&gt;
-替换成第4步的通用代码
-</code></pre><h4 id="7-最后将你复制的通用代码中的-标签，换成下面的"><a href="#7-最后将你复制的通用代码中的-标签，换成下面的" class="headerlink" title="7.最后将你复制的通用代码中的  标签，换成下面的 "></a>7.最后将你复制的通用代码中的 <div> 标签，换成下面的 <div></div></div></h4><pre><code>&lt;!-- 多说评论框 start --&gt;
-&lt;div class=&quot;ds-thread&quot; data-thread-key=&quot;&lt;%= post.layout %&gt;-&lt;%= post.slug %&gt;&quot; data-title=&quot;&lt;%= post.title %&gt;&quot; data-url=&quot;&lt;%= page.permalink %&gt;&quot;&gt;&lt;/div&gt;
-</code></pre><h3 id="大功告成！！快去你的博客看看效果吧"><a href="#大功告成！！快去你的博客看看效果吧" class="headerlink" title="大功告成！！快去你的博客看看效果吧~"></a>大功告成！！快去你的博客看看效果吧~</h3>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-<!-- 多说评论框 start -->
-  <div class="ds-thread" style="margin-left: 30px;margin-right: 30px;" data-thread-key="post-多说评论" data-title="多说评论" data-url="undefined"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"wendypoppy"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
-  
-    <article id="post-MarkDown语法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/14/MarkDown语法/" class="article-date">
-  	<time datetime="2016-07-14T12:00:13.000Z" itemprop="datePublished">2016-07-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/14/MarkDown语法/">
-        MarkDown语法
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-<!-- 多说评论框 start -->
-  <div class="ds-thread" style="margin-left: 30px;margin-right: 30px;" data-thread-key="post-MarkDown语法" data-title="MarkDown语法" data-url="undefined"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"wendypoppy"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/07/12/hello-world/" class="article-date">
-  	<time datetime="2016-07-12T02:31:43.000Z" itemprop="datePublished">2016-07-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/12/hello-world/">
-        Hello World
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-<!-- 多说评论框 start -->
-  <div class="ds-thread" style="margin-left: 30px;margin-right: 30px;" data-thread-key="post-hello-world" data-title="Hello World" data-url="undefined"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"wendypoppy"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-  </script>
-<!-- 多说公共JS代码 end -->
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <footer id="footer">

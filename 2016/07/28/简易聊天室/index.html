@@ -3,28 +3,28 @@
 <head>
   <meta charset="utf-8">
   
-  <title>mongoDB | wendy-poppy</title>
+  <title>chat | wendy-poppy</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、什么是MongoDB？1、MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。在高负载的情况下，添加更多的节点，可以保证服务器的性能。
-2、MongoDB 旨在为WEB应用提供可扩展的高性能数据存储解决方案。
-3、MongoDB 将数据存储为一个文档，数据结构由键值(key=&amp;gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文">
+  <meta name="description" content="基于nodeJs的聊天室今天我来实现一个简单的聊天室，后台用nodejs, 客户端与服务端通信用socket.io,这是一个比较成熟的websocket框架.
+初始工作安装express, 用这个来托管socket.io,以及静态页面,命令npm install express –save,–save可以使包添加到package.json文件里.
+安装mime，命令npm install mime">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mongoDB">
-<meta property="og:url" content="http://yoursite.com/2016/08/10/mongoDB/index.html">
+<meta property="og:title" content="chat">
+<meta property="og:url" content="http://yoursite.com/2016/07/28/简易聊天室/index.html">
 <meta property="og:site_name" content="wendy-poppy">
-<meta property="og:description" content="一、什么是MongoDB？1、MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。在高负载的情况下，添加更多的节点，可以保证服务器的性能。
-2、MongoDB 旨在为WEB应用提供可扩展的高性能数据存储解决方案。
-3、MongoDB 将数据存储为一个文档，数据结构由键值(key=&amp;gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文">
-<meta property="og:updated_time" content="2016-11-16T12:04:57.000Z">
+<meta property="og:description" content="基于nodeJs的聊天室今天我来实现一个简单的聊天室，后台用nodejs, 客户端与服务端通信用socket.io,这是一个比较成熟的websocket框架.
+初始工作安装express, 用这个来托管socket.io,以及静态页面,命令npm install express –save,–save可以使包添加到package.json文件里.
+安装mime，命令npm install mime">
+<meta property="og:updated_time" content="2016-11-16T12:04:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mongoDB">
-<meta name="twitter:description" content="一、什么是MongoDB？1、MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。在高负载的情况下，添加更多的节点，可以保证服务器的性能。
-2、MongoDB 旨在为WEB应用提供可扩展的高性能数据存储解决方案。
-3、MongoDB 将数据存储为一个文档，数据结构由键值(key=&amp;gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文">
+<meta name="twitter:title" content="chat">
+<meta name="twitter:description" content="基于nodeJs的聊天室今天我来实现一个简单的聊天室，后台用nodejs, 客户端与服务端通信用socket.io,这是一个比较成熟的websocket框架.
+初始工作安装express, 用这个来托管socket.io,以及静态页面,命令npm install express –save,–save可以使包添加到package.json文件里.
+安装mime，命令npm install mime">
   
     <link rel="alternative" href="/atom.xml" title="wendy-poppy" type="application/atom+xml">
   
@@ -190,11 +190,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-mongoDB" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-简易聊天室" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/08/10/mongoDB/" class="article-date">
-  	<time datetime="2016-08-10T11:47:09.000Z" itemprop="datePublished">2016-08-10</time>
+      <a href="/2016/07/28/简易聊天室/" class="article-date">
+  	<time datetime="2016-07-28T02:22:27.000Z" itemprop="datePublished">2016-07-28</time>
 </a>
     </div>
   
@@ -207,7 +207,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      mongoDB
+      chat
       
     </h1>
   
@@ -217,7 +217,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MongoDB/">MongoDB</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NodeJS-socket-io/">NodeJS socket.io</a></li></ul>
 	</div>
 
         
@@ -229,54 +229,140 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一、什么是MongoDB？"><a href="#一、什么是MongoDB？" class="headerlink" title="一、什么是MongoDB？"></a>一、什么是MongoDB？</h1><p>1、MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。在高负载的情况下，添加更多的节点，可以保证服务器的性能。</p>
-<p>2、MongoDB 旨在为WEB应用提供可扩展的高性能数据存储解决方案。</p>
-<p>3、MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。</p>
-<h1 id="二、数据库-amp-规范"><a href="#二、数据库-amp-规范" class="headerlink" title="二、数据库&amp;规范"></a>二、数据库&amp;规范</h1><p>1、一个mongodb中可以建立多个数据库。</p>
-<p>2、MongoDB的单个实例可以容纳多个独立的数据库，每一个都有自己的集合和权限，不同的数据库也放置在不同的文件中。</p>
-<p>3、规范：</p>
-<pre><code>1.不能是空字符串（””)。
-2.不得含有’ ‘（空格)、.、$、/、\和\0 (空宇符)。
-3.应全部小写。
-4.最多64字节。
-4、有一些数据库名是保留的，可以直接访问这些有特殊作用的数据库。
-</code></pre><h1 id="文档-amp-集合"><a href="#文档-amp-集合" class="headerlink" title="文档&amp;集合"></a>文档&amp;集合</h1><p>文档是mongodb中的最核心的概念，是其核心单元，我们可以将文档类比成关系型数据库中的每一行数据。</p>
-<p>集合就是一组文档的组合。如果将文档类比成数据库中的行，那么集合就可以类比成数据库的表。<br>在mongodb中的集合是无模式的，也就是说集合中存储的文档的结构可以是不同的，比如下面的两个文档可以同时存入到一个集合中：</p>
-<p>{“name”:”mingge”}</p>
-<p>{“Name”:”mingge”,”sex”:”man”}</p>
-<p>注：当第一个文档插入时，集合就会被创建。</p>
-<p>合法的集合名</p>
-<ol>
-<li><p>集合名不能是空字符串””。</p>
-</li>
-<li><p>集合名不能含有\0字符（空字符)，这个字符表示集合名的结尾。</p>
-</li>
-<li>集合名不能以”system.”开头，这是为系统集合保留的前缀。</li>
-<li>用户创建的集合名字不能含有保留字符。有些驱动程序的确支持在集合名里面包含，这是因为某些系统</li>
-</ol>
-<h2 id="终端启动"><a href="#终端启动" class="headerlink" title="终端启动"></a>终端启动</h2><p>首先需要指定数据库的地址</p>
-<pre><code>mongod —dbpath=数据库地址
+        <h1 id="基于nodeJs的聊天室"><a href="#基于nodeJs的聊天室" class="headerlink" title="基于nodeJs的聊天室"></a>基于nodeJs的聊天室</h1><p>今天我来实现一个简单的聊天室，后台用nodejs, 客户端与服务端通信用socket.io,这是一个比较成熟的websocket框架.</p>
+<h2 id="初始工作"><a href="#初始工作" class="headerlink" title="初始工作"></a>初始工作</h2><p>安装express, 用这个来托管socket.io,以及静态页面,命令npm install express –save,–save可以使包添加到package.json文件里.</p>
+<pre><code>安装mime，命令npm install mime --save.
+安装socket.io,命令npm install socket.io --save.
+</code></pre><h2 id="编写服务端代码"><a href="#编写服务端代码" class="headerlink" title="编写服务端代码"></a>编写服务端代码</h2><p>首先我们通过express来托管网站，并附加到socket.io实例里，因为socket.io初次连接需要http协议</p>
+<pre><code>var express = require(&apos;express&apos;),
+io = require(&apos;socket.io&apos;);
+var app = express();
+app.use(express.static(__dirname));
+var server = app.listen(8888);
+</code></pre><p>var ws = io.listen(server);<br>添加服务器连接事件，当客户端连接成功之后，发公告告诉所有在线用户，并且，当用户发送消息时，发广播通知其它用户.</p>
+<pre><code>ws.on(&apos;connection&apos;, function(client){
+console.log(&apos;\033[96msomeone is connect\033[39m \n&apos;);
+client.on(&apos;join&apos;, function(msg){
+    // 检查是否有重复
+    if(checkNickname(msg)){
+        client.emit(&apos;nickname&apos;, &apos;昵称有重复!&apos;);
+    }else{
+        client.nickname = msg;
+        ws.sockets.emit(&apos;announcement&apos;, &apos;系统&apos;, msg + &apos; 加入了聊天室!&apos;);
+    }
+});
+// 监听发送消息
+client.on(&apos;send.message&apos;, function(msg){
+    client.broadcast.emit(&apos;send.message&apos;,client.nickname,  msg);
+});
+// 断开连接时，通知其它用户
+client.on(&apos;disconnect&apos;, function(){
+    if(client.nickname){
+        client.broadcast.emit(&apos;send.message&apos;,&apos;系统&apos;,  client.nickname + &apos;离开聊天室!&apos;);
+    }
+})
 
-再在终端键入./mongo 打开shell编程脚本
-</code></pre><h3 id="操作MongoDB基础"><a href="#操作MongoDB基础" class="headerlink" title="操作MongoDB基础"></a>操作MongoDB基础</h3><p>1.创建数据库</p>
-<pre><code>use database_name
+})
+</code></pre><p>由于客户端是通过昵称来标识的，所以服务端需要一个检测昵称重复的函数</p>
+<pre><code>// 检查昵称是否重复
+var checkNickname = function(name){
+for(var k in ws.sockets.sockets){
+    if(ws.sockets.sockets.hasOwnProperty(k)){
+        if(ws.sockets.sockets[k] &amp;&amp;     ws.sockets.sockets[k].nickname == name){
+            return true;
+        }
+    }
+}
+return false;
+}
+</code></pre><h2 id="编写客户端代码"><a href="#编写客户端代码" class="headerlink" title="编写客户端代码"></a>编写客户端代码</h2><p>由于服务端采用第三方websokcet框架，所以前端页面需要单独引用socket.io客户端代码，源文件可以从socket.io模块里找，windows下路径为node_modules\socket.io\node_modules\socket.io-client\dist.</p>
+<p>前端主要处理输入昵称检查，消息处理，主体代码如下</p>
+<pre><code>&lt;div class=&quot;wrapper&quot;&gt;
+     &lt;div class=&quot;content&quot; id=&quot;chat&quot;&gt;
+         &lt;ul id=&quot;chat_conatiner&quot;&gt;
+         &lt;/ul&gt;
+     &lt;/div&gt;
+     &lt;div class=&quot;action&quot;&gt;
+         &lt;textarea &gt;&lt;/textarea&gt;
+         &lt;button class=&quot;btn btn-success&quot; id=&quot;clear&quot;&gt;清屏&lt;/button&gt;
+         &lt;button class=&quot;btn btn-success&quot; id=&quot;send&quot;&gt;发送&lt;/button&gt;
+     &lt;/div&gt;
+&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/socket.io.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
 
-database_name代表数据库的名字  注：如果数据库不存在，则创建数据库，否则切换到指定数据库
-</code></pre><p>2.查看所有数据库</p>
-<pre><code>show dbs
-</code></pre><p>3.数据的 增删改查</p>
-<pre><code>//增加
-db.collection_name.insert()   
-//删除
-db.collection_name.remove()   
-//更新（修改）
-db.collection_name.update()
-//查找
-db.collection_name.find()
-</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
-<li>MongoDB —— 是一个对象数据库，没有表、行等概念，也没有固定的模式和结构，所有的数据以Document(以下简称文档)的形式存储(Document，就是一个关联数组式的对象，它的内部由属性组成，一个属性对应的值可能是一个数、字符串、日期、数组，甚至是一个嵌套的文档。)</li>
-<li>文档 —— 是MongoDB的核心概念，是键值对的一个有序集，在JavaScript里文档被表示成对象。同时它也是MongoDB中数据的基本单元，非常类似于关系型数据库管理系统中的行，但更具表现力。</li>
-</ul>
+      var ws = io.connect(&apos;http://172.16.2.184:8888&apos;);
+      var sendMsg = function(msg){
+          ws.emit(&apos;send.message&apos;, msg);
+      }
+      var addMessage = function(from, msg){
+          var li = document.createElement(&apos;li&apos;);
+          li.innerHTML = &apos;&lt;span&gt;&apos; + from + &apos;&lt;/span&gt;&apos; + &apos; : &apos; + msg;
+          document.querySelector(&apos;#chat_conatiner&apos;).appendChild(li);
+
+          // 设置内容区的滚动条到底部
+          document.querySelector(&apos;#chat&apos;).scrollTop = document.querySelector(&apos;#chat&apos;).scrollHeight;
+
+          // 并设置焦点
+          document.querySelector(&apos;textarea&apos;).focus();
+
+      }
+
+      var send = function(){
+          var ele_msg = document.querySelector(&apos;textarea&apos;);
+          var msg = ele_msg.value.replace(&apos;\r\n&apos;, &apos;&apos;).trim();
+          console.log(msg);
+          if(!msg) return;
+          sendMsg(msg);
+          // 添加消息到自己的内容区
+          addMessage(&apos;你&apos;, msg);
+          ele_msg.value = &apos;&apos;;
+      }
+
+      ws.on(&apos;connect&apos;, function(){
+          var nickname = window.prompt(&apos;输入你的昵称!&apos;);
+          while(!nickname){
+              nickname = window.prompt(&apos;昵称不能为空，请重新输入!&apos;)
+          }
+          ws.emit(&apos;join&apos;, nickname);
+      });
+
+      // 昵称有重复
+      ws.on(&apos;nickname&apos;, function(){
+          var nickname = window.prompt(&apos;昵称有重复，请重新输入!&apos;);
+          while(!nickname){
+              nickname = window.prompt(&apos;昵称不能为空，请重新输入!&apos;)
+          }
+          ws.emit(&apos;join&apos;, nickname);
+      });
+
+      ws.on(&apos;send.message&apos;, function(from, msg){
+          addMessage(from, msg);
+      });
+
+      ws.on(&apos;announcement&apos;, function(from, msg){
+          addMessage(from, msg);
+      });
+
+      document.querySelector(&apos;textarea&apos;).addEventListener(&apos;keypress&apos;, function(event){
+          if(event.which == 13){
+              send();
+          }
+      });
+      document.querySelector(&apos;textarea&apos;).addEventListener(&apos;keydown&apos;, function(event){
+          if(event.which == 13){
+              send();
+          }
+      });
+      document.querySelector(&apos;#send&apos;).addEventListener(&apos;click&apos;, function(){
+          send();
+      });
+
+      document.querySelector(&apos;#clear&apos;).addEventListener(&apos;click&apos;, function(){
+          document.querySelector(&apos;#chat_conatiner&apos;).innerHTML = &apos;&apos;;
+      });
+&lt;/script&gt;
+</code></pre><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>nodejs是一个好东西，尤其是在处理消息通讯，网络编程方面，天生的异步IO.</p>
 
       
     </div>
@@ -286,18 +372,18 @@ db.collection_name.find()
     
 <nav id="article-nav">
   
-    <a href="/2016/08/15/Jade-简单的HTML模板引擎/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/08/10/mongoDB/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">&lt;</strong>
       <div class="article-nav-title">
         
-          Jade--简单的HTML模板引擎
+          mongoDB
         
       </div>
     </a>
   
   
-    <a href="/2016/07/28/简易聊天室/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">chat</div>
+    <a href="/2016/07/20/gulp/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">gulp</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
   
@@ -326,7 +412,7 @@ db.collection_name.find()
 
 
 <!-- 多说评论框 start -->
-  <div class="ds-thread" style="margin-left: 30px;margin-right: 30px;" data-thread-key="post-mongoDB" data-title="mongoDB" data-url="http://yoursite.com/2016/08/10/mongoDB/"></div>
+  <div class="ds-thread" style="margin-left: 30px;margin-right: 30px;" data-thread-key="post-简易聊天室" data-title="chat" data-url="http://yoursite.com/2016/07/28/简易聊天室/"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>图片的懒加载 | wendy-poppy</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="懒加载的意义（在线demo预览）尽管很多公司的网页都有一些限制，比如页面的最大的图片大小不得大于50k,也有很多图片优化工具fis3、gulp等等，但是如果图片太多还是会影响页面的加载速度，快则几十秒慢则几十分钟，这样会导致用户流失。
+图片的加载对页面的加载速度有很大影响！！所以，对于图片过多的页面，为了加速页面加载速度，所以很多时候我们需要将页面内未出现在可视区域内的图片先不做加载， 等到滚动到">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图片的懒加载">
+<meta property="og:url" content="http://yoursite.com/2016/08/18/图片的懒加载/index.html">
+<meta property="og:site_name" content="wendy-poppy">
+<meta property="og:description" content="懒加载的意义（在线demo预览）尽管很多公司的网页都有一些限制，比如页面的最大的图片大小不得大于50k,也有很多图片优化工具fis3、gulp等等，但是如果图片太多还是会影响页面的加载速度，快则几十秒慢则几十分钟，这样会导致用户流失。
+图片的加载对页面的加载速度有很大影响！！所以，对于图片过多的页面，为了加速页面加载速度，所以很多时候我们需要将页面内未出现在可视区域内的图片先不做加载， 等到滚动到">
+<meta property="og:updated_time" content="2016-12-08T08:29:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="图片的懒加载">
+<meta name="twitter:description" content="懒加载的意义（在线demo预览）尽管很多公司的网页都有一些限制，比如页面的最大的图片大小不得大于50k,也有很多图片优化工具fis3、gulp等等，但是如果图片太多还是会影响页面的加载速度，快则几十秒慢则几十分钟，这样会导致用户流失。
+图片的加载对页面的加载速度有很大影响！！所以，对于图片过多的页面，为了加速页面加载速度，所以很多时候我们需要将页面内未出现在可视区域内的图片先不做加载， 等到滚动到">
+  
+    <link rel="alternative" href="/atom.xml" title="wendy-poppy" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://b139.photo.store.qq.com/psb?/V12TKeY73dHNlc/qvjxoxH43Dfo*MeAgldrME0sNQ5lySa2L5TqxEAhdqw!/b/dHn86FKUAgAA&bo=zAGzAgAAAAABAFs!&rf=viewer_4">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://b139.photo.store.qq.com/psb?/V12TKeY73dHNlc/qvjxoxH43Dfo*MeAgldrME0sNQ5lySa2L5TqxEAhdqw!/b/dHn86FKUAgAA&amp;bo=zAGzAgAAAAABAFs!&amp;rf=viewer_4" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">wendy</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">wendy眉眉的小博客~</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/wendy-poppy" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/wendy-80-14" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="https://mail.qq.com/cgi-bin/frame_html?sid=Ne8V0xxmnKiCYCpy&r=23ab084d7dfb5267be2ea858f9976f0b" title="mail">mail</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/5550124039/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/ECMAScript-6/" style="font-size: 10px;">ECMAScript 6</a> <a href="/tags/HTML5-iframe/" style="font-size: 10px;">HTML5 iframe</a> <a href="/tags/Jade-JavaScript/" style="font-size: 10px;">Jade,JavaScript</a> <a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/NodeJS-socket-io/" style="font-size: 10px;">NodeJS socket.io</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css-flex/" style="font-size: 10px;">css flex</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-this/" style="font-size: 10px;">javascript this</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/wendy-poppy">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">wendy</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://b139.photo.store.qq.com/psb?/V12TKeY73dHNlc/qvjxoxH43Dfo*MeAgldrME0sNQ5lySa2L5TqxEAhdqw!/b/dHn86FKUAgAA&amp;bo=zAGzAgAAAAABAFs!&amp;rf=viewer_4" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">wendy</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">wendy眉眉的小博客~</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wendy-poppy" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/wendy-80-14" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="https://mail.qq.com/cgi-bin/frame_html?sid=Ne8V0xxmnKiCYCpy&r=23ab084d7dfb5267be2ea858f9976f0b" title="mail">mail</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/5550124039/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-图片的懒加载" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/18/图片的懒加载/" class="article-date">
+  	<time datetime="2016-08-18T08:24:14.000Z" itemprop="datePublished">2016-08-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      图片的懒加载
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="懒加载的意义（在线demo预览）"><a href="#懒加载的意义（在线demo预览）" class="headerlink" title="懒加载的意义（在线demo预览）"></a>懒加载的意义<a href="http://wjf444128852.github.io/sumDemos/imgLazyload/index.html" target="_blank" rel="external">（在线demo预览）</a></h2><p>尽管很多公司的网页都有一些限制，比如页面的最大的图片大小不得大于50k,也有很多图片优化工具fis3、gulp等等，但是如果图片太多还是会影响页面的加载速度，快则几十秒慢则几十分钟，这样会导致用户流失。</p>
+<p>图片的加载对页面的加载速度有很大影响！！所以，对于图片过多的页面，为了加速页面加载速度，所以很多时候我们需要将页面内未出现在可视区域内的图片先不做加载， 等到滚动到可视区域后再去加载。这样子对于页面加载性能上会有很大的提升，也提高了用户体验，即图片赖加载~</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>将页面中的img标签src指向一张小图片或者src为空，然后定义data-src（这个属性可以自定义命名，我才用data-src）属性指向真实的图片。</p>
+<p>当载入页面时，先把可视区域内的img标签的data-src属性值负给src，然后监听滚动事件，把用户即将看到的图片加载。这样便实现了懒加载。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;图片赖加载&lt;/title&gt;</div><div class="line">    &lt;meta name=&quot;renderer&quot; content=&quot;webkit&quot;&gt;</div><div class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0&quot;&gt;</div><div class="line">    &lt;!-- 启用webAPP全屏模式--&gt;</div><div class="line">    &lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;</div><div class="line">    &lt;!-- 隐藏状态栏或者设置状态栏的颜色--&gt;</div><div class="line">    &lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black&quot;&gt;</div><div class="line">    &lt;!-- 忽略数字自动识别为电话号码--&gt;</div><div class="line">    &lt;meta name=&quot;format-detection&quot; content=&quot;telephone=no&quot;&gt;</div><div class="line">    &lt;!--控制缓存的失效日期 --&gt;</div><div class="line">    &lt;meta http-equiv=&quot;Expires&quot; content=&quot;-1&quot;&gt;</div><div class="line">    &lt;!-- 禁止转码--&gt;</div><div class="line">    &lt;meta http-equiv=&quot;Cache-Control&quot; content=&quot;no-cache&quot;&gt;</div><div class="line">    &lt;!-- 禁止缓存访问页面--&gt;</div><div class="line">    &lt;meta http-equiv=&quot;Pragma&quot; content=&quot;no-cache&quot;&gt;</div><div class="line">    &lt;meta name=&quot;applicable-device&quot; content=&quot;mobile&quot;&gt;</div><div class="line">    &lt;!-- 页面关键词--&gt;</div><div class="line">    &lt;meta content=&quot;&quot; name=&quot;keywords&quot;&gt;</div><div class="line">    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;</div><div class="line">    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/img_lazy.css&quot;&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    &lt;div class=&quot;main&quot;&gt;</div><div class="line">        &lt;img src=&quot;&quot; data-src=&quot;images/1.jpg&quot; alt=&quot;&quot;&gt;</div><div class="line">        &lt;img src=&quot;&quot; data-src=&quot;images/2.jpg&quot; alt=&quot;&quot;&gt;</div><div class="line">        &lt;img src=&quot;&quot; data-src=&quot;images/3.jpg&quot; alt=&quot;&quot;&gt;</div><div class="line">        &lt;img src=&quot;&quot; data-src=&quot;images/4.jpg&quot; alt=&quot;&quot;&gt;</div><div class="line">        &lt;img src=&quot;&quot; data-src=&quot;images/5.jpg&quot; alt=&quot;&quot;&gt;</div><div class="line">        &lt;img src=&quot;&quot; data-src=&quot;images/6.jpg&quot; alt=&quot;&quot;&gt;</div><div class="line">        &lt;img src=&quot;&quot; data-src=&quot;images/7.jpg&quot; alt=&quot;&quot;&gt;</div><div class="line">        &lt;img src=&quot;&quot; data-src=&quot;images/8.jpg&quot; alt=&quot;&quot;&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;!--图片赖加载的JS--&gt;</div><div class="line">    &lt;script src=&quot;js/imgLazyLoad.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">*&#123;</div><div class="line">    margin: 0;</div><div class="line">    padding: 0;</div><div class="line">    box-sizing: border-box;</div><div class="line">    list-style: none;</div><div class="line">    border: 0;</div><div class="line">    outline: 0;</div><div class="line">&#125;</div><div class="line">.main&#123;</div><div class="line">    max-width: 640px;</div><div class="line">    width: 100%;</div><div class="line">    margin: 0 auto;</div><div class="line">&#125;</div><div class="line">img&#123;</div><div class="line">    display: block;</div><div class="line">    width: 100%;</div><div class="line">    height: 640px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Created by Administrator on 2016/11/28.</div><div class="line"> */</div><div class="line">!function()&#123;</div><div class="line">    var imgs = document.getElementsByTagName(&quot;img&quot;);</div><div class="line">    var num = imgs.length;</div><div class="line">    var n = 0; //存储图片加载到的位置，避免每次都从第一张图片开始遍历</div><div class="line">    lazyload(); //页面载入完毕加载可是区域内的图片</div><div class="line">    window.onscroll = lazyload;</div><div class="line">    function lazyload() &#123; //监听页面滚动事件</div><div class="line">        var seeHeight = document.documentElement.clientHeight; //可见区域高度</div><div class="line">        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop; //滚动条距离顶部高度</div><div class="line">        for (var i = n; i &lt; num; i++) &#123;</div><div class="line">            if (imgs[i].offsetTop &lt; seeHeight + scrollTop) &#123;</div><div class="line">                if (imgs[i].getAttribute(&quot;src&quot;) == &quot;&quot;) &#123;</div><div class="line">                    imgs[i].src = imgs[i].getAttribute(&quot;data-src&quot;);</div><div class="line">                &#125;</div><div class="line">                n = i + 1;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;();</div></pre></td></tr></table></figure>
+<p>将页面中的img标签src指向一张小图片或者src为空，然后定义data-src（这个属性可以自定义命名，我才用data-src）属性指向真实的图片。</p>
+<p>当载入页面时，先把可视区域内的img标签的data-src属性值负给src，然后监听滚动事件，把用户即将看到的图片加载。这样便实现了懒加载。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/21/函数的梳理/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          函数的梳理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/15/Jade-简单的HTML模板引擎/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Jade--简单的HTML模板引擎</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" style="margin-left: 30px;margin-right: 30px;" data-thread-key="post-图片的懒加载" data-title="图片的懒加载" data-url="http://yoursite.com/2016/08/18/图片的懒加载/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"wendypoppy"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 wendy
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/winnerweb/hexo-Yilia-Smackdown" target="_blank">Yilia(Smackdown)</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>

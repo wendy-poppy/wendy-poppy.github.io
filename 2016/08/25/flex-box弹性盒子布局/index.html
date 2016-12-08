@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>flex-box弹性盒子布局 | wendy-poppy</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="网页布局（layout）是CSS的一个重点应用。
+布局的传统解决方案，基于盒状模型，依赖 display属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。
+2009年，W3C提出了一种新的方案—-Flex布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。
+Flex布">
+<meta property="og:type" content="article">
+<meta property="og:title" content="flex-box弹性盒子布局">
+<meta property="og:url" content="http://yoursite.com/2016/08/25/flex-box弹性盒子布局/index.html">
+<meta property="og:site_name" content="wendy-poppy">
+<meta property="og:description" content="网页布局（layout）是CSS的一个重点应用。
+布局的传统解决方案，基于盒状模型，依赖 display属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。
+2009年，W3C提出了一种新的方案—-Flex布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。
+Flex布">
+<meta property="og:image" content="http://a2.qpic.cn/psb?/V11KiFfB3TEN6V/J2xTGXPCXsZhEPmsxa7nqYbCjFUSwjssFoRCKMdPq5s!/b/dG8BAAAAAAAA&bo=kwFgAQAAAAAFB9c!&rf=viewer_4">
+<meta property="og:image" content="http://a3.qpic.cn/psb?/V11KiFfB3TEN6V/IP7mV*LOabljXwch397YjajeR8zYArIySypoW4lZNnI!/b/dHwBAAAAAAAA&bo=vAJwAbwCcAEDACU!&rf=viewer_4">
+<meta property="og:image" content="http://a2.qpic.cn/psb?/V11KiFfB3TEN6V/Ju6qEkHa*f3hp5kopp3SOofzlhc31iXdDK8RhJsG.4g!/b/dG8BAAAAAAAA&bo=gwM9AYMDPQEFACM!&rf=viewer_4">
+<meta property="og:image" content="http://a3.qpic.cn/psb?/V11KiFfB3TEN6V/RzOWYwPl1OEere*WjK8*9NxF2A0BMXFPwTWGvts3wHA!/b/dI8AAAAAAAAA&bo=MwJNATMCTQEDACU!&rf=viewer_4">
+<meta property="og:image" content="http://a2.qpic.cn/psb?/V11KiFfB3TEN6V/kuvbOjjnCI4jado.3zyOa1SiJfP4b9oYimKoQiMihSA!/b/dAkBAAAAAAAA&bo=HAPLABwDywADACU!&rf=viewer_4">
+<meta property="og:image" content="http://a3.qpic.cn/psb?/V11KiFfB3TEN6V/jLKkgkA6hn0fA0Oi.KKjdzFdjTjQ6qZ8zrWXxdJRnSY!/b/dI8AAAAAAAAA&bo=HgMUAR4DFAEDACU!&rf=viewer_4">
+<meta property="og:image" content="http://a1.qpic.cn/psb?/V11KiFfB3TEN6V/WaFolQ8khY7F.sv46J0O5jY61qVQMJb54OwXjDx2ph0!/b/dHcBAAAAAAAA&bo=vAKRALwCkQADACU!&rf=viewer_4">
+<meta property="og:image" content="http://a3.qpic.cn/psb?/V11KiFfB3TEN6V/I046Dvleclc7D6*qU*FtwxdXfoVBV5pqpFQbIr1T4D4!/b/dAoBAAAAAAAA&bo=vAKxALwCsQAFACM!&rf=viewer_4">
+<meta property="og:image" content="http://a2.qpic.cn/psb?/V11KiFfB3TEN6V/*XN*iLgTE79X9ZYoR2a4s9jxZVvwBfj2WSGxujD5SQY!/b/dI0BAAAAAAAA&bo=vAKxALwCsQAFACM!&rf=viewer_4">
+<meta property="og:image" content="http://a2.qpic.cn/psb?/V11KiFfB3TEN6V/aielwdv5l3FI*VdQms6P9NP6geb3MmBfcw1wMSPAlH4!/b/dAkBAAAAAAAA&bo=fQL7An0C.wIDACU!&rf=viewer_4">
+<meta property="og:image" content="http://a2.qpic.cn/psb?/V11KiFfB3TEN6V/k.SgjnhVgAOpyszGfB36pjjT4iynt8YVPMJzNxliGew!/b/dOUAAAAAAAAA&bo=aQISA2kCEgMDACU!&rf=viewer_4">
+<meta property="og:image" content="http://a3.qpic.cn/psb?/V11KiFfB3TEN6V/C5201eBm*G1y2LjIt.sWQ7KePFIJFgCspC8PEBJ.QMs!/b/dHABAAAAAAAA&bo=bAISA2wCEgMDACU!&rf=viewer_4">
+<meta property="og:image" content="http://a3.qpic.cn/psb?/V11KiFfB3TEN6V/OT1Bb*OyKFRjnD5UF46VUn6GK.IlNh0h*pmOU9Q5IMc!/b/dAoBAAAAAAAA&bo=7wLgAe8C4AEDACU!&rf=viewer_4">
+<meta property="og:image" content="http://a1.qpic.cn/psb?/V11KiFfB3TEN6V/SDVztqTn6HOovanx59X8vuEC3McOMXQZeqUvJtK.lU4!/b/dOQAAAAAAAAA&bo=IgPTACID0wADACU!&rf=viewer_4">
+<meta property="og:image" content="http://a2.qpic.cn/psb?/V11KiFfB3TEN6V/*Dy7.njZdNmyPGACgpS5F7mSmAEQfBKVaqzD7G6eN30!/b/dI0BAAAAAAAA&bo=vAKRALwCkQAFACM!&rf=viewer_4">
+<meta property="og:image" content="http://a1.qpic.cn/psb?/V11KiFfB3TEN6V/jzL9sXJYWbTPtNOH3l68sV*EuUkfK747nvfolTfopec!/b/dHcBAAAAAAAA&bo=5wKGAecChgEDACU!&rf=viewer_4">
+<meta property="og:updated_time" content="2016-12-08T08:43:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="flex-box弹性盒子布局">
+<meta name="twitter:description" content="网页布局（layout）是CSS的一个重点应用。
+布局的传统解决方案，基于盒状模型，依赖 display属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。
+2009年，W3C提出了一种新的方案—-Flex布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。
+Flex布">
+<meta name="twitter:image" content="http://a2.qpic.cn/psb?/V11KiFfB3TEN6V/J2xTGXPCXsZhEPmsxa7nqYbCjFUSwjssFoRCKMdPq5s!/b/dG8BAAAAAAAA&bo=kwFgAQAAAAAFB9c!&rf=viewer_4">
+  
+    <link rel="alternative" href="/atom.xml" title="wendy-poppy" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://b139.photo.store.qq.com/psb?/V12TKeY73dHNlc/qvjxoxH43Dfo*MeAgldrME0sNQ5lySa2L5TqxEAhdqw!/b/dHn86FKUAgAA&bo=zAGzAgAAAAABAFs!&rf=viewer_4">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://b139.photo.store.qq.com/psb?/V12TKeY73dHNlc/qvjxoxH43Dfo*MeAgldrME0sNQ5lySa2L5TqxEAhdqw!/b/dHn86FKUAgAA&amp;bo=zAGzAgAAAAABAFs!&amp;rf=viewer_4" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">wendy</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">wendy眉眉的小博客~</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/wendy-poppy" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/wendy-80-14" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="https://mail.qq.com/cgi-bin/frame_html?sid=Ne8V0xxmnKiCYCpy&r=23ab084d7dfb5267be2ea858f9976f0b" title="mail">mail</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/5550124039/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/ECMAScript-6/" style="font-size: 10px;">ECMAScript 6</a> <a href="/tags/HTML5-iframe/" style="font-size: 10px;">HTML5 iframe</a> <a href="/tags/Jade-JavaScript/" style="font-size: 10px;">Jade,JavaScript</a> <a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/NodeJS-socket-io/" style="font-size: 10px;">NodeJS socket.io</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css-flex/" style="font-size: 10px;">css flex</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-this/" style="font-size: 10px;">javascript this</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/wendy-poppy">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">wendy</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://b139.photo.store.qq.com/psb?/V12TKeY73dHNlc/qvjxoxH43Dfo*MeAgldrME0sNQ5lySa2L5TqxEAhdqw!/b/dHn86FKUAgAA&amp;bo=zAGzAgAAAAABAFs!&amp;rf=viewer_4" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">wendy</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">wendy眉眉的小博客~</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wendy-poppy" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/wendy-80-14" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="https://mail.qq.com/cgi-bin/frame_html?sid=Ne8V0xxmnKiCYCpy&r=23ab084d7dfb5267be2ea858f9976f0b" title="mail">mail</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/5550124039/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-flex-box弹性盒子布局" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/25/flex-box弹性盒子布局/" class="article-date">
+  	<time datetime="2016-08-25T08:41:00.000Z" itemprop="datePublished">2016-08-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      flex-box弹性盒子布局
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-flex/">css flex</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="网页布局（layout）是CSS的一个重点应用。"><a href="#网页布局（layout）是CSS的一个重点应用。" class="headerlink" title="网页布局（layout）是CSS的一个重点应用。"></a>网页布局（layout）是CSS的一个重点应用。</h4><p><img src="http://a2.qpic.cn/psb?/V11KiFfB3TEN6V/J2xTGXPCXsZhEPmsxa7nqYbCjFUSwjssFoRCKMdPq5s!/b/dG8BAAAAAAAA&amp;bo=kwFgAQAAAAAFB9c!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h4 id="布局的传统解决方案，基于盒状模型，依赖-display属性-position属性-float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。"><a href="#布局的传统解决方案，基于盒状模型，依赖-display属性-position属性-float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。" class="headerlink" title="布局的传统解决方案，基于盒状模型，依赖 display属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。"></a>布局的传统解决方案，基于盒状模型，依赖 display属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。</h4><p><img src="http://a3.qpic.cn/psb?/V11KiFfB3TEN6V/IP7mV*LOabljXwch397YjajeR8zYArIySypoW4lZNnI!/b/dHwBAAAAAAAA&amp;bo=vAJwAbwCcAEDACU!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h4 id="2009年，W3C提出了一种新的方案—-Flex布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。"><a href="#2009年，W3C提出了一种新的方案—-Flex布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。" class="headerlink" title="2009年，W3C提出了一种新的方案—-Flex布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。"></a>2009年，W3C提出了一种新的方案—-Flex布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。</h4><p><img src="http://a2.qpic.cn/psb?/V11KiFfB3TEN6V/Ju6qEkHa*f3hp5kopp3SOofzlhc31iXdDK8RhJsG.4g!/b/dG8BAAAAAAAA&amp;bo=gwM9AYMDPQEFACM!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h4 id="Flex布局将成为未来布局的首选方案。本文介绍它的语法，下一篇文章给出常见布局的Flex写法。"><a href="#Flex布局将成为未来布局的首选方案。本文介绍它的语法，下一篇文章给出常见布局的Flex写法。" class="headerlink" title="Flex布局将成为未来布局的首选方案。本文介绍它的语法，下一篇文章给出常见布局的Flex写法。"></a>Flex布局将成为未来布局的首选方案。本文介绍它的语法，下一篇文章给出常见布局的Flex写法。</h4><h4 id="以下内容主要参考了下面两篇文章：A-Complete-Guide-to-Flexbox-和-A-Visual-Guide-to-CSS3-Flexbox-Properties。"><a href="#以下内容主要参考了下面两篇文章：A-Complete-Guide-to-Flexbox-和-A-Visual-Guide-to-CSS3-Flexbox-Properties。" class="headerlink" title="以下内容主要参考了下面两篇文章：A Complete Guide to Flexbox 和 A Visual Guide to CSS3 Flexbox Properties。"></a>以下内容主要参考了下面两篇文章：<a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank" rel="external">A Complete Guide to Flexbox</a> 和 <a href="https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties" target="_blank" rel="external">A Visual Guide to CSS3 Flexbox Properties</a>。</h4><h2 id="一、Flex布局是什么？"><a href="#一、Flex布局是什么？" class="headerlink" title="一、Flex布局是什么？"></a>一、Flex布局是什么？</h2><hr>
+<h4 id="Flex是Flexible-Box的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。"><a href="#Flex是Flexible-Box的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。" class="headerlink" title="Flex是Flexible Box的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。"></a>Flex是Flexible Box的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。</h4><h4 id="任何一个容器都可以指定为Flex布局。"><a href="#任何一个容器都可以指定为Flex布局。" class="headerlink" title="任何一个容器都可以指定为Flex布局。"></a>任何一个容器都可以指定为Flex布局。</h4><pre><code>.box{
+    display: flex;
+o}
+</code></pre><h4 id="行内元素也可以使用Flex布局。"><a href="#行内元素也可以使用Flex布局。" class="headerlink" title="行内元素也可以使用Flex布局。"></a>行内元素也可以使用Flex布局。</h4><pre><code>.box{
+    display: inline-flex;
+}
+</code></pre><h4 id="Webkit内核的浏览器，必须加上-webkit前缀。"><a href="#Webkit内核的浏览器，必须加上-webkit前缀。" class="headerlink" title="Webkit内核的浏览器，必须加上-webkit前缀。"></a>Webkit内核的浏览器，必须加上<code>-webkit</code>前缀。</h4><pre><code>.box{
+    display: -webkit-flex; /* Safari */
+    display: flex;
+}
+</code></pre><h4 id="注意，设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。"><a href="#注意，设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。" class="headerlink" title="注意，设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。"></a>注意，设为Flex布局以后，子元素的<code>float</code>、<code>clear</code>和<code>vertical-align</code>属性将失效。</h4><h2 id="二、基本概念"><a href="#二、基本概念" class="headerlink" title="二、基本概念"></a>二、基本概念</h2><hr>
+<h4 id="采用Flex布局的元素，称为Flex容器（flex-container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex-item），简称”项目”。"><a href="#采用Flex布局的元素，称为Flex容器（flex-container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex-item），简称”项目”。" class="headerlink" title="采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”。"></a>采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”。</h4><p><img src="http://a3.qpic.cn/psb?/V11KiFfB3TEN6V/RzOWYwPl1OEere*WjK8*9NxF2A0BMXFPwTWGvts3wHA!/b/dI8AAAAAAAAA&amp;bo=MwJNATMCTQEDACU!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h4 id="容器默认存在两根轴：水平的主轴（main-axis）和垂直的交叉轴（cross-axis）。主轴的开始位置（与边框的交叉点）叫做main-start，结束位置叫做main-end；交叉轴的开始位置叫做cross-start，结束位置叫做cross-end。"><a href="#容器默认存在两根轴：水平的主轴（main-axis）和垂直的交叉轴（cross-axis）。主轴的开始位置（与边框的交叉点）叫做main-start，结束位置叫做main-end；交叉轴的开始位置叫做cross-start，结束位置叫做cross-end。" class="headerlink" title="容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。"></a>容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做<code>main start</code>，结束位置叫做<code>main end</code>；交叉轴的开始位置叫做<code>cross start</code>，结束位置叫做<code>cross end</code>。</h4><h4 id="项目默认沿主轴排列。单个项目占据的主轴空间叫做main-size，占据的交叉轴空间叫做cross-size。"><a href="#项目默认沿主轴排列。单个项目占据的主轴空间叫做main-size，占据的交叉轴空间叫做cross-size。" class="headerlink" title="项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。"></a>项目默认沿主轴排列。单个项目占据的主轴空间叫做<code>main size</code>，占据的交叉轴空间叫做<code>cross size</code>。</h4><h2 id="三、容器的属性"><a href="#三、容器的属性" class="headerlink" title="三、容器的属性"></a>三、容器的属性</h2><hr>
+<h4 id="以下6个属性设置在容器上。"><a href="#以下6个属性设置在容器上。" class="headerlink" title="以下6个属性设置在容器上。"></a>以下6个属性设置在容器上。</h4><pre><code>* flex-direction
+* flex-wrap
+* flex-flow
+* justify-content
+* align-items
+* align-content
+</code></pre><h3 id="3-1-flex-direction属性"><a href="#3-1-flex-direction属性" class="headerlink" title="3.1 flex-direction属性"></a>3.1 flex-direction属性</h3><hr>
+<h4 id="flex-direction属性决定主轴的方向（即项目的排列方向）。"><a href="#flex-direction属性决定主轴的方向（即项目的排列方向）。" class="headerlink" title="flex-direction属性决定主轴的方向（即项目的排列方向）。"></a><code>flex-direction</code>属性决定主轴的方向（即项目的排列方向）。</h4><pre><code>.box {
+    flex-direction: row | row-reverse | column | column-reverse;
+}
+</code></pre><p><img src="http://a2.qpic.cn/psb?/V11KiFfB3TEN6V/kuvbOjjnCI4jado.3zyOa1SiJfP4b9oYimKoQiMihSA!/b/dAkBAAAAAAAA&amp;bo=HAPLABwDywADACU!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h4 id="它可能有4个值。"><a href="#它可能有4个值。" class="headerlink" title="它可能有4个值。"></a>它可能有4个值。</h4><pre><code>* row（默认值）：主轴为水平方向，起点在左端。    
+* row-reverse：主轴为水平方向，起点在右端。    
+* column：主轴为垂直方向，起点在上沿。    
+* column-reverse：主轴为垂直方向，起点在下沿。
+</code></pre><h3 id="3-2-flex-wrap属性"><a href="#3-2-flex-wrap属性" class="headerlink" title="3.2 flex-wrap属性"></a>3.2 flex-wrap属性</h3><h4 id="默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。"><a href="#默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。" class="headerlink" title="默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。"></a>默认情况下，项目都排在一条线（又称”轴线”）上。<code>flex-wrap</code>属性定义，如果一条轴线排不下，如何换行。</h4><p><img src="http://a3.qpic.cn/psb?/V11KiFfB3TEN6V/jLKkgkA6hn0fA0Oi.KKjdzFdjTjQ6qZ8zrWXxdJRnSY!/b/dI8AAAAAAAAA&amp;bo=HgMUAR4DFAEDACU!&amp;rf=viewer_4" alt="Mou icon"></p>
+<pre><code>.box{
+    flex-wrap: nowrap | wrap | wrap-reverse;
+}
+</code></pre><h4 id="它可能取三个值。"><a href="#它可能取三个值。" class="headerlink" title="它可能取三个值。"></a>它可能取三个值。</h4><h4 id="（1）nowrap（默认）：不换行。"><a href="#（1）nowrap（默认）：不换行。" class="headerlink" title="（1）nowrap（默认）：不换行。"></a>（1）<code>nowrap</code>（默认）：不换行。</h4><p><img src="http://a1.qpic.cn/psb?/V11KiFfB3TEN6V/WaFolQ8khY7F.sv46J0O5jY61qVQMJb54OwXjDx2ph0!/b/dHcBAAAAAAAA&amp;bo=vAKRALwCkQADACU!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h4 id="（2）wrap：换行，第一行在上方。"><a href="#（2）wrap：换行，第一行在上方。" class="headerlink" title="（2）wrap：换行，第一行在上方。"></a>（2）<code>wrap</code>：换行，第一行在上方。</h4><p><img src="http://a3.qpic.cn/psb?/V11KiFfB3TEN6V/I046Dvleclc7D6*qU*FtwxdXfoVBV5pqpFQbIr1T4D4!/b/dAoBAAAAAAAA&amp;bo=vAKxALwCsQAFACM!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h4 id="（3）wrap-reverse：换行，第一行在下方。"><a href="#（3）wrap-reverse：换行，第一行在下方。" class="headerlink" title="（3）wrap-reverse：换行，第一行在下方。"></a>（3）<code>wrap-reverse</code>：换行，第一行在下方。</h4><p><img src="http://a2.qpic.cn/psb?/V11KiFfB3TEN6V/*XN*iLgTE79X9ZYoR2a4s9jxZVvwBfj2WSGxujD5SQY!/b/dI0BAAAAAAAA&amp;bo=vAKxALwCsQAFACM!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h3 id="3-3-flex-flow"><a href="#3-3-flex-flow" class="headerlink" title="3.3 flex-flow"></a>3.3 flex-flow</h3><hr>
+<h4 id="flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row-nowrap。"><a href="#flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row-nowrap。" class="headerlink" title="flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。"></a><code>flex-flow</code>属性是<code>flex-direction</code>属性和<code>flex-wrap</code>属性的简写形式，默认值为<code>row nowrap</code>。</h4><pre><code>.box {
+    flex-flow: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;
+}
+</code></pre><h3 id="3-4-justify-content属性"><a href="#3-4-justify-content属性" class="headerlink" title="3.4 justify-content属性"></a>3.4 justify-content属性</h3><hr>
+<h4 id="justify-content属性定义了项目在主轴上的对齐方式。"><a href="#justify-content属性定义了项目在主轴上的对齐方式。" class="headerlink" title="justify-content属性定义了项目在主轴上的对齐方式。"></a><code>justify-content</code>属性定义了项目在主轴上的对齐方式。</h4><pre><code>.box {
+    justify-content: flex-start | flex-end | center | space-between | space-around;
+}
+</code></pre><p><img src="http://a2.qpic.cn/psb?/V11KiFfB3TEN6V/aielwdv5l3FI*VdQms6P9NP6geb3MmBfcw1wMSPAlH4!/b/dAkBAAAAAAAA&amp;bo=fQL7An0C.wIDACU!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h3 id="3-5-align-items属性"><a href="#3-5-align-items属性" class="headerlink" title="3.5 align-items属性"></a>3.5 align-items属性</h3><hr>
+<h4 id="align-items属性定义项目在交叉轴上如何对齐。"><a href="#align-items属性定义项目在交叉轴上如何对齐。" class="headerlink" title="align-items属性定义项目在交叉轴上如何对齐。"></a><code>align-items</code>属性定义项目在交叉轴上如何对齐。</h4><pre><code>.box {
+    align-items: flex-start | flex-end | center | baseline | stretch;
+}
+</code></pre><p><img src="http://a2.qpic.cn/psb?/V11KiFfB3TEN6V/k.SgjnhVgAOpyszGfB36pjjT4iynt8YVPMJzNxliGew!/b/dOUAAAAAAAAA&amp;bo=aQISA2kCEgMDACU!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h4 id="它可能取5个值。具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下。"><a href="#它可能取5个值。具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下。" class="headerlink" title="它可能取5个值。具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下。"></a>它可能取5个值。具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下。</h4><pre><code>* flex-start：交叉轴的起点对齐。
+* flex-end：交叉轴的终点对齐。
+* center：交叉轴的中点对齐。
+* baseline: 项目的第一行文字的基线对齐。
+* stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。
+</code></pre><h3 id="3-6-align-content属性"><a href="#3-6-align-content属性" class="headerlink" title="3.6 align-content属性"></a>3.6 align-content属性</h3><hr>
+<h4 id="align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。"><a href="#align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。" class="headerlink" title="align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。"></a><code>align-content</code>属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</h4><pre><code>.box {
+    align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+}
+</code></pre><p><img src="http://a3.qpic.cn/psb?/V11KiFfB3TEN6V/C5201eBm*G1y2LjIt.sWQ7KePFIJFgCspC8PEBJ.QMs!/b/dHABAAAAAAAA&amp;bo=bAISA2wCEgMDACU!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h4 id="该属性可能取6个值。"><a href="#该属性可能取6个值。" class="headerlink" title="该属性可能取6个值。"></a>该属性可能取6个值。</h4><pre><code>* flex-start：与交叉轴的起点对齐。
+* flex-end：与交叉轴的终点对齐。
+* center：与交叉轴的中点对齐。
+* space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。
+* space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
+* stretch（默认值）：轴线占满整个交叉轴。
+</code></pre><h3 id="四、项目的属性"><a href="#四、项目的属性" class="headerlink" title="四、项目的属性"></a>四、项目的属性</h3><hr>
+<h4 id="以下6个属性设置在项目上。"><a href="#以下6个属性设置在项目上。" class="headerlink" title="以下6个属性设置在项目上。"></a>以下6个属性设置在项目上。</h4><pre><code>* order
+* flex-grow
+* flex-shrink
+* flex-basis
+* flex
+* align-self
+</code></pre><h3 id="4-1-order属性"><a href="#4-1-order属性" class="headerlink" title="4.1 order属性"></a>4.1 order属性</h3><hr>
+<h4 id="order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。"><a href="#order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。" class="headerlink" title="order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。"></a><code>order</code>属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</h4><pre><code>.item {
+    order: &lt;integer&gt;;
+}
+</code></pre><p><img src="http://a3.qpic.cn/psb?/V11KiFfB3TEN6V/OT1Bb*OyKFRjnD5UF46VUn6GK.IlNh0h*pmOU9Q5IMc!/b/dAoBAAAAAAAA&amp;bo=7wLgAe8C4AEDACU!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h3 id="4-2-flex-grow属性"><a href="#4-2-flex-grow属性" class="headerlink" title="4.2 flex-grow属性"></a>4.2 flex-grow属性</h3><hr>
+<h4 id="flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。"><a href="#flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。" class="headerlink" title="flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。"></a><code>flex-grow</code>属性定义项目的放大比例，默认为<code>0</code>，即如果存在剩余空间，也不放大。</h4><pre><code>.item {
+    flex-grow: &lt;number&gt;; /* default 0 */
+}
+</code></pre><p><img src="http://a1.qpic.cn/psb?/V11KiFfB3TEN6V/SDVztqTn6HOovanx59X8vuEC3McOMXQZeqUvJtK.lU4!/b/dOQAAAAAAAAA&amp;bo=IgPTACID0wADACU!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h4 id="如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。"><a href="#如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。" class="headerlink" title="如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。"></a>如果所有项目的<code>flex-grow</code>属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的<code>flex-grow</code>属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。</h4><h3 id="4-3-flex-shrink属性"><a href="#4-3-flex-shrink属性" class="headerlink" title="4.3 flex-shrink属性"></a>4.3 flex-shrink属性</h3><hr>
+<h4 id="flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。"><a href="#flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。" class="headerlink" title="flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。"></a><code>flex-shrink</code>属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</h4><pre><code>.item {
+    flex-shrink: &lt;number&gt;; /* default 1 */
+}
+</code></pre><p><img src="http://a2.qpic.cn/psb?/V11KiFfB3TEN6V/*Dy7.njZdNmyPGACgpS5F7mSmAEQfBKVaqzD7G6eN30!/b/dI0BAAAAAAAA&amp;bo=vAKRALwCkQAFACM!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h4 id="如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。"><a href="#如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。" class="headerlink" title="如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。"></a>如果所有项目的<code>flex-shrink</code>属性都为1，当空间不足时，都将等比例缩小。如果一个项目的<code>flex-shrink</code>属性为0，其他项目都为1，则空间不足时，前者不缩小。</h4><h4 id="负值对该属性无效。"><a href="#负值对该属性无效。" class="headerlink" title="负值对该属性无效。"></a>负值对该属性无效。</h4><h3 id="4-4-flex-basis属性"><a href="#4-4-flex-basis属性" class="headerlink" title="4.4 flex-basis属性"></a>4.4 flex-basis属性</h3><hr>
+<h4 id="flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main-size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。"><a href="#flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main-size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。" class="headerlink" title="flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。"></a><code>flex-basis</code>属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为<code>auto</code>，即项目的本来大小。</h4><pre><code>.item {
+    flex-basis: &lt;length&gt; | auto; /* default auto */
+}
+</code></pre><h4 id="它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。"><a href="#它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。" class="headerlink" title="它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。"></a>它可以设为跟<code>width</code>或<code>height</code>属性一样的值（比如350px），则项目将占据固定空间。</h4><h3 id="4-5-flex属性"><a href="#4-5-flex属性" class="headerlink" title="4.5 flex属性"></a>4.5 flex属性</h3><hr>
+<h4 id="flex属性是flex-grow-flex-shrink和flex-basis的简写，默认值为0-1-auto。后两个属性可选。"><a href="#flex属性是flex-grow-flex-shrink和flex-basis的简写，默认值为0-1-auto。后两个属性可选。" class="headerlink" title="flex属性是flex-grow, flex-shrink和flex-basis的简写，默认值为0 1 auto。后两个属性可选。"></a><code>flex</code>属性是<code>flex-grow</code>, <code>flex-shrink</code>和<code>flex-basis</code>的简写，默认值为<code>0 1 auto</code>。后两个属性可选。</h4><pre><code>.item {
+    flex: none | [ &lt;&apos;flex-grow&apos;&gt; &lt;&apos;flex-shrink&apos;&gt;? || &lt;&apos;flex-basis&apos;&gt; ]
+}
+</code></pre><h4 id="该属性有两个快捷值：auto-1-1-auto-和none-0-0-auto-。"><a href="#该属性有两个快捷值：auto-1-1-auto-和none-0-0-auto-。" class="headerlink" title="该属性有两个快捷值：auto(1 1 auto)和none(0 0 auto)。"></a>该属性有两个快捷值：<code>auto</code>(<code>1 1 auto</code>)和<code>none</code>(<code>0 0 auto</code>)。</h4><h4 id="建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。"><a href="#建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。" class="headerlink" title="建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。"></a>建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。</h4><h3 id="4-6-align-self属性"><a href="#4-6-align-self属性" class="headerlink" title="4.6 align-self属性"></a>4.6 align-self属性</h3><hr>
+<h4 id="align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。"><a href="#align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。" class="headerlink" title="align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。"></a><code>align-self</code>属性允许单个项目有与其他项目不一样的对齐方式，可覆盖<code>align-items</code>属性。默认值为<code>auto</code>，表示继承父元素的<code>align-items</code>属性，如果没有父元素，则等同于<code>stretch</code>。</h4><pre><code>.item {
+    align-self: auto | flex-start | flex-end | center | baseline | stretch;
+}
+</code></pre><p><img src="http://a1.qpic.cn/psb?/V11KiFfB3TEN6V/jzL9sXJYWbTPtNOH3l68sV*EuUkfK747nvfolTfopec!/b/dHcBAAAAAAAA&amp;bo=5wKGAecChgEDACU!&amp;rf=viewer_4" alt="Mou icon"></p>
+<h4 id="该属性可能取6个值，除了auto，其他都与align-items属性完全一致。"><a href="#该属性可能取6个值，除了auto，其他都与align-items属性完全一致。" class="headerlink" title="该属性可能取6个值，除了auto，其他都与align-items属性完全一致。"></a>该属性可能取6个值，除了auto，其他都与align-items属性完全一致。</h4>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/29/ES6语法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          ES6语法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/21/CSS-hack/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CSS-hack</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" style="margin-left: 30px;margin-right: 30px;" data-thread-key="post-flex-box弹性盒子布局" data-title="flex-box弹性盒子布局" data-url="http://yoursite.com/2016/08/25/flex-box弹性盒子布局/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"wendypoppy"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 wendy
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/winnerweb/hexo-Yilia-Smackdown" target="_blank">Yilia(Smackdown)</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>
