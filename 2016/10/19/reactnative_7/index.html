@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>React-Native广告页制作 | wendy-poppy</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="广告页是个好东西，既可以增强用户体验，有能为app增加收入">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React-Native广告页制作">
+<meta property="og:url" content="http://yoursite.com/2016/10/19/reactnative_7/index.html">
+<meta property="og:site_name" content="wendy-poppy">
+<meta property="og:description" content="广告页是个好东西，既可以增强用户体验，有能为app增加收入">
+<meta property="og:updated_time" content="2016-12-09T14:29:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React-Native广告页制作">
+<meta name="twitter:description" content="广告页是个好东西，既可以增强用户体验，有能为app增加收入">
+  
+    <link rel="alternative" href="/atom.xml" title="wendy-poppy" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://b139.photo.store.qq.com/psb?/V12TKeY73dHNlc/qvjxoxH43Dfo*MeAgldrME0sNQ5lySa2L5TqxEAhdqw!/b/dHn86FKUAgAA&bo=zAGzAgAAAAABAFs!&rf=viewer_4">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://b139.photo.store.qq.com/psb?/V12TKeY73dHNlc/qvjxoxH43Dfo*MeAgldrME0sNQ5lySa2L5TqxEAhdqw!/b/dHn86FKUAgAA&amp;bo=zAGzAgAAAAABAFs!&amp;rf=viewer_4" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">wendy</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">wendy眉眉的小博客~</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/wendy-poppy" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/wendy-80-14" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="https://mail.qq.com/cgi-bin/frame_html?sid=Ne8V0xxmnKiCYCpy&r=23ab084d7dfb5267be2ea858f9976f0b" title="mail">mail</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/5550124039/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/ECMAScript-6/" style="font-size: 10px;">ECMAScript 6</a> <a href="/tags/HTML5-iframe/" style="font-size: 10px;">HTML5 iframe</a> <a href="/tags/Jade-JavaScript/" style="font-size: 10px;">Jade,JavaScript</a> <a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/NodeJS-socket-io/" style="font-size: 10px;">NodeJS socket.io</a> <a href="/tags/React-Native/" style="font-size: 20px;">React-Native</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css-flex/" style="font-size: 10px;">css flex</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/javascript-this/" style="font-size: 10px;">javascript this</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/wendy-poppy">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">wendy</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://b139.photo.store.qq.com/psb?/V12TKeY73dHNlc/qvjxoxH43Dfo*MeAgldrME0sNQ5lySa2L5TqxEAhdqw!/b/dHn86FKUAgAA&amp;bo=zAGzAgAAAAABAFs!&amp;rf=viewer_4" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">wendy</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">wendy眉眉的小博客~</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wendy-poppy" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/wendy-80-14" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="https://mail.qq.com/cgi-bin/frame_html?sid=Ne8V0xxmnKiCYCpy&r=23ab084d7dfb5267be2ea858f9976f0b" title="mail">mail</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/5550124039/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-reactnative_7" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/19/reactnative_7/" class="article-date">
+  	<time datetime="2016-10-18T16:00:00.000Z" itemprop="datePublished">2016-10-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React-Native广告页制作
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-Native/">React-Native</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/随笔/">随笔</a>
+	</div>
+
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>广告页是个好东西，既可以增强用户体验，有能为app增加收入<br><a id="more"></a></p>
+<h1 id="广告页制作"><a href="#广告页制作" class="headerlink" title="广告页制作"></a>广告页制作</h1><h2 id="方案一-广告盖住加载过程"><a href="#方案一-广告盖住加载过程" class="headerlink" title="方案一(广告盖住加载过程)"></a>方案一(广告盖住加载过程)</h2><p>在主页顶部设置一个图片（广告）,宽继承屏幕,高根据状态来改变<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">constructor(props) &#123;</div><div class="line">	        super(props);</div><div class="line">	        this.state = &#123;</div><div class="line">	            height:height</div><div class="line">	        &#125;;</div><div class="line">	        this.ad()</div><div class="line">	    &#125;	</div><div class="line">		<span class="function"><span class="title">ad</span></span>() &#123;</div><div class="line">	        this.timer=<span class="built_in">set</span>Timeout(() =&gt; &#123;</div><div class="line">	            this.setState(&#123;</div><div class="line">	                height:0</div><div class="line">	            &#125;)</div><div class="line">	        &#125;,2000)</div><div class="line">	    &#125;</div></pre></td></tr></table></figure></p>
+<p>根据定时器来把他的高度改成0</p>
+<h2 id="方案二-用户会看到加载过程"><a href="#方案二-用户会看到加载过程" class="headerlink" title="方案二(用户会看到加载过程)"></a>方案二(用户会看到加载过程)</h2><p>主文件（index.ios.js）设置路由<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;Navigator</div><div class="line">	             initialRoute=&#123;&#123;</div><div class="line">	                 name: <span class="string">"list"</span>,</div><div class="line">	                 component: Root      //默认展示的页面</div><div class="line">	             &#125;&#125;</div><div class="line">	             configureScene=&#123;(route)=&gt;&#123;</div><div class="line">	                 var conf = Navigator.SceneConfigs.HorizontalSwipeJump;</div><div class="line">	                 conf.gestures = null; // 禁用手势左右滑动</div><div class="line">	                <span class="built_in">return</span> conf;</div><div class="line">	             &#125;&#125;</div><div class="line">	             renderScene=&#123;(route, navigator)=&gt; &#123;         </div><div class="line">	                 <span class="built_in">let</span> Component = route.component        </div><div class="line">	                 <span class="built_in">return</span> (</div><div class="line">	                     &lt;Component &#123;...route.params&#125; navigator=&#123;navigator&#125;/&gt;</div><div class="line">	                 )</div><div class="line">	             &#125;&#125;</div><div class="line">	         /&gt;</div></pre></td></tr></table></figure></p>
+<p>Root文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">constructor(props) &#123;            //进入后就会被执行</div><div class="line">		      super(props);</div><div class="line">		         this.state = &#123;</div><div class="line">		            bounceValue: new Animated.Value(1)</div><div class="line">		         &#125;;</div><div class="line">		     &#125;</div><div class="line">		     <span class="function"><span class="title">componentDidMount</span></span>() &#123;            </div><div class="line">		         const &#123; navigator &#125; = this.props;</div><div class="line">		         this.timer = <span class="built_in">set</span>Timeout(() =&gt; &#123;</div><div class="line">		             navigator.resetTo(&#123;</div><div class="line">		                 component: Index,</div><div class="line">		                 name: <span class="string">'Index'</span>,</div><div class="line">		                 isFirst: <span class="literal">true</span>    		             &#125;);</div><div class="line">		         &#125;,1000)		//1000毫秒后路由跳转Index页</div><div class="line">		     &#125;</div><div class="line">		    <span class="function"><span class="title">render</span></span>() &#123;</div><div class="line">       			 <span class="built_in">return</span> (</div><div class="line">       			 	 &lt;Animated.Image                          </div><div class="line">		                 style=&#123;&#123;width:width,height:height&#125;&#125;</div><div class="line">		                 <span class="built_in">source</span>=&#123;require(<span class="string">'./img/AD.jpg'</span>)&#125;     //广告图</div><div class="line">            		 /&gt;</div><div class="line">       			 ）</div><div class="line">       		&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="方案三-根据数据加载情况"><a href="#方案三-根据数据加载情况" class="headerlink" title="方案三(根据数据加载情况)"></a>方案三(根据数据加载情况)</h1><p>说白了就是数据请求的都拿过来了，我们在显示主页面，要不然就显示广告，方法与方案二相近，只是用到了一个三元运算符<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">&lt;View style=&#123;&#123;flex:1&#125;&#125;&gt;</div><div class="line">          &#123;this.state.slider?</div><div class="line">              &lt;Navigator</div><div class="line">                  initialRoute=&#123;&#123;</div><div class="line">                      name:<span class="string">"主页"</span>,</div><div class="line">                      component:Index</div><div class="line">                  &#125;&#125;</div><div class="line">                  configureScene=&#123;(route)=&gt;&#123;</div><div class="line">                      var conf = Navigator.SceneConfigs.HorizontalSwipeJump;</div><div class="line">                      conf.gestures = null; // 禁用手势左右滑动</div><div class="line">                      <span class="built_in">return</span> conf;</div><div class="line">                  &#125;&#125;</div><div class="line">                  renderScene=&#123;(route, navigator)=&gt; &#123;</div><div class="line">                      <span class="built_in">let</span> Component = route.component</div><div class="line">                      <span class="built_in">return</span> (</div><div class="line">                          //  传递参数            传递组件使子页面也有这个方法</div><div class="line">                          &lt;Component &#123;...route.params&#125; navigator=&#123;navigator&#125; data=&#123;&#123;slider:this.state.slider,list:this.state.list&#125;&#125;/&gt;</div><div class="line">                      )</div><div class="line">                  &#125;&#125;</div><div class="line">              /&gt;</div><div class="line">              :</div><div class="line">            &lt;View style=&#123;styles.loading&#125;&gt;</div><div class="line">              &lt;Image <span class="built_in">source</span>=&#123;require(<span class="string">'./App/img/guanggao.jpg'</span>)&#125;</div><div class="line">                    style=&#123;&#123;width:width,height:height&#125;&#125;</div><div class="line">              /&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">          &#125;</div><div class="line">        &lt;/View&gt;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/10/20/reactnative_8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          React-Native自有函数及API-Animated
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/10/16/reactnative_6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">React-Native组件之navigator</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" style="margin-left: 30px;margin-right: 30px;" data-thread-key="post-reactnative_7" data-title="React-Native广告页制作" data-url="http://yoursite.com/2016/10/19/reactnative_7/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"wendypoppy"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 wendy
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/winnerweb/hexo-Yilia-Smackdown" target="_blank">Yilia(Smackdown)</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>

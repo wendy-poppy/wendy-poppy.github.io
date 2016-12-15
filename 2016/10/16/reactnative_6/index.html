@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>React-Native组件之navigator | wendy-poppy</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="首先来说一下app上的轮播图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React-Native组件之navigator">
+<meta property="og:url" content="http://yoursite.com/2016/10/16/reactnative_6/index.html">
+<meta property="og:site_name" content="wendy-poppy">
+<meta property="og:description" content="首先来说一下app上的轮播图">
+<meta property="og:updated_time" content="2016-12-09T13:32:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React-Native组件之navigator">
+<meta name="twitter:description" content="首先来说一下app上的轮播图">
+  
+    <link rel="alternative" href="/atom.xml" title="wendy-poppy" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://b139.photo.store.qq.com/psb?/V12TKeY73dHNlc/qvjxoxH43Dfo*MeAgldrME0sNQ5lySa2L5TqxEAhdqw!/b/dHn86FKUAgAA&bo=zAGzAgAAAAABAFs!&rf=viewer_4">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://b139.photo.store.qq.com/psb?/V12TKeY73dHNlc/qvjxoxH43Dfo*MeAgldrME0sNQ5lySa2L5TqxEAhdqw!/b/dHn86FKUAgAA&amp;bo=zAGzAgAAAAABAFs!&amp;rf=viewer_4" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">wendy</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">wendy眉眉的小博客~</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/wendy-poppy" title="github">github</a>
+					        
+								<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/wendy-80-14" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="https://mail.qq.com/cgi-bin/frame_html?sid=Ne8V0xxmnKiCYCpy&r=23ab084d7dfb5267be2ea858f9976f0b" title="mail">mail</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/5550124039/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/ECMAScript-6/" style="font-size: 10px;">ECMAScript 6</a> <a href="/tags/HTML5-iframe/" style="font-size: 10px;">HTML5 iframe</a> <a href="/tags/Jade-JavaScript/" style="font-size: 10px;">Jade,JavaScript</a> <a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/NodeJS-socket-io/" style="font-size: 10px;">NodeJS socket.io</a> <a href="/tags/React-Native/" style="font-size: 20px;">React-Native</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css-flex/" style="font-size: 10px;">css flex</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/javascript-this/" style="font-size: 10px;">javascript this</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/wendy-poppy">smackdown</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">wendy</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://b139.photo.store.qq.com/psb?/V12TKeY73dHNlc/qvjxoxH43Dfo*MeAgldrME0sNQ5lySa2L5TqxEAhdqw!/b/dHn86FKUAgAA&amp;bo=zAGzAgAAAAABAFs!&amp;rf=viewer_4" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">wendy</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">wendy眉眉的小博客~</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wendy-poppy" title="github">github</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/wendy-80-14" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="https://mail.qq.com/cgi-bin/frame_html?sid=Ne8V0xxmnKiCYCpy&r=23ab084d7dfb5267be2ea858f9976f0b" title="mail">mail</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/5550124039/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-reactnative_6" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/10/16/reactnative_6/" class="article-date">
+  	<time datetime="2016-10-15T16:00:00.000Z" itemprop="datePublished">2016-10-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React-Native组件之navigator
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-Native/">React-Native</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/随笔/">随笔</a>
+	</div>
+
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先来说一下app上的轮播图<br><a id="more"></a></p>
+<h1 id="react-native-swiper"><a href="#react-native-swiper" class="headerlink" title="react-native-swiper"></a>react-native-swiper</h1><p>我使用第三方的插件制作轮播图，十分方便<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i react-native-swiper --save</div></pre></td></tr></table></figure></p>
+<h2 id="网址"><a href="#网址" class="headerlink" title="网址"></a>网址</h2><p><a href="https://github.com/leecade/react-native-swiper" target="_blank" rel="external">https://github.com/leecade/react-native-swiper</a><br>里面有很多例子基本上还是先引入，然后在Swiper标签里面写要展示的内容，Swiper里面还有很多配置项可以改 例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;Swiper style=&#123;styles.wrapper&#125;</div><div class="line">                        showsButtons=&#123;<span class="literal">false</span>&#125;    //是否显示按钮</div><div class="line">                        autoplay=&#123;<span class="literal">true</span>&#125;               //是否自动播放</div><div class="line">                        height=&#123;200&#125;             //属性设置</div><div class="line">                        autoplayDirection=&#123;<span class="literal">false</span>&#125;</div><div class="line">                        //没有选中点的样式</div><div class="line">                        dot=&#123;&lt;View style=&#123;&#123;backgroundColor: <span class="string">'rgba(0,0,0,.2)'</span>, width: 5, height: 5, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3&#125;&#125; /&gt;&#125;</div><div class="line">                        //选中点的样式</div><div class="line">                        activeDot=&#123;&lt;View style=&#123;&#123;backgroundColor: <span class="string">'#000'</span>, width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3&#125;&#125; /&gt;&#125;</div><div class="line">                        //点的位置</div><div class="line">                    //    paginationStyle=&#123;&#123;</div><div class="line">                    //        bottom: 10, left: 50, right: 10</div><div class="line">                    //    &#125;&#125;</div><div class="line">                        //回调函数 返回轮播当前的下标</div><div class="line">                        onMomentumScrollEnd=&#123;(e, state, context) =&gt; console.log(<span class="string">'index:'</span>, state.index)&#125;</div><div class="line">                &gt;</div><div class="line">                    &lt;View style=&#123;styles.slide1&#125;&gt;</div><div class="line">                        &lt;Text style=&#123;styles.text&#125;&gt;Hello Swiper&lt;/Text&gt;</div><div class="line">                    &lt;/View&gt;</div><div class="line">                    &lt;View style=&#123;styles.slide2&#125;&gt;</div><div class="line">                        &lt;Text style=&#123;styles.text&#125;&gt;Beautiful&lt;/Text&gt;</div><div class="line">                    &lt;/View&gt;</div><div class="line">                    &lt;View style=&#123;styles.slide3&#125;&gt;</div><div class="line">                        &lt;Text style=&#123;styles.text&#125;&gt;And simple&lt;/Text&gt;</div><div class="line">                    &lt;/View&gt;</div><div class="line">                &lt;/Swiper&gt;</div></pre></td></tr></table></figure></p>
+<p>基本就是这样了</p>
+<h1 id="Navigator"><a href="#Navigator" class="headerlink" title="Navigator"></a>Navigator</h1><p>使用导航器可以让你在应用的不同场景（页面）间进行切换。导航器通过路由对象来分辨不同的场景。利用renderScene方法，导航栏可以根据指定的路由来渲染场景。</p>
+<p>一般情况下只在主入口设置一个Navigator<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;Navigator</div><div class="line">                    //初始化</div><div class="line">                    initialRoute=&#123;&#123;</div><div class="line">                        name: <span class="string">"list"</span>,</div><div class="line">                        component: News      //默认展示的页面</div><div class="line">                    &#125;&#125;</div><div class="line">                    configureScene=&#123;(route)=&gt;&#123;</div><div class="line">                                var conf = Navigator.SceneConfigs.HorizontalSwipeJump;  //动画效果</div><div class="line">                                conf.gestures = null; // 禁用手势左右滑动</div><div class="line">                                <span class="built_in">return</span> conf;</div><div class="line">                            &#125;&#125;</div><div class="line">                    renderScene=&#123;(route,navigator)=&gt;&#123;         //渲染页面 route指initialRoute|navigator指整个组件</div><div class="line">                        <span class="built_in">let</span> Component=route.component         //指News</div><div class="line">                        <span class="built_in">return</span>(</div><div class="line">                                     //  传递参数            传递组件使子页面也有这个方法</div><div class="line">                            &lt;Component &#123;...route.params&#125; navigator=&#123;navigator&#125;/&gt;</div><div class="line">                        )</div><div class="line">                    &#125;&#125;</div><div class="line">                /&gt;</div></pre></td></tr></table></figure></p>
+<p>比如我这个主入口加载了一个News组件，在这个组件里面通过this.props就能找到传过去的navigator方法，如果这个News组件里面又想跳转下一个页面，就通过触发一个方法然后使用this.props.navigator.push()就可以跳到下一个组件 例如:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">show(data)&#123;</div><div class="line">        //console.log(this.props)</div><div class="line">        this.props.navigator.push(&#123;</div><div class="line">            name:<span class="string">"详情"</span>,</div><div class="line">            component:Detail,       //跳转一个Detail组件</div><div class="line">            params:data             //把数据传过去</div><div class="line"></div><div class="line">        &#125;)</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>News组件内部点击触发show(),并把数据传到下一个组件(Detail)中</p>
+<p>Detail又可以通过this.props拿到数据<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">class Detail extends Component&#123;</div><div class="line">    <span class="function"><span class="title">back</span></span>()&#123;</div><div class="line">        //console.log(this.props)</div><div class="line">        this.props.navigator.pop()    //把现在显示的组件删除</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="title">render</span></span>()&#123;</div><div class="line">       // console.log(this.props)</div><div class="line">        <span class="built_in">return</span>(</div><div class="line">            &lt;View style=&#123;&#123;flex:1,justifyContent:<span class="string">"center"</span>,alignItems:<span class="string">"center"</span>&#125;&#125;&gt;</div><div class="line">                &lt;Text style=&#123;&#123;color:<span class="string">"blue"</span>,fontSize:50&#125;&#125;</div><div class="line">                    onPress=&#123;this.back.bind(this)&#125;</div><div class="line">                &gt;&#123;this.props.title&#125;&lt;/Text&gt;</div><div class="line">            &lt;/View&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>当然想返回上一个组件只要通过this.props.navigator.pop() 把当前组件卸载掉就可以了。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/10/19/reactnative_7/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          React-Native广告页制作
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/10/13/reactnative_5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">React-Native下拉刷新和上拉加载</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+<!-- 多说评论框 start -->
+  <div class="ds-thread" style="margin-left: 30px;margin-right: 30px;" data-thread-key="post-reactnative_6" data-title="React-Native组件之navigator" data-url="http://yoursite.com/2016/10/16/reactnative_6/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"wendypoppy"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2016 wendy
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/winnerweb/hexo-Yilia-Smackdown" target="_blank">Yilia(Smackdown)</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>
