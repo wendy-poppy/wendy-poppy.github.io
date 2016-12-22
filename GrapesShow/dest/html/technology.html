@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>安徽国星生态农业有限公司|淮南葡萄采摘|淮南生态葡萄</title>
+	<link rel="stylesheet" href="../css/index.css">
+    <script src='../js/jquery.min.js'></script>
+</head>
+<body>
+	<div id='head'>
+        <my-head></my-head>
+    </div>
+
+    <div id="container">
+        <Left v-bind:pdata='left'></Left>
+        <Technology v-on:change='changeView'>
+            <tecview v-bind:pdata='view' v-if='view' v-on:change='changeView' ></tecview>
+            <tec1  v-if='tec1' v-on:change='changeView'></tec1>
+            <tec2  v-if='tec2' v-on:change='changeView'></tec2>
+            <tec3  v-if='tec3' v-on:change='changeView'></tec3>
+            <tec4  v-if='tec4' v-on:change='changeView'></tec4>
+            <tec5  v-if='tec5' v-on:change='changeView'></tec5>
+        </Technology>
+    </div>
+    
+    <div class="myFoot">
+        <span>地址：安徽省淮南市谢家集区孙庙乡刘庙村   联系电话：0554-6901822    全国免费服务热线：400-6792-992</span>
+        <br>
+        <span> 版权所有：安徽国星生态农业有限公司   网站备案：皖ICP备13001630号-1   技术支持：</span>
+    </div>
+
+    <script src='../js/technology.js'></script>
+</body>
+</html>

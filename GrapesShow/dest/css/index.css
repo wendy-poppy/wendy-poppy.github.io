@@ -1,0 +1,36 @@
+body, html, ul, li, p, li, ol, h1, h2, h3, h4, h5, h6, dl, dd, dt {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+    /*font-family: "Microsoft YaHei","\5FAE\8F6F\96C5\9ED1","微软雅黑";*/
+  font-weight: normal; }
+
+html {
+  overflow-x: hidden; }
+
+body {
+  height: 1800px; 
+  color: #333;
+}
+
+a {
+  cursor: pointer;
+  color: black;
+  text-decoration: none; }
+
+#container {
+  margin: 30px auto 20px;
+  width: 1123px;
+  overflow: hidden;
+}
+
+.myFoot {
+  padding: 15px 0;
+  color: white;
+  text-align: center;
+  background: #346700;
+  font-size: 12px;
+  margin-bottom: 15px; }
+  .myFoot span {
+    line-height: 25px; }
