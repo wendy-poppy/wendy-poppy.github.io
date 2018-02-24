@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>呱呱乐</title>
+	<!-- <meta name="apple-mobile-web-app-capable" content="yes" /> -->
+	<!-- <meta name="format-detection" content="telephone=no"> -->
+	<!-- <meta http-equiv="x-rim-auto-match" content="none"> -->
+	<!-- <meta name="viewport" content="initial-scale=1, minimum-scale=1 maximum-scale=1, user-scalable=no"> -->
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+		.box{
+			width:320px;
+			height:410px;
+			background:url("img/long1.jpg") no-repeat;
+			background-size: 100% 100%;
+			position: relative;
+		}
+		#myCanvas{
+			position: absolute;
+			left:0;
+			top:0;
+
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="box">
+		<canvas id="myCanvas" width="336" height="410"></canvas>
+	</div>
+	
+</body>
+
+<script type="text/javascript">
+	var myCanvas = document.getElementById("myCanvas");
+	var can = myCanvas.getContext("2d");//返回一个用于在画布上绘图的环境,参数 contextID 指定了您想要在画布上绘制的类型。当前唯一的合法值是 "2d"，它指定了二维绘图，并且导致这个方法返回一个环境对象，该对象导出一个二维绘图 API。
+	var X = myCanvas.width;
+	var Y = myCanvas.height;
+	var oImg = new Image();
+	oImg.src = "img/bg.jpg";
+	oImg.onload = function(){
+		can.beginPath();
+		can.drawImage(oImg,0,0,X,Y);
+		can.closePath();
+	}
+	var device = /android|iphone|ipad|ipod|webos|iemobile|opear mini|linux/i.test(navigator.userAgent.toLowerCase());
+	var startEvtName = device?"touchstart":"mousedown";
+	var moveEvtName = device?"touchmove":"mousemove";
+	var endEvtName = device?"touchend":"mouseup";
+	function draw(event){
+		var x = device?event.touches[0].clientX:event.clientX;
+		var y = device?event.touches[0].clientY:event.clientY;
+		//console.log(x,y);
+		can.beginPath();
+		can.globalCompositeOperation = "destination-out";
+		can.arc(x,y,20,0,Math.PI*2,false);
+		can.fill();
+		can.closePath();
+	}
+	//true  捕获 false  冒泡
+	myCanvas.addEventListener(startEvtName,function(){
+		myCanvas.addEventListener(moveEvtName,draw,false);
+	},false);
+	myCanvas.addEventListener(endEvtName,function(){
+		myCanvas.removeEventListener(moveEvtName,draw,false);
+	},false);
+
+</script>
+</html>
